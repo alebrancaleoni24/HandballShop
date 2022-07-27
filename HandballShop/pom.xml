@@ -102,6 +102,16 @@
         <version>3.2.2</version>
       </plugin>
 
+      <!-- http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html -->
+      <!-- serve per avviare l'applicazione -->
+      <!-- dare il comando mvn jetty:run -->
+      <!-- accedere all'applicazione con http://localhost:8080/ -->
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.4.12.v20180830</version>
+      </plugin>
+
     </plugins>
   </build>
 
