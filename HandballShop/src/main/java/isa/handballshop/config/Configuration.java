@@ -2,7 +2,7 @@ package isa.handballshop.config;
 
 import java.util.Calendar;
 import java.util.logging.Level;
-//import model.dao.JDBCDAOFactory;
+import isa.handballshop.model.dao.JDBCDAOFactory;
 
 public class Configuration {
     
@@ -10,7 +10,7 @@ public class Configuration {
     /*Costante che mi permette di scegliere il DB da usare. Tale stringa è contenuta
     nel DAOFactory corrispondente al DB che voglio usare*/
     
-    //public static final String DAO_IMPL=JDBCDAOFactory.DB2JDBCIMPL;
+    public static final String DAO_IMPL=JDBCDAOFactory.DB2JDBCIMPL;
 
     /*Scelta del Driver*/
     public static final String MYSQL_DRIVER="com.mysql.jdbc.Driver";
