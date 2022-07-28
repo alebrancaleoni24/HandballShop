@@ -1,6 +1,6 @@
 package isa.handballshop.model.dao;
 
-import isa.handballshop.model.dao.implementation.MySQLJDBCImpl;
+import isa.handballshop.model.dao.implementation.DB2JDBCImpl;
 import isa.handballshop.model.dao.implementation.MySQLJDBCImpl;
 
 public abstract class JDBCDAOFactory {
