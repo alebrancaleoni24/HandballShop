@@ -4,4 +4,13 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>isa.handballshop.dispatcher.Dispatcher</servlet-class>
+    </servlet>
+  <servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>/HandballShop/Dispatcher</url-pattern>
+  </servlet-mapping>
 </web-app>

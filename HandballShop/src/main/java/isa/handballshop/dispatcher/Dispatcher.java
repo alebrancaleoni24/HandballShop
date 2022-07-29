@@ -33,7 +33,7 @@ public class Dispatcher extends HttpServlet{
       
             String[] splittedAction=controllerAction.split("\\.");
       
-            Class<?> controllerClass = Class.forName("controller." + splittedAction[0]);
+            Class<?> controllerClass = Class.forName("isa.handballshop.controller." + splittedAction[0]);
             Method controllerMethod = controllerClass.getMethod(splittedAction[1], HttpServletRequest.class, HttpServletResponse.class);
       
             /*Vado a loggare come livello info le informazioni passate*/
@@ -43,7 +43,7 @@ public class Dispatcher extends HttpServlet{
             controllerMethod.invoke(null, request, response);
       
             String viewUrl=(String)request.getAttribute("viewUrl");
-            RequestDispatcher view = request.getRequestDispatcher("jsp/"+viewUrl+".jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/jsp/"+viewUrl+".jsp");
             view.forward(request,response);
         }catch(Exception e){
             e.printStackTrace(out);

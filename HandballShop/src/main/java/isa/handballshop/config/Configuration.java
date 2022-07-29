@@ -14,12 +14,14 @@ public class Configuration {
 
     /*Scelta del Driver*/
     public static final String MYSQL_DRIVER="com.mysql.jdbc.Driver";
-    public static final String DB2_DRIVER="com.ibm.db2.jcc";
+    public static final String DB2_DRIVER="com.ibm.db2.jcc.DB2Driver";
     /*Scelta Timezone*/
     public static final String SERVER_TIMEZONE=Calendar.getInstance().getTimeZone().getID();
     /*Configurazione URL database*/
     public static final String MYSQL_URL="jdbc:mysql://localhost/hsDB?user=root&password=&serverTimezone="+SERVER_TIMEZONE;
-    public static final String DB2_URL="jdbc:db2://localhost:50000/testdb:user=DB2INST1;password=passw0rd";
+    //public static final String DB2_URL="jdbc:db2://localhost:50000/testdb:user=DB2INST1;password=passw0rd";
+
+    public static final String DB2_URL="jdbc:db2://localhost:50000/testdb";
     
     /*LOGGER FILES CONFIGURATION*/
     public static final String LOG_NAME="HandallShop_log.%g.%u.txt";
