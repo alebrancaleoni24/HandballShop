@@ -1,6 +1,6 @@
 <footer class="clearfix">
     <section class="aside">
-        <img id="LogoWeb" src="images/LogoWeb.png" width="229" height="65"/>
+        <img id="LogoWeb" src="/images/LogoWeb.png" width="229" height="65"/>
     </section>
 
     <aside id="privacy" class="div">

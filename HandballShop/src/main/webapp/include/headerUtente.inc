@@ -8,7 +8,7 @@
         <nav class="clearfix">
             <div class="logo">
                 <a href="Dispatcher?controllerAction=Catalogo.view">
-                    <img id="LogoWeb" src="images/LogoWeb.png" width="370" height="105" alt="Torna alla Home Page"/>
+                    <img id="LogoWeb" src="/images/LogoWeb.png" width="370" height="105" alt="Torna alla Home Page"/>
                 </a>
             </div>
             <div class="barra">
