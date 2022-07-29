@@ -18,7 +18,7 @@ public class DB2JDBCImpl extends JDBCDAOFactory{
     public void beginTransaction() {
         try {
             Class.forName(Configuration.DB2_DRIVER);
-            this.connection = DriverManager.getConnection(Configuration.DB2_URL, "DB2INST1", "passw0rd");
+            this.connection = DriverManager.getConnection(Configuration.DB2_URL, Configuration.DB2_USER, Configuration.DB2_PASSWORD);
             this.connection.setAutoCommit(false);
         }catch(ClassNotFoundException e) {
             throw new RuntimeException(e);
