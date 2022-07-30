@@ -1,8 +1,8 @@
 <%@page session = "false"%>
-<%@page import="model.session.valueObject.Carrello"%>
+<%@page import="isa.handballshop.model.session.valueObject.Carrello"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.session.valueObject.UtenteLoggato"%>
-<%@page import="model.valueObject.Prodotto"%>
+<%@page import="isa.handballshop.model.session.valueObject.UtenteLoggato"%>
+<%@page import="isa.handballshop.model.valueObject.Prodotto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
@@ -193,7 +193,7 @@
             <!--INFORMAZIONI PRODOTTO-->
             <div style="float: left; width: 88%;">
                 <div style="float: left; margin-left: 70px;">
-                    <img id="ProdImage" src="images/<%=prodotto.getImage()%>" width="400" height="400" alt="Visualizza prodotto"/>
+                    <img id="ProdImage" src="/images/<%=prodotto.getImage()%>" width="400" height="400" alt="Visualizza prodotto"/>
                 </div>
                 
                 <div style="float: left; margin-left: 70px;">
