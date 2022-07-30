@@ -2,26 +2,29 @@ package isa.handballshop.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.apache.log4j.BasicConfigurator;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.time.Duration;
 
 public class ControllerTest{
-    public WebDriver driver;
 
     /* Metodo di test per il login di un utente */
+    @Disabled
     @Test
     public void loginTest(){
-        driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        ChromeDriver driver = new ChromeDriver();
 
-        driver.get("/Handball_Shop/Dispatcher");
+        driver.get("http://localhost:8080");
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
@@ -46,10 +49,12 @@ public class ControllerTest{
     /* Metodo di test per la registrazione di un utente */
     @BeforeAll
     @Test
-    public void registrazioneTest(){
-        driver = new ChromeDriver();
+    public static void registrazioneTest(){
+        BasicConfigurator.configure();
+        WebDriverManager.chromedriver().setup();
+        ChromeDriver driver = new ChromeDriver();
 
-        driver.get("/Handball_Shop/Dispatcher");
+        driver.get("/http://localhost:8080");
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
@@ -79,6 +84,7 @@ public class ControllerTest{
         numeroCivicoBox.sendKeys("1");
         capBox.sendKeys("12345");
         submit.click();
+        
 
         WebElement text = driver.findElement(By.id("loggedOn"));
         String value = text.getText();
@@ -88,12 +94,14 @@ public class ControllerTest{
     }
 
     /* Metodo di test per l'acquisto di un prodotto */
+    @Disabled
     @AfterAll
     @Test
-    public void AcquistoTest(){
-        driver = new ChromeDriver();
+    public static void AcquistoTest(){
+        WebDriverManager.chromedriver().setup();
+        ChromeDriver driver = new ChromeDriver();
 
-        driver.get("/Handball_Shop/Dispatcher");
+        driver.get("http://localhost:8080");
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
@@ -154,12 +162,14 @@ public class ControllerTest{
         driver.quit();
     }
 
+    @Disabled
     @Test
     public void inserimentoProdottoTest(){
 
-        driver = new ChromeDriver();
+        WebDriverManager.chromedriver().setup();
+        ChromeDriver driver = new ChromeDriver();
 
-        driver.get("/Handball_Shop/Dispatcher");
+        driver.get("http://localhost:8080");
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
