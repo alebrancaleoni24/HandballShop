@@ -161,6 +161,96 @@ public class LogOn {
         }
     }
 
+    /*Metodo chiamato per registrare un utente da parte di un admin*/
+    public static void registraAdmin(HttpServletRequest request, HttpServletResponse response) {
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        String applicationMessage = null;
+        
+        JDBCDAOFactory jdbc = null;
+
+        Logger logger = LogService.printLog();
+    
+        try {
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            /*Non recupero il cookie carrello perchè un admin non ha il carrello*/
+
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+
+            Utente utente = null;
+            
+            /*Prelevo i valori inseriti dall'utente*/
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            String nome = request.getParameter("nome");
+            String cognome = request.getParameter("cognome");
+            String genere = request.getParameter("genere");
+            String nazione = request.getParameter("nazione");
+            String città = request.getParameter("citta");
+            String via = request.getParameter("via");
+            String numeroCivico = request.getParameter("numeroCivico");
+            int CAP = Integer.parseInt(request.getParameter("CAP"));
+            boolean admin = false;
+            if(request.getParameter("admin").equals("S")){
+                admin = true;
+            }else{
+                admin = false;
+            }
+            boolean blocked = false;
+            if(request.getParameter("blocked").equals("S")){
+                blocked = true;
+            }else{
+                blocked = false;
+            }
+
+            /*INSERISCO IL NUOVO UTENTE NEL DB*/
+            UtenteDAO utenteDAO = jdbc.getUtenteDAO();
+            try{
+                utente = utenteDAO.registrati(email, nome, cognome, password, genere, nazione, città, via, numeroCivico, CAP, admin, blocked);
+            }catch(DuplicatedObjectException doe){
+                applicationMessage = "Utente già esistente";
+                logger.log(Level.INFO, "Tentativo di inserimento di un utente già esistente");
+            }
+            
+            /*Metodo per caricare le iniziali degli utenti, gli utenti da
+            visualizzare e il numero di ordini effettuato da ognuno*/
+            UtentiManagement.commonView(jdbc, request);
+            
+            /*Committo la transazione*/
+            jdbc.commitTransaction();
+            
+            /*Setto gli attributi del view model*/
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("applicationMessage", applicationMessage);
+            request.setAttribute("viewUrl", "utentiManagement/utenti");
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller LogOn", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
+
     /*Metodo chiamato per loggare l'utente*/
     public static void logon(HttpServletRequest request, HttpServletResponse response) {
         SessionDAO sessionDAO;
