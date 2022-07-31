@@ -14,7 +14,7 @@
             <div class="barra">
                 <%if(loggedOn) {/*Se non sono loggato faccio vedere i tatsi carrello, ordini e logout*/%>
                     <div class="menu">
-                        <a id= "carrello" href="Dispatcher?controllerAction=Acquisto.view">CARRELLO</a>
+                        <a id= "carrello" href="Dispatcher?controllerAction=Acquisto.viewCarrello">CARRELLO</a>
                     </div>
                     <div class="menu">
                         <a id= "ordini" href="Dispatcher?controllerAction=Ordini.view">ORDINI</a>

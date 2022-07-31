@@ -29,7 +29,7 @@ public class Acquisto {
     }
     
     /*Metodo per visualizzare carrello.jsp*/
-    public static void view(HttpServletRequest request, HttpServletResponse response){
+    public static void viewCarrello(HttpServletRequest request, HttpServletResponse response){
         SessionDAO sessionDAO;
         UtenteLoggato ul;
         
@@ -83,7 +83,7 @@ public class Acquisto {
 
     /* Metodo per portarmi dietro i cookie e fare la view di pagamento.jsp solo
     se ho disponibilità di magazzino sufficiente per tutti i prodotti del carrello */
-    public static void ordina(HttpServletRequest request, HttpServletResponse response){
+    public static void viewPagamento(HttpServletRequest request, HttpServletResponse response){
         SessionDAO sessionDAO;
         UtenteLoggato ul;
         ArrayList<Carrello> carrelli = new ArrayList<Carrello>();
@@ -146,6 +146,92 @@ public class Acquisto {
                 request.setAttribute("viewUrl", "acquisto/carrello");
                 request.setAttribute("applicationMessage", "Uno o più prodotti non sono disponibili per l'acquisto");
             }
+            
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller Acquisto", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
+
+    /*Metodo per passare alla schermata di riepilogo dell'ordine*/
+    public static void viewRiepilogo(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        ArrayList<Carrello> carrelli = new ArrayList<Carrello>();
+        
+        JDBCDAOFactory jdbc = null;
+        
+        Logger logger = LogService.printLog();
+        try{
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            /*Recupero il cookie carrello*/
+            CarrelloDAO carrelloDAO = sessionDAO.getCarrelloDAO();
+            carrelli = carrelloDAO.trova();
+            
+            /*Stabilisco la connessione*/
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+            
+            /* Ricavo tutti i valori inseriti dall'utente e calcolo il prezzo */
+            String carta = request.getParameter("carta");
+            String nazione = request.getParameter("nazione");
+            String città = request.getParameter("citta");
+            String via = request.getParameter("via");
+            String numeroCivico = request.getParameter("numeroCivico");
+            String CAP = request.getParameter("CAP");
+            double prezzo = 0;
+            
+            /* Carico i prodotti del carrello dal DB */
+            ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
+            ArrayList<Prodotto> prodotti = new ArrayList<Prodotto>();
+            for(int i=0; i<carrelli.size(); i++){
+                prodotti.add(prodottoDAO.findByKey(carrelli.get(i).getCodiceProd()));
+            }
+            
+            /* Faccio la somma dei loro prezzi */
+            for(int i=0; i<prodotti.size(); i++){
+                prezzo += prodotti.get(i).getPrezzo()*carrelli.get(i).getQuantita();
+            }
+            
+            /* Arrotondo il prezzo alla seconda cifra decimale */
+            prezzo = Math.round(prezzo*100.0) / 100.0;
+            
+            request.setAttribute("carta", carta);
+            request.setAttribute("nazione", nazione);
+            request.setAttribute("citta", città);
+            request.setAttribute("via", via);
+            request.setAttribute("numeroCivico", numeroCivico);
+            request.setAttribute("CAP", CAP);
+            request.setAttribute("prezzo", prezzo);
+            request.setAttribute("prodotti", prodotti);
+            request.setAttribute("viewUrl", "acquisto/riepilogo");
+            
+            jdbc.commitTransaction();
+            
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("carrello", carrelli);
+            
             
         }catch(Exception e){
             logger.log(Level.SEVERE, "Errore Controller Acquisto", e);

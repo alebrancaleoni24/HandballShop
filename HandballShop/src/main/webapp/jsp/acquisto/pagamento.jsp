@@ -68,17 +68,14 @@
                 }
                 
                 if(campi){
-                    f.controllerAction.value = "Acquisto.procedi";
-                    if(f.codiceBuono.value === ""){
-                        f.codiceBuono.value = 0;/*Codice di default se non ne è stato inserito nessuno*/
-                    }
+                    f.controllerAction.value = "Acquisto.viewRiepilogo";
                     f.submit();
                 }
             }
             
             function goBack(){
                 var f = document.backForm;
-                f.controllerAction.value = "Acquisto.view";
+                f.controllerAction.value = "Acquisto.viewCarrello";
                 f.submit();
             }
 
@@ -159,12 +156,6 @@
                 font-size: large;
             }
             
-            #codiceBuono{
-                width: 250px;
-                height: 20px;
-                font-size: large;
-            }
-            
             #clausola{
                 font-size: smaller;
             }
@@ -225,7 +216,7 @@
                         </div>
                     </div>
                     
-                    <!--LATO DI DESTRA DEDICATO ALLA CARTA E AL BUONO SCONTO-->
+                    <!--LATO DI DESTRA DEDICATO ALLA CARTA -->
                     <div class="pagamento">
                         <h3>Dati carta di credito</h3>
                         </br>
@@ -233,15 +224,6 @@
                         <div class="form">
                             <label for="carta">Numero carta:* </label>
                             <input type="text" id="carta" name="carta" value="" maxlength="16" required/>
-                        </div>
-                
-                        </br>
-                        <h3>Dati buono sconto</h3>
-                        </br>
-                
-                        <div class="form">
-                            <label for="codiceBuono">Codice buono sconto: </label>
-                            <input type="text" id="codiceBuono" name="codiceBuono" value="" maxlength="11"/>
                         </div>
                 
                         <input type="hidden" name="controllerAction"/>
