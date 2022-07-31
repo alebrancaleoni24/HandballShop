@@ -341,6 +341,64 @@ public class LogOn {
         }
     }
 
+    /* Metodo per fare il logout. Recupero i cookie e li cancello */
+    public static void logout(HttpServletRequest request, HttpServletResponse response) {
+        SessionDAO sessionDAO;
+        
+        JDBCDAOFactory jdbc = null;
+
+        Logger logger = LogService.printLog();
+        
+        try{
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            
+            /*Recupero il cookie carrello*/
+            CarrelloDAO carrelloDAO = sessionDAO.getCarrelloDAO();
+            
+            /*Distruggo la sessione*/
+            ulDAO.elimina();
+            carrelloDAO.elimina();
+            
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            
+            jdbc.beginTransaction();
+            
+            /*Metodo per caricare categorie, marche, generi e prodotti*/
+            commonView(jdbc, sessionDAO, request);
+            
+            jdbc.commitTransaction();
+
+            /*loggo tutto in caso di poblemi*/
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller LogOn", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    
+        /*Forzo il loggedOn e il loggedUser a false perchè il cookie si aggiorna alla chiamata successiva*/
+        request.setAttribute("loggedOn",false);
+        request.setAttribute("loggedUser", null);
+        request.setAttribute("carrello", null);
+        request.setAttribute("viewUrl", "catalogo/catalogo");
+
+    }
+
     
     /* Metodo per caricare categorie, marche, generi e prodotti */
     private static void commonView(JDBCDAOFactory jdbc, SessionDAO sessionDAO, HttpServletRequest request) {
