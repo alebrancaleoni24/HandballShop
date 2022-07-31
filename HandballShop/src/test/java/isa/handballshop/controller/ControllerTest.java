@@ -3,58 +3,27 @@ package isa.handballshop.controller;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.apache.log4j.BasicConfigurator;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
+//import org.openqa.selenium.support.ui.Select;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.time.Duration;
 
 public class ControllerTest{
 
-    /* Metodo di test per il login di un utente */
+    /* Metodo di test per la registrazione di un utente */
     @Disabled
     @Test
-    public void loginTest(){
-        WebDriverManager.chromedriver().setup();
-        ChromeDriver driver = new ChromeDriver();
-
-        driver.get("http://localhost:8080");
-
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-        WebElement link = driver.findElement(By.linkText("LOGIN"));
-        link.click();
-
-        WebElement emailBox = driver.findElement(By.id("email"));
-        WebElement passwordBox = driver.findElement(By.id("password"));
-        WebElement submit = driver.findElement(By.name("submitButton"));
-
-        emailBox.sendKeys("mario.rossi@gmail.com");
-        passwordBox.sendKeys("mr");
-        submit.click();
-
-        WebElement text = driver.findElement(By.id("loggedOn"));
-        String value = text.getText();
-        assertEquals("Benvenuto Mario Rossi", value);
-
-        driver.quit();
-    }
-
-    /* Metodo di test per la registrazione di un utente */
-    @BeforeAll
-    @Test
-    public static void registrazioneTest(){
+    public void registrazioneTest(){
         BasicConfigurator.configure();
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver();
 
-        driver.get("/http://localhost:8080");
+        driver.get("http://localhost:8080");
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
@@ -93,11 +62,12 @@ public class ControllerTest{
         driver.quit();
     }
 
-    /* Metodo di test per l'acquisto di un prodotto */
-    @Disabled
-    @AfterAll
+
+    /* Metodo per testare il login dell'utente */
+    //@Disabled
     @Test
-    public static void AcquistoTest(){
+    public void loginTest(){
+        BasicConfigurator.configure();
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver();
 
@@ -105,7 +75,6 @@ public class ControllerTest{
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-        /* Faccio il login con l'utente di prova Mario Rossi */
         WebElement link = driver.findElement(By.linkText("LOGIN"));
         link.click();
 
@@ -117,23 +86,54 @@ public class ControllerTest{
         passwordBox.sendKeys("mr");
         submit.click();
 
-        /* Seleziono il prodotto da acquistare */
+        WebElement text = driver.findElement(By.id("loggedOn"));
+        String value = text.getText();
+        assertEquals("Benvenuto Mario Rossi", value);
+
+        driver.quit();
+    }
+
+    /* Metodo di test per l'acquisto di un prodotto */
+    /*
+    @AfterAll
+    @Test
+    public static void AcquistoTest(){
+        WebDriverManager.chromedriver().setup();
+        ChromeDriver driver = new ChromeDriver();
+
+        driver.get("http://localhost:8080");
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+
+        // Faccio il login con l'utente di prova Mario Rossi 
+        WebElement link = driver.findElement(By.linkText("LOGIN"));
+        link.click();
+
+        WebElement emailBox = driver.findElement(By.id("email"));
+        WebElement passwordBox = driver.findElement(By.id("password"));
+        WebElement submit = driver.findElement(By.name("submitButton"));
+
+        emailBox.sendKeys("mario.rossi@gmail.com");
+        passwordBox.sendKeys("mr");
+        submit.click();
+
+        // Seleziono il prodotto da acquistare 
         WebElement prodotto = driver.findElement(By.id("0"));
         prodotto.click();
 
-        /* Aggiungo il prodotto al carrello */
+        // Aggiungo il prodotto al carrello 
         WebElement carrello = driver.findElement(By.id("ordina"));
         carrello.click();
 
-        /* Vado alla pagina carrello */
+        // Vado alla pagina carrello 
         WebElement carrelloLink = driver.findElement(By.id("carrello"));
         carrelloLink.click();
 
-        /* Clicco per procedere all'ordine */
+        // Clicco per procedere all'ordine
         WebElement ordineButton = driver.findElement(By.id("ordina"));
         ordineButton.click();
 
-        /* Inserisco i dati per il pagamento e la consegna */
+        // Inserisco i dati per il pagamento e la consegna
         WebElement nazioneBox = driver.findElement(By.id("nazione"));
         WebElement cittaBox = driver.findElement(By.id("citta"));
         WebElement viaBox = driver.findElement(By.id("via"));
@@ -150,7 +150,7 @@ public class ControllerTest{
         cartaBox.sendKeys("1234567890123456");
         submitPagamento.click();
 
-        /* Do l'ok dalla pagina di riepilogo */
+        // Do l'ok dalla pagina di riepilogo
         WebElement submitOrdine = driver.findElement(By.name("submitButton"));
         submitOrdine.click();
 
@@ -161,8 +161,9 @@ public class ControllerTest{
 
         driver.quit();
     }
+    */
 
-    @Disabled
+    /*
     @Test
     public void inserimentoProdottoTest(){
 
@@ -173,7 +174,7 @@ public class ControllerTest{
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-        /* Faccio il login con l'utente admin Alessandro Brancaleoni */
+        // Faccio il login con l'utente admin Alessandro Brancaleoni
         WebElement link = driver.findElement(By.linkText("LOGIN"));
         link.click();
 
@@ -185,15 +186,15 @@ public class ControllerTest{
         passwordBox.sendKeys("ab");
         submit.click();
 
-        /* Entro nella pagina della giacenza di magazzino */
+        // Entro nella pagina della giacenza di magazzino
         WebElement magazzinoLink = driver.findElement(By.id("magazzino"));
         magazzinoLink.click();
 
-        /* Entro nella pagina per inserire un nuovo prodotto */
+        // Entro nella pagina per inserire un nuovo prodotto
         WebElement inserisciProdottoButton = driver.findElement(By.id("inserisciProdotto"));
         inserisciProdottoButton.click();
 
-        /* Inserisco i dati del nuovo prodotto */
+        // Inserisco i dati del nuovo prodotto
         WebElement modelloBox = driver.findElement(By.id("modello"));
         WebElement categoriaBox = driver.findElement(By.id("categoria"));
         WebElement marcaBox = driver.findElement(By.id("marca"));
@@ -212,7 +213,7 @@ public class ControllerTest{
         descrizioneBox.sendKeys("descrizione");
         submitProdotto.click();
 
-        /* Inserisco la disponibilità del nuovo prodotto */
+        // Inserisco la disponibilità del nuovo prodotto
         WebElement xs = driver.findElement(By.name("xs"));
         WebElement s = driver.findElement(By.name("s"));
         WebElement m = driver.findElement(By.name("m"));
@@ -238,4 +239,5 @@ public class ControllerTest{
         driver.quit();
 
     }
+    */
 }
