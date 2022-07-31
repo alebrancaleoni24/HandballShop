@@ -161,6 +161,96 @@ public class LogOn {
         }
     }
 
+    /*Metodo chiamato per loggare l'utente*/
+    public static void logon(HttpServletRequest request, HttpServletResponse response) {
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        ArrayList<Carrello> carrelli = new ArrayList<Carrello>();
+        
+        String applicationMessage = null;
+        
+        JDBCDAOFactory jdbc = null;
+
+        Logger logger = LogService.printLog();
+    
+        try {
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            /*Recupero il cookie carrello*/
+            CarrelloDAO carrelloDAO = sessionDAO.getCarrelloDAO();
+            carrelli = carrelloDAO.trova();
+
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+
+            /*Prelevo i valori inseriti dall'utente*/
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+
+            /*Prelevo l'utente dal DB*/
+            UtenteDAO utenteDAO = jdbc.getUtenteDAO();
+            Utente utente = utenteDAO.findByEmail(email);
+
+            /*Se l'utente non esiste o la password non è giusta distruggo la sessione
+            (anche se non c'è e setto applicationMessage oltre a settare a null il loggedUser*/
+            if (utente == null || !utente.getPassword().equals(password)) {
+                ulDAO.elimina();
+                applicationMessage = "Username o password errati!";
+                ul=null;
+            } else {
+                /*Se va tutto bene prelevo i dati dell'utente e creo la sessione e il cookie*/
+                ul = ulDAO.crea(utente.getEmail(), utente.getNome(), utente.getCognome(), utente.isAdmin());
+                
+                /*Metodo per caricare categorie, marche, generi e prodotti*/
+                commonView(jdbc, sessionDAO, request);
+            }
+
+            /*Committo la transazione*/
+            jdbc.commitTransaction();
+            
+            String pagina = null;
+
+            /*Setto gli attributi del view model*/
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            if(ul == null){
+                pagina = "logon/logging";
+                request.setAttribute("opzione", "L");
+            }else{
+                if(ul != null && utente.isAdmin()){
+                    pagina = "homeAdmin/homeAdmin";
+                }else{
+                    pagina = "catalogo/catalogo";
+                    request.setAttribute("carrello", carrelli);
+                }
+            }
+            request.setAttribute("applicationMessage", applicationMessage);
+            request.setAttribute("viewUrl", pagina);
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller LogOn", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
+
     
     /* Metodo per caricare categorie, marche, generi e prodotti */
     private static void commonView(JDBCDAOFactory jdbc, SessionDAO sessionDAO, HttpServletRequest request) {
