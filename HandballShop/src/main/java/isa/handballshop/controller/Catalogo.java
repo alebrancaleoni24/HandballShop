@@ -49,6 +49,7 @@ public class Catalogo{
             jdbc.beginTransaction();
             
             ArrayList<Prodotto> prodotti = null;
+            ArrayList<Prodotto> itemsToShow = new ArrayList<Prodotto>();
             
             ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
             
@@ -58,28 +59,40 @@ public class Catalogo{
             /* Estraggo i prodotti da visualizzare in base al filtro di ricerca, se non è applicato nessun filtro, di default prendo i prodotti in push */
             if(request.getParameter("searchType") == null){
                 prodotti = prodottoDAO.trovaProdotti();
-                prodotti.stream().filter(w -> w.isPush());
+                for(int i = 0; i < prodotti.size(); i++){
+                    if(prodotti.get(i).isPush())
+                        itemsToShow.add(prodotti.get(i));
+                }
             }
             if(request.getParameter("searchType") != null && request.getParameter("searchType").equals("categoria")){
                 prodotti = prodottoDAO.trovaProdotti();
-                prodotti.stream().filter(w -> w.getCategoria().equals(request.getParameter("searchName")));
+                for(int i = 0; i < prodotti.size(); i++){
+                    if(prodotti.get(i).getCategoria().equals(request.getParameter("searchName")))
+                        itemsToShow.add(prodotti.get(i));
+                }
             }
             if(request.getParameter("searchType") != null && request.getParameter("searchType").equals("marca")){
                 prodotti = prodottoDAO.trovaProdotti();
-                prodotti.stream().filter(w -> w.getMarca().equals(request.getParameter("searchName")));
+                for(int i = 0; i < prodotti.size(); i++){
+                    if(prodotti.get(i).getMarca().equals(request.getParameter("searchName")))
+                        itemsToShow.add(prodotti.get(i));
+                }
             }
             if(request.getParameter("searchType") != null && request.getParameter("searchType").equals("genere")){
                 prodotti = prodottoDAO.trovaProdotti();
-                prodotti.stream().filter(w -> w.getGenere().equals(request.getParameter("searchName")));
+                for(int i = 0; i < prodotti.size(); i++){
+                    if(prodotti.get(i).getGenere().equals(request.getParameter("searchName")))
+                        itemsToShow.add(prodotti.get(i));
+                }
             }
             if(request.getParameter("searchType") != null && request.getParameter("searchType").equals("searchString")){
                 String cerca = request.getParameter("searchName");
                 cerca = cerca.substring(0, 1).toUpperCase() + cerca.substring(1,cerca.length()).toLowerCase();
-                prodotti = prodottoDAO.findByString(cerca);
+                itemsToShow = prodottoDAO.findByString(cerca);
             }
             
             /* Setto gli attributi del viewModel */
-            request.setAttribute("prodotti", prodotti);
+            request.setAttribute("prodotti", itemsToShow);
             request.setAttribute("loggedOn",ul!=null);
             request.setAttribute("loggedUser", ul);
             request.setAttribute("carrello", carrelli);

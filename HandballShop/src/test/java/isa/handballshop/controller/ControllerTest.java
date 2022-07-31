@@ -16,7 +16,7 @@ import java.time.Duration;
 public class ControllerTest{
 
     /* Metodo di test per la registrazione di un utente */
-    @Disabled
+    //@Disabled
     @Test
     public void registrazioneTest(){
         BasicConfigurator.configure();
@@ -64,7 +64,7 @@ public class ControllerTest{
 
 
     /* Metodo per testare il login dell'utente */
-    //@Disabled
+    @Disabled
     @Test
     public void loginTest(){
         BasicConfigurator.configure();
@@ -94,10 +94,10 @@ public class ControllerTest{
     }
 
     /* Metodo di test per l'acquisto di un prodotto */
-    /*
-    @AfterAll
+    
     @Test
-    public static void AcquistoTest(){
+    public void AcquistoTest(){
+        BasicConfigurator.configure();
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver();
 
@@ -161,7 +161,6 @@ public class ControllerTest{
 
         driver.quit();
     }
-    */
 
     /*
     @Test

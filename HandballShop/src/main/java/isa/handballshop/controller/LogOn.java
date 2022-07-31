@@ -162,6 +162,7 @@ public class LogOn {
     }
 
     /*Metodo chiamato per registrare un utente da parte di un admin*/
+    /*
     public static void registraAdmin(HttpServletRequest request, HttpServletResponse response) {
         SessionDAO sessionDAO;
         UtenteLoggato ul;
@@ -175,18 +176,18 @@ public class LogOn {
             sessionDAO = new SessionDAOImpl();
             sessionDAO.initSession(request, response);
             
-            /*Recupero il cookie utente*/
+            // Recupero il cookie utente
             UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
             ul = ulDAO.trova();
             
-            /*Non recupero il cookie carrello perchè un admin non ha il carrello*/
+            // Non recupero il cookie carrello perchè un admin non ha il carrello
 
             jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
             jdbc.beginTransaction();
 
             Utente utente = null;
             
-            /*Prelevo i valori inseriti dall'utente*/
+            // Prelevo i valori inseriti dall'utente
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String nome = request.getParameter("nome");
@@ -210,7 +211,7 @@ public class LogOn {
                 blocked = false;
             }
 
-            /*INSERISCO IL NUOVO UTENTE NEL DB*/
+            /*INSERISCO IL NUOVO UTENTE NEL DB
             UtenteDAO utenteDAO = jdbc.getUtenteDAO();
             try{
                 utente = utenteDAO.registrati(email, nome, cognome, password, genere, nazione, città, via, numeroCivico, CAP, admin, blocked);
@@ -220,13 +221,13 @@ public class LogOn {
             }
             
             /*Metodo per caricare le iniziali degli utenti, gli utenti da
-            visualizzare e il numero di ordini effettuato da ognuno*/
+            visualizzare e il numero di ordini effettuato da ognuno
             UtentiManagement.commonView(jdbc, request);
             
-            /*Committo la transazione*/
+            // Committo la transazione
             jdbc.commitTransaction();
             
-            /*Setto gli attributi del view model*/
+            // Setto gli attributi del view model
             request.setAttribute("loggedOn",ul!=null);
             request.setAttribute("loggedUser", ul);
             request.setAttribute("applicationMessage", applicationMessage);
@@ -250,6 +251,7 @@ public class LogOn {
             }
         }
     }
+    */
 
     /*Metodo chiamato per loggare l'utente*/
     public static void logon(HttpServletRequest request, HttpServletResponse response) {

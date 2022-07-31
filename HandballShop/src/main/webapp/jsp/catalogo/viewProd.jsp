@@ -76,9 +76,9 @@
             function carrelloSubmit(codiceProdotto){
                 var f = document.carrelloForm;
                 if(logged){
-                    f.codiceProdotto.value = codiceProdotto;
-                    alert("Prodotto inserito nel carrello");
-                    f.submit();
+                    //f.codiceProdotto.value = codiceProdotto;
+                    //alert("Prodotto inserito nel carrello");
+                    //f.submit();
                 }else{
                     alert("Per inserire un prodotto nel carrello bisogna eseguire l'accesso");
                 }
