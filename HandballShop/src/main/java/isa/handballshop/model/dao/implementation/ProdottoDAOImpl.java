@@ -78,7 +78,8 @@ public class ProdottoDAOImpl implements ProdottoDAO{
             /* Se sono arrivato qui il prodotto non esiste nel DB quindi creo la query per inserirlo */
             
             sql = " INSERT INTO prodotto "
-                    + "   ( categoria,"
+                    + "   ( codiceProd,"
+                    + " categoria,"
                     + " marca,"
                     + " prezzo,"
                     + " modello,"
@@ -88,10 +89,11 @@ public class ProdottoDAOImpl implements ProdottoDAO{
                     + " blocked,"
                     + " push"
                     + "   ) "
-                    + " VALUES (?,?,?,?,?,?,?,?,?)";
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?)";
 
             ps = connection.prepareStatement(sql);
             int j = 1;
+            ps.setLong(i++, getUltimoCodice()+1);
             ps.setString(j++, prodotto.getCategoria());
             ps.setString(j++, prodotto.getMarca());
             ps.setFloat(j++, prodotto.getPrezzo());

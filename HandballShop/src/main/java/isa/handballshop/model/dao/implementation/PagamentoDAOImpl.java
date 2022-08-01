@@ -70,19 +70,21 @@ public class PagamentoDAOImpl implements PagamentoDAO{
                 throw new DuplicatedObjectException("PagamentoDAOImpl.creaPagamento: Tentativo di inserimento di un pagamento già esistente");
             }
 
-            /* Se sono arrivato qui la tupla non esiste nel DB quindi creo la query per inserire il nuovo pagamento */
+
             sql = " INSERT INTO pagamento "
-                    + "   ( dataRichiestaPagamento,"
+                    + "   ( codicePag,"
+                    + " dataRichiestaPagamento,"
                     + " dataPagamento,"
                     + " stato,"
                     + " carta,"
                     + " importo,"
                     + " email"
                     + "   ) "
-                    + " VALUES (?,?,?,?,?,?)";
+                    + " VALUES (?,?,?,?,?,?,?)";
 
             ps = connection.prepareStatement(sql);
             i = 1;
+            ps.setLong(i++, getUltimoCodice()+1);
             ps.setDate(i++, convertJavaDateToSqlDate(pagamento.getDataRichiestaPagamento()));
             ps.setDate(i++, convertJavaDateToSqlDate(pagamento.getDataPagamento()));
             ps.setString(i++, pagamento.getStato());

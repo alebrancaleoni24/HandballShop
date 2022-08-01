@@ -88,7 +88,8 @@ public class OrdineDAOImpl implements OrdineDAO{
 
             /* Se sono arrivato qui l'ordine non esiste nel DB quindi creo la query per inserirlo */
             sql = " INSERT INTO ordine "
-                    + "   ( dataOrdine,"
+                    + "   ( codiceOrdine,"
+                    + " dataOrdine,"
                     + " stato,"
                     + " dataConsegna,"
                     + " nazione,"
@@ -99,10 +100,11 @@ public class OrdineDAOImpl implements OrdineDAO{
                     + " codicePag,"
                     + " email"
                     + "   ) "
-                    + " VALUES (?,?,?,?,?,?,?,?,?,?)";
+                    + " VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
             ps = connection.prepareStatement(sql);
             i = 1;
+            ps.setLong(i++, getUltimoCodice()+1);
             ps.setDate(i++, convertJavaDateToSqlDate(ordine.getDataOrdine()));
             ps.setString(i++, ordine.getStato());
             ps.setDate(i++, convertJavaDateToSqlDate(ordine.getDataConsegna()));

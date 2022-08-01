@@ -326,8 +326,7 @@ public class Acquisto {
                 
                 /*INSERIMENTO PAGAMENTO NEL DB*/
                 try{
-                    pagamento = pagamentoDAO.creaPagamento("confermato", 
-                            request.getParameter("carta"), 
+                    pagamento = pagamentoDAO.creaPagamento("confermato", request.getParameter("carta"), 
                             dataOdierna, dataOdierna, Float.parseFloat(request.getParameter("prezzo")),
                             utente, null);
                 }catch(DuplicatedObjectException doe){
