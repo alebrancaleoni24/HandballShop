@@ -429,6 +429,96 @@ public class Acquisto {
         }
     }
 
+    /* Metodo per cambiare la quantità di un prodotto nel carrello */
+    public static void cambiaQuantita(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        ArrayList<Carrello> carrelli = new ArrayList<Carrello>();
+        ArrayList<Prodotto> prodotti = new ArrayList<Prodotto>();
+        
+        JDBCDAOFactory jdbc = null;
+        
+        Logger logger = LogService.printLog();
+        try{
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            /*Recupero il cookie carrello*/
+            CarrelloDAO carrelloDAO = sessionDAO.getCarrelloDAO();
+            /*Modifico il cookie*/
+            carrelli = carrelloDAO.modificaQuantità(Long.parseLong(request.getParameter("codiceProdotto")), Long.parseLong(request.getParameter("quantita")), request.getParameter("taglia"));
+            
+            /*Stabilisco la connessione*/
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+            
+            ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
+            
+            /*Estraggo i prodotti dal DB*/
+            for(int i=0; i<carrelli.size(); i++){
+                prodotti.add(prodottoDAO.findByKey(carrelli.get(i).getCodiceProd()));
+            }
+            
+            ArrayList<Boolean> disponibilità = new ArrayList<Boolean>();
+            TagliaDAO tagliaDAO = jdbc.getTagliaDAO();
+            
+            /*Mappo le disponibilità dei prodotti*/
+            for(int j=0; j<prodotti.size(); j++){
+                if(carrelli.get(j).getQuantita() < tagliaDAO.getTagliaByKey(carrelli.get(j).getCodiceProd(), carrelli.get(j).getTaglia()).getQuantità()){
+                    disponibilità.add(Boolean.TRUE);
+                }else{
+                    disponibilità.add(Boolean.FALSE);
+                }
+            }
+            
+            /*Calcolo il prezzo totale del carrello*/
+            ArrayList<Double> prezzi = new ArrayList<>();
+            ArrayList<Long> quantita = new ArrayList<>();
+            
+            for(int i=0; i<prodotti.size(); i++){
+                prezzi.add((double) prodotti.get(i).getPrezzo());
+                quantita.add(carrelli.get(i).getQuantita());
+            }
+
+            double prezzo = Accounting.calcoloPrezzo(prezzi, quantita);
+            double iva = Accounting.calcoloIVA(Accounting.calcoloPrezzo(prezzi, quantita), 22);
+            
+            jdbc.commitTransaction();
+            
+            /*Setto gli attributi del viewModel*/
+            request.setAttribute("prezzo", prezzo);
+            request.setAttribute("iva", iva);
+            request.setAttribute("disponibilita", disponibilità);
+            request.setAttribute("prodotti", prodotti);
+            request.setAttribute("carrello", carrelli);
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("viewUrl", "acquisto/carrello");
+            
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller Acquisto", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
+
     /*
     *
     * Metodo comune a tutte le view di carrello.jsp
