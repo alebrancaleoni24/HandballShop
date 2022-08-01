@@ -18,6 +18,8 @@
 
     double prezzo = (double) request.getAttribute("prezzo");
 
+    double iva = (double) request.getAttribute("iva");
+
     ArrayList<Boolean> disponibilita = (ArrayList<Boolean>) request.getAttribute("disponibilita");
 
     boolean loggedOn = (boolean) request.getAttribute("loggedOn");
@@ -166,6 +168,8 @@
                 <h2>Dettagli ordine</h2>
                 </br>
                 <p style="font-size: large;">Totale: €<%=prezzo%></p>
+                </br>
+                <p style="font-size: large;">di cui IVA: €<%=iva%></p>
                 </br>
                 <!--FORM PER ORDINARE-->
                 <form name="ordina" action="Dispatcher" method="post">

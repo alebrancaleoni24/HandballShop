@@ -31,6 +31,7 @@ import isa.handballshop.model.valueObject.Prodotto;
 import isa.handballshop.model.valueObject.Taglia;
 import isa.handballshop.model.valueObject.Utente;
 import isa.handballshop.services.logservice.LogService;
+import isa.handballshop.services.util.Accounting;
 
 public class Acquisto {
     
@@ -211,7 +212,6 @@ public class Acquisto {
             String via = request.getParameter("via");
             String numeroCivico = request.getParameter("numeroCivico");
             String CAP = request.getParameter("CAP");
-            double prezzo = 0;
             
             /* Carico i prodotti del carrello dal DB */
             ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
@@ -220,13 +220,17 @@ public class Acquisto {
                 prodotti.add(prodottoDAO.findByKey(carrelli.get(i).getCodiceProd()));
             }
             
-            /* Faccio la somma dei loro prezzi */
-            for(int i=0; i<prodotti.size(); i++){
-                prezzo += prodotti.get(i).getPrezzo()*carrelli.get(i).getQuantita();
-            }
+            /*Calcolo il prezzo totale del carrello*/
+            ArrayList<Double> prezzi = new ArrayList<>();
+            ArrayList<Long> quantita = new ArrayList<>();
             
-            /* Arrotondo il prezzo alla seconda cifra decimale */
-            prezzo = Math.round(prezzo*100.0) / 100.0;
+            for(int i=0; i<prodotti.size(); i++){
+                prezzi.add((double) prodotti.get(i).getPrezzo());
+                quantita.add(carrelli.get(i).getQuantita());
+            }
+
+            double prezzo = Accounting.calcoloPrezzo(prezzi, quantita);
+            double iva = Accounting.calcoloIVA(Accounting.calcoloPrezzo(prezzi, quantita), 22);
             
             request.setAttribute("carta", carta);
             request.setAttribute("nazione", nazione);
@@ -235,6 +239,7 @@ public class Acquisto {
             request.setAttribute("numeroCivico", numeroCivico);
             request.setAttribute("CAP", CAP);
             request.setAttribute("prezzo", prezzo);
+            request.setAttribute("iva", iva);
             request.setAttribute("prodotti", prodotti);
             request.setAttribute("viewUrl", "acquisto/riepilogo");
             
@@ -384,7 +389,9 @@ public class Acquisto {
                 * quindi gliene passo uno fittizio
                 */
                 double prezzo = 0;
+                double iva = 0;
                 request.setAttribute("prezzo", prezzo);
+                request.setAttribute("iva", iva);
             }else{
                 /* Caso in cui sia cambiata la disponibilità di magazzino */
                 applicationMessage = "Disponibilità modificata durante la transazione, impossibile procedere all'ordine";
@@ -432,7 +439,6 @@ public class Acquisto {
         ArrayList<Carrello> carrelli = new ArrayList<Carrello>();
         CarrelloDAO carrelloDAO = sessionDAO.getCarrelloDAO();
         carrelli = carrelloDAO.trova();
-        double prezzo = 0;
         
         ArrayList<Prodotto> prodotti = new ArrayList<Prodotto>();
             
@@ -454,17 +460,22 @@ public class Acquisto {
                 disponibilità.add(Boolean.FALSE);
             }
         }
-        
+
         /*Calcolo il prezzo totale del carrello*/
-        for(int i=0; i<prodotti.size(); i++){
-            prezzo += prodotti.get(i).getPrezzo()*carrelli.get(i).getQuantita();
-        }
+        ArrayList<Double> prezzi = new ArrayList<>();
+        ArrayList<Long> quantita = new ArrayList<>();
         
-        /*Arrotondo il prezzo alla seconda cifra decimale*/
-        prezzo = Math.round(prezzo*100.0) / 100.0;
+        for(int i=0; i<prodotti.size(); i++){
+            prezzi.add((double) prodotti.get(i).getPrezzo());
+            quantita.add(carrelli.get(i).getQuantita());
+        }
+
+        double prezzo = Accounting.calcoloPrezzo(prezzi, quantita);
+        double iva = Accounting.calcoloIVA(Accounting.calcoloPrezzo(prezzi, quantita), 22);
         
         /*Setto gli attributi del viewModel*/
         request.setAttribute("prezzo", prezzo);
+        request.setAttribute("iva", iva);
         request.setAttribute("disponibilita", disponibilità);
         request.setAttribute("prodotti", prodotti);
         request.setAttribute("carrello", carrelli);

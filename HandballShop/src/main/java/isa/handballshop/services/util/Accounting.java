@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Accounting{
 
-    public static double calcoloPrezzo(ArrayList<Double> prezzi, ArrayList<Integer> quantita){
+    public static double calcoloPrezzo(ArrayList<Double> prezzi, ArrayList<Long> quantita){
         double prezzo = 0;
 
         for(int i = 0; i < prezzi.size(); i++)

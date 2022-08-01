@@ -15,6 +15,7 @@
     String CAP = (String) request.getAttribute("CAP");
     String carta = (String) request.getAttribute("carta");
     double prezzo = (double) request.getAttribute("prezzo");
+    double iva = (double) request.getAttribute("iva");
     
     ArrayList<Prodotto> prodotti = (ArrayList<Prodotto>) request.getAttribute("prodotti");
     int numProd;
@@ -124,6 +125,7 @@
                     <%}%>
                 
                     <p><b>Prezzo finale:</b> €<%=prezzo%></p>
+                    <p><b>di cui IVA:</b> €<%=iva%></p>
                 </div>
             
                 <!--BOTTONI-->

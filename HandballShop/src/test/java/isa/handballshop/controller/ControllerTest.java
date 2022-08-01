@@ -3,7 +3,6 @@ package isa.handballshop.controller;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.apache.log4j.BasicConfigurator;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
