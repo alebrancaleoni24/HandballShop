@@ -607,7 +607,40 @@ public class Acquisto {
             }
         }
     }
-    
+
+    /* Metodo per cancellare l'intero carrello, carrello.jsp */
+    public static void cancella(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        double prezzo = 0;
+        double iva = 0;
+        
+        Logger logger = LogService.printLog();
+        try{
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            /*Elimino il cookie carrello*/
+            CarrelloDAO carrelloDAO = sessionDAO.getCarrelloDAO();
+            carrelloDAO.elimina();
+            
+            /*Setto gli attributi del viewModel*/
+            request.setAttribute("prezzo", prezzo);
+            request.setAttribute("iva", iva);
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("viewUrl", "acquisto/carrello");
+            
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Controller Error", e);
+            throw new RuntimeException(e);
+        }
+    }    
 
     /*
     *
