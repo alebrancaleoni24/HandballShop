@@ -3,6 +3,7 @@ package isa.handballshop.controller;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -50,6 +51,59 @@ public class Ordini {
             /*Stabilisco la connessione*/
             jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
             jdbc.beginTransaction();
+            
+            /*Metodo per caricare tutti gli ordini nel DB da visualizzare*/
+            commonView(jdbc, sessionDAO, request);
+            
+            jdbc.commitTransaction();
+            
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller Ordini", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
+
+    public static void aggiornaStato(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        
+        JDBCDAOFactory jdbc = null;
+        
+        Logger logger = LogService.printLog();
+        try{
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Stabilisco la connessione*/
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+            
+            OrdineDAO ordineDAO = jdbc.getOrdineDAO();
+            
+            /*Recupero il codice dell'ordine e lo stato*/
+            long codiceOrd = Long.parseLong(request.getParameter("codiceOrdine"));
+            String stato = request.getParameter("stato");
+            
+            /*Aggiorno il DB*/
+            if(stato.equals("Consegnato")){
+                Date dataOdierna = new Date();
+                ordineDAO.aggiornaStato(codiceOrd, stato, dataOdierna);
+            }else{
+                ordineDAO.aggiornaStato(codiceOrd, stato);
+            }
             
             /*Metodo per caricare tutti gli ordini nel DB da visualizzare*/
             commonView(jdbc, sessionDAO, request);
