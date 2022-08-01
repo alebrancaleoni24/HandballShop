@@ -14,7 +14,7 @@
             }catch(e){
             }
             
-            if(applicationMessage!=undefined) alert(applicationMessage);
+            //if(applicationMessage!=undefined) alert(applicationMessage);
         }
   
         window.addEventListener("load", onLoadHandler);

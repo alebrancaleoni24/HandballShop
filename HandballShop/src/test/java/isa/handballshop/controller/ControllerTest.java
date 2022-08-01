@@ -3,6 +3,7 @@ package isa.handballshop.controller;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.apache.log4j.BasicConfigurator;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -16,7 +17,7 @@ import java.time.Duration;
 public class ControllerTest{
 
     /* Metodo di test per la registrazione di un utente */
-    //@Disabled
+    @Disabled
     @Test
     public void registrazioneTest(){
         BasicConfigurator.configure();
@@ -94,7 +95,7 @@ public class ControllerTest{
     }
 
     /* Metodo di test per l'acquisto di un prodotto */
-    
+    //@Disabled
     @Test
     public void AcquistoTest(){
         BasicConfigurator.configure();
