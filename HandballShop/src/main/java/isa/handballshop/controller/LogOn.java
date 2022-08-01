@@ -162,7 +162,6 @@ public class LogOn {
     }
 
     /*Metodo chiamato per registrare un utente da parte di un admin*/
-    /*
     public static void registraAdmin(HttpServletRequest request, HttpServletResponse response) {
         SessionDAO sessionDAO;
         UtenteLoggato ul;
@@ -211,7 +210,7 @@ public class LogOn {
                 blocked = false;
             }
 
-            /*INSERISCO IL NUOVO UTENTE NEL DB
+            /*INSERISCO IL NUOVO UTENTE NEL DB*/
             UtenteDAO utenteDAO = jdbc.getUtenteDAO();
             try{
                 utente = utenteDAO.registrati(email, nome, cognome, password, genere, nazione, città, via, numeroCivico, CAP, admin, blocked);
@@ -221,7 +220,7 @@ public class LogOn {
             }
             
             /*Metodo per caricare le iniziali degli utenti, gli utenti da
-            visualizzare e il numero di ordini effettuato da ognuno
+            visualizzare e il numero di ordini effettuato da ognuno*/
             UtentiManagement.commonView(jdbc, request);
             
             // Committo la transazione
@@ -251,7 +250,6 @@ public class LogOn {
             }
         }
     }
-    */
 
     /*Metodo chiamato per loggare l'utente*/
     public static void logon(HttpServletRequest request, HttpServletResponse response) {
