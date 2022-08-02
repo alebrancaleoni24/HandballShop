@@ -363,7 +363,7 @@ public class ProdottoManagement {
             
             /*Sblocco il prodotto*/
             prodottoDAO.sblocca(codiceProd);
-            
+
             /* Chiamo il metodo uguale a tutte le chiamate per caricare tutti i prodotti nel DB */
             commonView(jdbc, sessionDAO, request);
 
@@ -375,6 +375,145 @@ public class ProdottoManagement {
 
         }catch(Exception e){
             logger.log(Level.SEVERE, "Errore Controller prodottoManagement", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
+
+    /* Metodo per fare la view di gestisciProdotto.jsp nel caso in cui si vogliano modificare i dati di un prodotto già esistente */
+    public static void modificaProdottoView(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        
+        JDBCDAOFactory jdbc = null;
+        
+        Logger logger = LogService.printLog();
+
+        try {
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+            
+            /*Prelevo il codice del prodotto da modificare*/
+            long codiceProd = Long.parseLong(request.getParameter("codiceProdotto"));
+            
+            /*Prelevo il prodotto da modificare dal DB*/
+            ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
+            Prodotto prodotto = prodottoDAO.findByKey(codiceProd);
+            
+            jdbc.commitTransaction();
+            
+            /*Setto gli attributi*/
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("prodotto", prodotto);
+            request.setAttribute("viewUrl", "prodottoManagement/gestisciProdotto");
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller ProdottoManagement", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
+
+    /* Metodo per aggiornare il DB con le modifiche al prodotto apportate dall'admin e fare la view di magazzino.jsp */
+    public static void modificaProdotto(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        String applicationMessage;
+        
+        JDBCDAOFactory jdbc = null;
+        
+        Logger logger = LogService.printLog();
+
+        try {
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            
+            /*Stabilisco la connessione*/
+            jdbc.beginTransaction();
+            
+            Prodotto prodotto = new Prodotto();
+            
+            /*Prelevo i valori inseriti*/
+            prodotto.setCodiceProdotto(Long.parseLong(request.getParameter("codiceProdotto")));
+            prodotto.setCategoria(request.getParameter("categoria"));
+            prodotto.setMarca(request.getParameter("marca"));
+            prodotto.setModello(request.getParameter("modello"));
+            prodotto.setGenere(request.getParameter("genere"));
+            prodotto.setImage(request.getParameter("immagine"));
+            prodotto.setDescrizione(request.getParameter("descrizione"));
+            prodotto.setPrezzo(Float.parseFloat(request.getParameter("prezzo")));
+            if(request.getParameter("blocked").equals("S")){
+                prodotto.setBlocked(true);
+            }else{
+                prodotto.setBlocked(false);
+            }
+            if(request.getParameter("push").equals("S")){
+                prodotto.setPush(true);
+            }else{
+                prodotto.setPush(false);
+            }
+            
+            ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
+            
+            /*AGGIORNO IL PRODOTTO NEL DB*/
+            try{
+                prodottoDAO.aggiorna(prodotto);
+            }catch(DuplicatedObjectException doe){
+                applicationMessage = "Prodotto già esistente";
+                logger.log(Level.INFO, "Tentativo di inserimento di un prodotto già esistente");
+            }
+
+            /* Chiamo il metodo uguale a tutte le chiamate per caricare tutti i prodotti nel DB */
+            commonView(jdbc, sessionDAO, request);
+
+            jdbc.commitTransaction();
+
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("viewUrl", "prodottoManagement/magazzino");
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller ProdottoManagement", e);
             try {
                 if(jdbc != null){
                     jdbc.rollbackTransaction();

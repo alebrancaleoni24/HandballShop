@@ -1350,3 +1350,35 @@ ago 02, 2022 3:06:21 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: ProdottoManagement bloccaProdotto
 ago 02, 2022 3:06:43 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: ProdottoManagement sbloccaProdotto
+ago 02, 2022 3:17:29 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logout
+ago 02, 2022 3:17:59 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logout
+ago 02, 2022 3:18:02 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 3:18:08 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 3:18:10 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 3:18:14 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement modificaProdottoView
+ago 02, 2022 3:18:43 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement modificaProdotto
+ago 02, 2022 3:19:09 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logout
+ago 02, 2022 3:19:12 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 3:19:17 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 3:19:23 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 3:19:25 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 3:19:27 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement modificaProdottoView
+ago 02, 2022 3:19:35 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement modificaProdotto
+ago 02, 2022 3:19:40 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logout
+ago 02, 2022 3:19:42 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
