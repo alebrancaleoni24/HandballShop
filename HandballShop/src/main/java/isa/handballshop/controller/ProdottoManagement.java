@@ -279,6 +279,119 @@ public class ProdottoManagement {
         }
     }
 
+    /* Metodo per bloccare la vendita di un prodotto */
+    public static void bloccaProdotto(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        
+        JDBCDAOFactory jdbc = null;
+        
+        Logger logger = LogService.printLog();
+
+        try {
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+            
+            /*Recupero il codice del prodotto da bloccare*/
+            long codiceProd = Long.parseLong(request.getParameter("codiceProdotto"));
+            ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
+            
+            /*Blocco il prodotto*/
+            prodottoDAO.blocca(codiceProd);
+
+            /* Chiamo il metodo uguale a tutte le chiamate per caricare tutti i prodotti nel DB */
+            commonView(jdbc, sessionDAO, request);
+
+            jdbc.commitTransaction();
+
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("viewUrl", "prodottoManagement/magazzino");
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller prodottoManagement", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
+    
+    /* Metodo per sbloccare un prodotto bloccato per la vendita */
+    public static void sbloccaProdotto(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        
+        JDBCDAOFactory jdbc = null;
+        
+        Logger logger = LogService.printLog();
+
+        try {
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+            
+            /*Recupero il codice del prodotto da sbloccare*/
+            long codiceProd = Long.parseLong(request.getParameter("codiceProdotto"));
+            
+            ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
+            
+            /*Sblocco il prodotto*/
+            prodottoDAO.sblocca(codiceProd);
+            
+            /* Chiamo il metodo uguale a tutte le chiamate per caricare tutti i prodotti nel DB */
+            commonView(jdbc, sessionDAO, request);
+
+            jdbc.commitTransaction();
+
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("viewUrl", "prodottoManagement/magazzino");
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller prodottoManagement", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
+
     /* Metodo uguale a tutte le chiamate di magazzino.jsp per caricare tutti i prodotti nel DB */
     private static void commonView(JDBCDAOFactory jdbc, SessionDAO sessionDAO, HttpServletRequest request) {
         ArrayList<Prodotto> prodotti;

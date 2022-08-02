@@ -1332,3 +1332,21 @@ ago 02, 2022 2:58:32 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: ProdottoManagement inserisciProdotto
 ago 02, 2022 2:58:33 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: ProdottoManagement inserisciTaglia
+ago 02, 2022 3:05:46 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 3:05:55 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 3:05:59 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 3:06:06 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logout
+ago 02, 2022 3:06:07 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 3:06:14 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 3:06:16 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 3:06:21 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement bloccaProdotto
+ago 02, 2022 3:06:43 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement sbloccaProdotto
