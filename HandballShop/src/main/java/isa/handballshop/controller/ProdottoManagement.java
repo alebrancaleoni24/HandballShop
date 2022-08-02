@@ -75,6 +75,33 @@ public class ProdottoManagement {
         }
     }
 
+    /* Metodo per fare la view di gestisciProdotto.jsp nel caso l'admin voglia crearne uno nuovo */
+    public static void inserisciProdottoView(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        
+        Logger logger = LogService.printLog();
+
+        try {
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            /*Setto gli attributi*/
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("viewUrl", "prodottoManagement/gestisciProdotto");
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "prodottoManagement Controller Error", e);
+            throw new RuntimeException(e);
+        }
+    }
+
     /* Metodo uguale a tutte le chiamate di magazzino.jsp per caricare tutti i prodotti nel DB */
     private static void commonView(JDBCDAOFactory jdbc, SessionDAO sessionDAO, HttpServletRequest request) {
         ArrayList<Prodotto> prodotti;
