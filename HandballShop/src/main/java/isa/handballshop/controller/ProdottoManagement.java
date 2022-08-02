@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import isa.handballshop.config.Configuration;
 import isa.handballshop.model.dao.JDBCDAOFactory;
 import isa.handballshop.model.dao.ProdottoDAO;
+import isa.handballshop.model.dao.TagliaDAO;
+import isa.handballshop.model.dao.exception.DuplicatedObjectException;
 import isa.handballshop.model.session.dao.SessionDAO;
 import isa.handballshop.model.session.dao.UtenteLoggatoDAO;
 import isa.handballshop.model.session.dao.implementation.SessionDAOImpl;
@@ -162,6 +164,118 @@ public class ProdottoManagement {
         }catch(Exception e){
             logger.log(Level.SEVERE, "ProdottoManagement Controller Error", e);
             throw new RuntimeException(e);
+        }
+    }
+
+    /* Metodo con cui prelevo i dati del prodotto e della giacenza di magazzino per ogni taglia e aggiorno il DB. Infine faccio la view di magazzino.jsp */
+    public static void inserisciTaglia(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        String applicationMessage;
+        
+        JDBCDAOFactory jdbc = null;
+        
+        Logger logger = LogService.printLog();
+
+        try {
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+            
+            Prodotto prodotto = null;
+            
+            /*Recupero i valori del prodotto*/
+            String categoria = request.getParameter("categoria");
+            String marca = request.getParameter("marca");
+            String modello = request.getParameter("modello");
+            String genere = request.getParameter("genere");
+            String img = request.getParameter("immagine");
+            String descrizione = request.getParameter("descrizione");
+            Float prezzo = Float.parseFloat(request.getParameter("prezzo"));
+            boolean blocked;
+            if(request.getParameter("blocked").equals("S")){
+                blocked = true;
+            }else{
+                blocked = false;
+            }
+            boolean push;
+            if(request.getParameter("push").equals("S")){
+                push = true;
+            }else{
+                push = false;
+            }
+            
+            /*INSERISCO IL PRODOTTO NEL DB*/
+            ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
+            try{
+                prodotto = prodottoDAO.creaProdotto(categoria, marca, modello, genere, img, descrizione, prezzo, blocked, push, null);
+            }catch(DuplicatedObjectException doe){
+                applicationMessage = "Prodotto già esistente";
+                logger.log(Level.INFO, "Tentativo di inserimento di un prodotto già esistente");
+            }
+            
+            TagliaDAO tagliaDAO = jdbc.getTagliaDAO();
+            long[] quantità = new long[7];
+            int i = 0;
+            String[] taglie = {"XS","S","M","L","XL","XXL","XXXL"};
+            String[] taglieScarpe = {"39","40","41","42","43","44","45"};
+            
+            /*Prelevo i valori inseriti*/
+            quantità[i++] = Long.parseLong(request.getParameter("xs"));
+            quantità[i++] = Long.parseLong(request.getParameter("s"));
+            quantità[i++] = Long.parseLong(request.getParameter("m"));
+            quantità[i++] = Long.parseLong(request.getParameter("l"));
+            quantità[i++] = Long.parseLong(request.getParameter("xl"));
+            quantità[i++] = Long.parseLong(request.getParameter("xxl"));
+            quantità[i++] = Long.parseLong(request.getParameter("xxxl"));
+            
+            /*INSERISCO LE TAGLIE DEL PRODOTTO NEL DB*/
+            for(i=0;i<7;i++){
+                try{
+                    if(!prodotto.getCategoria().equals("Scarpe")){
+                        tagliaDAO.creaTaglia(prodotto.getCodiceProdotto(), quantità[i], taglie[i]);
+                    }else{
+                        tagliaDAO.creaTaglia(prodotto.getCodiceProdotto(), quantità[i], taglieScarpe[i]);
+
+                    }
+                }catch(DuplicatedObjectException doe){
+                    applicationMessage = "La taglia per questo prodotto è già esistente";
+                    logger.log(Level.INFO, "Tentativo di inserimento di una taglia già esistente");
+                }
+            }
+
+            /* Chiamo il metodo uguale a tutte le chiamate per caricare tutti i prodotti nel DB */
+            commonView(jdbc, sessionDAO, request);
+
+            jdbc.commitTransaction();
+
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("viewUrl", "prodottoManagement/magazzino");
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller ProdottoManagement", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
         }
     }
 
