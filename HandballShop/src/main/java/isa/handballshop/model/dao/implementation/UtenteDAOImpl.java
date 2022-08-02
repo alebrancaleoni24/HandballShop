@@ -292,6 +292,26 @@ public class UtenteDAOImpl implements UtenteDAO{
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void eliminaUtente(String email) {
+        PreparedStatement ps;
+        try{
+            String sql 
+                = " DELETE "
+                + " FROM utente "
+                + " WHERE email = ? ";
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, email);
+            
+            ps.executeUpdate();
+            
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+        
+    }
     
     /* Leggo i campi del resultset e li carico in ordine */
     protected Utente read(ResultSet resultSet){

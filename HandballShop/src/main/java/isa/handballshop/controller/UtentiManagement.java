@@ -192,6 +192,64 @@ public class UtentiManagement {
             }
         }
     }
+
+    /* Metodo per eliminare l'account di un utente admin e fare la view di utenti.jsp */
+    public static void eliminaUtente(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        
+        JDBCDAOFactory jdbc = null;
+        
+        Logger logger = LogService.printLog();
+
+        try {
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+            
+            UtenteDAO utenteDAO = jdbc.getUtenteDAO();
+            
+            /*Recupero l'email dell'utente da eliminare*/
+            String email = request.getParameter("email");
+            
+            /*elimino l'utente*/
+            utenteDAO.eliminaUtente(email);
+
+            /* Chiamo il metodo per caricare le iniziali degli utenti, gli utenti da visualizzare in base all'iniziale selezionata 
+            e il numero di ordini effettuato da ognuno */
+            commonView(jdbc, request);
+
+            jdbc.commitTransaction();
+
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("viewUrl", "utentiManagement/utenti");
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller UtentiManagement", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
     
     /* Metodo per caricare le iniziali degli utenti, gli utenti da visualizzare in base alla lettera selezionata e il numero di ordini effettuato da ognuno */
     public static void commonView(JDBCDAOFactory jdbc, HttpServletRequest request) {

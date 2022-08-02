@@ -27,5 +27,8 @@ import isa.handballshop.model.valueObject.Utente;
     
     /*Sblocca un utente sul DB*/
     public void sbloccaUtente(String email);
+
+    /*Elimina un utente dal DB*/
+    public void eliminaUtente(String email);
     
 }

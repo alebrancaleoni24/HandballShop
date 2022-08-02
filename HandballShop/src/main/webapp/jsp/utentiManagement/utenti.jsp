@@ -72,6 +72,11 @@
                 document.sbloccaUtenteForm.email.value = email;
                 document.sbloccaUtenteForm.submit();
             }
+
+            function eliminaUtente(email){
+                document.eliminaUtenteForm.email.value = email;
+                document.eliminaUtenteForm.submit();
+            }
         </script>
         
         <%@include file="/include/htmlHead.inc" %>
@@ -140,6 +145,11 @@
                         <%}else{%>
                             <a class="button" href="javascript:sbloccaUtente('<%=utenti.get(i).getEmail()%>');">Sblocca</a>
                         <%}%>
+
+                        <!-- BOTTONE PER ELIMINARE UN UTENTE -->
+                        <%if(utenti.get(i).isAdmin() && !utenti.get(i).getEmail().equals(ul.getEmail())){%>
+                            <a class="button" href="javascript:eliminaUtente('<%=utenti.get(i).getEmail()%>');">Elimina</a>
+                        <%}%>
                     </article>
                 <%}%>
             </section>
@@ -162,6 +172,13 @@
                 <input type="hidden" name="selectedInitial" value="<%=selectedInitial%>"/>
                 <input type="hidden" name="email"/>
                 <input type="hidden" name="controllerAction" value="UtentiManagement.sbloccaUtente"/>      
+            </form>
+
+            <!--FORM PER ELIMINARE L'UTENTE SELEZIONATO-->
+            <form name="eliminaUtenteForm" method="post" action="Dispatcher">
+                <input type="hidden" name="selectedInitial" value="<%=selectedInitial%>"/>
+                <input type="hidden" name="email"/>
+                <input type="hidden" name="controllerAction" value="UtentiManagement.eliminaUtente"/>      
             </form>
             
         </main>

@@ -1482,3 +1482,61 @@ ago 02, 2022 3:46:31 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: LogOn logon
 ago 02, 2022 3:46:39 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: Catalogo view
+ago 02, 2022 4:32:49 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 4:32:56 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 4:33:01 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Ordini view
+ago 02, 2022 4:33:09 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 02, 2022 4:33:15 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 02, 2022 4:33:18 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 02, 2022 4:33:20 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 02, 2022 4:33:36 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: HomeAdmin view
+ago 02, 2022 4:33:41 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Ordini view
+ago 02, 2022 5:11:42 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 5:11:44 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 5:11:55 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 5:11:57 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 02, 2022 5:14:13 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 5:14:16 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 5:14:22 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 5:14:24 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 02, 2022 5:14:32 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 5:15:31 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn registraAdmin
+ago 02, 2022 5:16:21 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement sbloccaUtente
+ago 02, 2022 5:16:38 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement eliminaUtente
+ago 02, 2022 5:19:59 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logout
+ago 02, 2022 5:20:25 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 5:20:27 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 5:20:34 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 5:20:35 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 02, 2022 5:20:49 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 5:21:21 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn registraAdmin
+ago 02, 2022 5:21:26 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement eliminaUtente
