@@ -39,6 +39,10 @@ public class Catalogo{
             /*Recupero il cookie utente*/
             UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
             ul = ulDAO.trova();
+            if(ul != null && ul.isAdmin()){
+                ulDAO.elimina();
+                ul = null;
+            }
             
             /*Recupero il cookie carrello*/
             CarrelloDAO carrelloDAO = sessionDAO.getCarrelloDAO();
