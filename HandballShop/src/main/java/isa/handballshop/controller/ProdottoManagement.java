@@ -102,6 +102,69 @@ public class ProdottoManagement {
         }
     }
 
+    /* Metodo con cui mi porto dietro i dati del prodotto inseriti e fare la view di gestisciTaglie.jsp */
+    public static void inserisciProdotto(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        
+        Logger logger = LogService.printLog();
+
+        try {
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            Prodotto prodotto = new Prodotto();
+            
+            /*Prelevo i valori inseriti e mi porto dietro il prodotto*/
+            String categoria = request.getParameter("categoria");
+            prodotto.setCategoria(categoria);
+            
+            String marca = request.getParameter("marca");
+            prodotto.setMarca(marca);
+            
+            String modello = request.getParameter("modello");
+            prodotto.setModello(modello);
+            
+            String genere = request.getParameter("genere");
+            prodotto.setGenere(genere);
+            
+            String immagine = request.getParameter("immagine");
+            prodotto.setImage(immagine);
+            
+            String descrizione = request.getParameter("descrizione");
+            prodotto.setDescrizione(descrizione);
+            
+            Float prezzo = Float.parseFloat(request.getParameter("prezzo"));
+            prodotto.setPrezzo(prezzo);
+            
+            if(request.getParameter("blocked").equals("S")){
+                prodotto.setBlocked(true);
+            }else{
+                prodotto.setBlocked(false);
+            }
+            
+            if(request.getParameter("push").equals("S")){
+                prodotto.setPush(true);
+            }else{
+                prodotto.setPush(false);
+            }
+            
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("prodotto", prodotto);
+            request.setAttribute("viewUrl", "prodottoManagement/gestisciTaglie");
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "ProdottoManagement Controller Error", e);
+            throw new RuntimeException(e);
+        }
+    }
+
     /* Metodo uguale a tutte le chiamate di magazzino.jsp per caricare tutti i prodotti nel DB */
     private static void commonView(JDBCDAOFactory jdbc, SessionDAO sessionDAO, HttpServletRequest request) {
         ArrayList<Prodotto> prodotti;
