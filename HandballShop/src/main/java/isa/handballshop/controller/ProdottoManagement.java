@@ -17,6 +17,7 @@ import isa.handballshop.model.session.dao.UtenteLoggatoDAO;
 import isa.handballshop.model.session.dao.implementation.SessionDAOImpl;
 import isa.handballshop.model.session.valueObject.UtenteLoggato;
 import isa.handballshop.model.valueObject.Prodotto;
+import isa.handballshop.model.valueObject.Taglia;
 import isa.handballshop.services.logservice.LogService;
 
 public class ProdottoManagement {
@@ -503,6 +504,151 @@ public class ProdottoManagement {
                 logger.log(Level.INFO, "Tentativo di inserimento di un prodotto già esistente");
             }
 
+            /* Chiamo il metodo uguale a tutte le chiamate per caricare tutti i prodotti nel DB */
+            commonView(jdbc, sessionDAO, request);
+
+            jdbc.commitTransaction();
+
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("viewUrl", "prodottoManagement/magazzino");
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller ProdottoManagement", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
+
+    /* Metodo per fare la view di gestisciTaglie.jsp nel caso si voglia modificare la giacenza di magazzino di un prodotto */
+    public static void disponibilitaView(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        
+        JDBCDAOFactory jdbc = null;
+        
+        Logger logger = LogService.printLog();
+
+        try {
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+            
+            /*Prelevo il codice del prodotto selezionato*/
+            long codiceProd = Long.parseLong(request.getParameter("codiceProdotto"));
+            ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
+            Prodotto prodotto = new Prodotto();
+            prodotto = prodottoDAO.findByKey(codiceProd);
+            
+            /*Prelevo la disponibilità di magazzino del prodotto selezionato dal DB*/
+            TagliaDAO tagliaDAO = jdbc.getTagliaDAO();
+            ArrayList<Taglia> taglie = tagliaDAO.getTaglie(codiceProd, prodotto.getCategoria());
+            
+            jdbc.commitTransaction();
+            
+            /*Setto gli attributi*/
+            request.setAttribute("codiceProdotto", codiceProd);
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("prodotto", prodotto);
+            request.setAttribute("taglie", taglie);
+            request.setAttribute("viewUrl", "prodottoManagement/gestisciTaglie");
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller ProdottoManagement", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
+    
+    /* Metodo per aggiornare il DB con le nuove giacenze di magazzino e fare la view di magazzino.jsp */
+    public static void modificaDisponibilita(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        
+        JDBCDAOFactory jdbc = null;
+        
+        Logger logger = LogService.printLog();
+
+        try {
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+            
+            /*Recupero dal DB il prodotto selezionato*/
+            long codiceProdotto = Long.parseLong(request.getParameter("codiceProdotto"));
+            Prodotto prodotto = new Prodotto();
+            ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
+            prodotto = prodottoDAO.findByKey(codiceProdotto);
+            
+            Taglia taglia = new Taglia();
+            
+            long[] quantità = new long[7];
+            int i = 0;
+            String[] taglie = {"XS","S","M","L","XL","XXL","XXXL"};
+            String[] taglieScarpe = {"39","40","41","42","43","44","45"};
+            
+            /*Recupero tutti i nuovi valori passati dalla jsp*/
+            quantità[i++] = Long.parseLong(request.getParameter("xs"));
+            quantità[i++] = Long.parseLong(request.getParameter("s"));
+            quantità[i++] = Long.parseLong(request.getParameter("m"));
+            quantità[i++] = Long.parseLong(request.getParameter("l"));
+            quantità[i++] = Long.parseLong(request.getParameter("xl"));
+            quantità[i++] = Long.parseLong(request.getParameter("xxl"));
+            quantità[i++] = Long.parseLong(request.getParameter("xxxl"));
+            
+            TagliaDAO tagliaDAO = jdbc.getTagliaDAO();
+            
+            /*AGGIORNO IL DB*/
+            for(i=0;i<7;i++){
+                taglia.setCodiceProd(codiceProdotto);
+                taglia.setQuantità(quantità[i]);
+                if(!prodotto.getCategoria().equals("Scarpe")){
+                    taglia.setTaglia(taglie[i]);
+                }else{
+                    taglia.setTaglia(taglieScarpe[i]);
+                }
+                tagliaDAO.aggiorna(taglia);
+            }
+            
             /* Chiamo il metodo uguale a tutte le chiamate per caricare tutti i prodotti nel DB */
             commonView(jdbc, sessionDAO, request);
 
