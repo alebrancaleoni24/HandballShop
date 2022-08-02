@@ -50,13 +50,13 @@
         <main>
             
             <div class="nome" style="margin-bottom: 15px;">
-                <p>Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
+                <p id="loggedOn">Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
             </div>
             
             <!--FORM PER PASSARE ALLA PAGINA DI INSERIMENTO DI UN NUOVO PRODOTTO-->
             <form name="inserisciProdotto" action="Dispatcher" method="post">
                 <input type="hidden" name="controllerAction" value="ProdottoManagement.inserisciProdottoView"/>
-                <input type="submit" name="inserisciProdotto" value="Nuovo prodotto" class="mainButton">
+                <input type="submit" id="inserisciProdotto" name="inserisciProdotto" value="Nuovo prodotto" class="mainButton">
             </form>
             
             <!--LISTA PRODOTTI NEL MAGAZZINO-->

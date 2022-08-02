@@ -76,6 +76,8 @@ public class ProdottoDAOImpl implements ProdottoDAO{
             }
 
             /* Se sono arrivato qui il prodotto non esiste nel DB quindi creo la query per inserirlo */
+
+            prodotto.setCodiceProdotto(getUltimoCodice()+1);
             
             sql = " INSERT INTO prodotto "
                     + "   ( codiceProd,"
@@ -93,7 +95,7 @@ public class ProdottoDAOImpl implements ProdottoDAO{
 
             ps = connection.prepareStatement(sql);
             int j = 1;
-            ps.setLong(i++, getUltimoCodice()+1);
+            ps.setLong(j++, prodotto.getCodiceProdotto());
             ps.setString(j++, prodotto.getCategoria());
             ps.setString(j++, prodotto.getMarca());
             ps.setFloat(j++, prodotto.getPrezzo());
@@ -113,8 +115,6 @@ public class ProdottoDAOImpl implements ProdottoDAO{
             }
 
             ps.executeUpdate();
-            
-            prodotto.setCodiceProdotto(getUltimoCodice());
 
         }catch(SQLException e){
             throw new RuntimeException(e);

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Select;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.time.Duration;
@@ -94,7 +94,7 @@ public class ControllerTest{
     }
 
     /* Metodo di test per l'acquisto di un prodotto */
-    //@Disabled
+    @Disabled
     @Test
     public void AcquistoTest(){
         BasicConfigurator.configure();
@@ -162,10 +162,10 @@ public class ControllerTest{
         driver.quit();
     }
 
-    /*
+    
     @Test
     public void inserimentoProdottoTest(){
-
+        BasicConfigurator.configure();
         WebDriverManager.chromedriver().setup();
         ChromeDriver driver = new ChromeDriver();
 
@@ -203,13 +203,13 @@ public class ControllerTest{
         WebElement descrizioneBox = driver.findElement(By.id("descrizione"));
         WebElement submitProdotto = driver.findElement(By.name("submitButton"));
 
-        modelloBox.sendKeys("modello");
-        categoriaBox.sendKeys("categoria");
-        marcaBox.sendKeys("marca");
-        prezzoBox.sendKeys("prezzo");
+        modelloBox.sendKeys("Stabil X");
+        categoriaBox.sendKeys("Scarpe");
+        marcaBox.sendKeys("Adidas");
+        prezzoBox.sendKeys("139.95");
         genere.selectByValue("Uomo");
-        immagineBox.sendKeys("immagine");
-        descrizioneBox.sendKeys("descrizione");
+        immagineBox.sendKeys("stabil_x.png");
+        descrizioneBox.sendKeys("Queste scarpe da pallamano sono la base di lancio perfetta per far decollare il tuo gioco. La struttura interna avvolgente offre comfort e traspirabilitá , mentre la tecnologia Sling-Cage, collegata al sistema di allacciatura, consente di regolare il livello di supporto delpiede. La ammortizzazione reattiva offre un ritorno di energia infinito per dare carica al tuo stile. Massima stabilitá grazie alla tecnologia Sling-Cage interna collegata al sistema di allacciatura per un supporto regolabile. Ritorno di energia imbattibile grazie alla tecnologia di ammortizzazione piú reattiva di sempre, in grado di offrire un ritorno di energia incredibile.");
         submitProdotto.click();
 
         // Inserisco la disponibilità del nuovo prodotto
@@ -238,5 +238,5 @@ public class ControllerTest{
         driver.quit();
 
     }
-    */
+    
 }

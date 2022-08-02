@@ -879,3 +879,456 @@ ago 02, 2022 11:24:24 AM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: ProdottoManagement view
 ago 02, 2022 11:24:30 AM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: LogOn logout
+ago 02, 2022 11:47:56 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 11:48:01 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo viewProd
+ago 02, 2022 11:51:00 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 11:51:11 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 11:56:06 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 11:56:06 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 11:56:06 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 11:56:06 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 12:01:01 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 12:01:02 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 12:01:02 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 12:01:02 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 12:01:43 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdottoView
+ago 02, 2022 12:03:41 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 12:03:41 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 12:03:42 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 12:03:42 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 12:03:42 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdottoView
+ago 02, 2022 12:03:43 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdotto
+ago 02, 2022 12:03:43 PM isa.handballshop.controller.ProdottoManagement inserisciProdotto
+GRAVE: ProdottoManagement Controller Error
+java.lang.NumberFormatException: For input string: "139,95"
+	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+	at java.base/jdk.internal.math.FloatingDecimal.parseFloat(FloatingDecimal.java:122)
+	at java.base/java.lang.Float.parseFloat(Float.java:455)
+	at isa.handballshop.controller.ProdottoManagement.inserisciProdotto(ProdottoManagement.java:144)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at isa.handballshop.dispatcher.Dispatcher.processRequest(Dispatcher.java:43)
+	at isa.handballshop.dispatcher.Dispatcher.doPost(Dispatcher.java:84)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:857)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1655)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:215)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:220)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:126)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:503)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+ago 02, 2022 12:05:35 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 12:05:36 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 12:05:36 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 12:05:36 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 12:05:36 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdottoView
+ago 02, 2022 12:05:37 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdotto
+ago 02, 2022 12:05:37 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciTaglia
+ago 02, 2022 12:05:37 PM isa.handballshop.controller.ProdottoManagement inserisciTaglia
+GRAVE: Errore Controller ProdottoManagement
+java.lang.RuntimeException: com.ibm.db2.jcc.am.SqlException: DB2 SQL Error: SQLCODE=-313, SQLSTATE=07001, SQLERRMC=null, DRIVER=4.25.13
+	at isa.handballshop.model.dao.implementation.ProdottoDAOImpl.creaProdotto(ProdottoDAOImpl.java:120)
+	at isa.handballshop.controller.ProdottoManagement.inserisciTaglia(ProdottoManagement.java:218)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at isa.handballshop.dispatcher.Dispatcher.processRequest(Dispatcher.java:43)
+	at isa.handballshop.dispatcher.Dispatcher.doPost(Dispatcher.java:84)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:857)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1655)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:215)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:220)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:126)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:503)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: com.ibm.db2.jcc.am.SqlException: DB2 SQL Error: SQLCODE=-313, SQLSTATE=07001, SQLERRMC=null, DRIVER=4.25.13
+	at com.ibm.db2.jcc.am.b6.a(b6.java:815)
+	at com.ibm.db2.jcc.am.b6.a(b6.java:66)
+	at com.ibm.db2.jcc.am.b6.a(b6.java:140)
+	at com.ibm.db2.jcc.am.k3.b(k3.java:2471)
+	at com.ibm.db2.jcc.am.k3.c(k3.java:2452)
+	at com.ibm.db2.jcc.t4.ab.n(ab.java:914)
+	at com.ibm.db2.jcc.t4.ab.a(ab.java:120)
+	at com.ibm.db2.jcc.t4.p.a(p.java:50)
+	at com.ibm.db2.jcc.t4.aw.b(aw.java:220)
+	at com.ibm.db2.jcc.am.k4.bm(k4.java:3599)
+	at com.ibm.db2.jcc.am.k4.a(k4.java:4644)
+	at com.ibm.db2.jcc.am.k4.b(k4.java:4182)
+	at com.ibm.db2.jcc.am.k4.be(k4.java:827)
+	at com.ibm.db2.jcc.am.k4.executeUpdate(k4.java:801)
+	at isa.handballshop.model.dao.implementation.ProdottoDAOImpl.creaProdotto(ProdottoDAOImpl.java:115)
+	... 44 more
+
+ago 02, 2022 12:18:03 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 12:18:04 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 12:18:04 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 12:18:04 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 12:18:04 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdottoView
+ago 02, 2022 12:18:05 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdotto
+ago 02, 2022 12:18:05 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciTaglia
+ago 02, 2022 12:24:42 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 12:24:43 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 12:24:43 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 12:24:43 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 12:24:43 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdottoView
+ago 02, 2022 12:24:44 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdotto
+ago 02, 2022 12:24:44 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciTaglia
+ago 02, 2022 12:24:44 PM isa.handballshop.controller.ProdottoManagement inserisciTaglia
+GRAVE: Errore Controller ProdottoManagement
+java.lang.RuntimeException: com.ibm.db2.jcc.am.SqlException: DB2 SQL Error: SQLCODE=-313, SQLSTATE=07001, SQLERRMC=null, DRIVER=4.25.13
+	at isa.handballshop.model.dao.implementation.ProdottoDAOImpl.creaProdotto(ProdottoDAOImpl.java:121)
+	at isa.handballshop.controller.ProdottoManagement.inserisciTaglia(ProdottoManagement.java:218)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at isa.handballshop.dispatcher.Dispatcher.processRequest(Dispatcher.java:43)
+	at isa.handballshop.dispatcher.Dispatcher.doPost(Dispatcher.java:84)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:857)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1655)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:215)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:220)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:126)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:503)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: com.ibm.db2.jcc.am.SqlException: DB2 SQL Error: SQLCODE=-313, SQLSTATE=07001, SQLERRMC=null, DRIVER=4.25.13
+	at com.ibm.db2.jcc.am.b6.a(b6.java:815)
+	at com.ibm.db2.jcc.am.b6.a(b6.java:66)
+	at com.ibm.db2.jcc.am.b6.a(b6.java:140)
+	at com.ibm.db2.jcc.am.k3.b(k3.java:2471)
+	at com.ibm.db2.jcc.am.k3.c(k3.java:2452)
+	at com.ibm.db2.jcc.t4.ab.n(ab.java:914)
+	at com.ibm.db2.jcc.t4.ab.a(ab.java:120)
+	at com.ibm.db2.jcc.t4.p.a(p.java:50)
+	at com.ibm.db2.jcc.t4.aw.b(aw.java:220)
+	at com.ibm.db2.jcc.am.k4.bm(k4.java:3599)
+	at com.ibm.db2.jcc.am.k4.a(k4.java:4644)
+	at com.ibm.db2.jcc.am.k4.b(k4.java:4182)
+	at com.ibm.db2.jcc.am.k4.be(k4.java:827)
+	at com.ibm.db2.jcc.am.k4.executeUpdate(k4.java:801)
+	at isa.handballshop.model.dao.implementation.ProdottoDAOImpl.creaProdotto(ProdottoDAOImpl.java:116)
+	... 44 more
+
+ago 02, 2022 12:32:09 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 12:32:11 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 12:32:17 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 12:32:19 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 12:32:21 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdottoView
+ago 02, 2022 12:33:57 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdotto
+ago 02, 2022 12:34:15 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciTaglia
+ago 02, 2022 12:34:15 PM isa.handballshop.controller.ProdottoManagement inserisciTaglia
+GRAVE: Errore Controller ProdottoManagement
+java.lang.RuntimeException: com.ibm.db2.jcc.am.SqlException: DB2 SQL Error: SQLCODE=-313, SQLSTATE=07001, SQLERRMC=null, DRIVER=4.25.13
+	at isa.handballshop.model.dao.implementation.ProdottoDAOImpl.creaProdotto(ProdottoDAOImpl.java:121)
+	at isa.handballshop.controller.ProdottoManagement.inserisciTaglia(ProdottoManagement.java:218)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at isa.handballshop.dispatcher.Dispatcher.processRequest(Dispatcher.java:43)
+	at isa.handballshop.dispatcher.Dispatcher.doPost(Dispatcher.java:84)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:857)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1655)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:215)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:220)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:126)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:503)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: com.ibm.db2.jcc.am.SqlException: DB2 SQL Error: SQLCODE=-313, SQLSTATE=07001, SQLERRMC=null, DRIVER=4.25.13
+	at com.ibm.db2.jcc.am.b6.a(b6.java:815)
+	at com.ibm.db2.jcc.am.b6.a(b6.java:66)
+	at com.ibm.db2.jcc.am.b6.a(b6.java:140)
+	at com.ibm.db2.jcc.am.k3.b(k3.java:2471)
+	at com.ibm.db2.jcc.am.k3.c(k3.java:2452)
+	at com.ibm.db2.jcc.t4.ab.n(ab.java:914)
+	at com.ibm.db2.jcc.t4.ab.a(ab.java:120)
+	at com.ibm.db2.jcc.t4.p.a(p.java:50)
+	at com.ibm.db2.jcc.t4.aw.b(aw.java:220)
+	at com.ibm.db2.jcc.am.k4.bm(k4.java:3599)
+	at com.ibm.db2.jcc.am.k4.a(k4.java:4644)
+	at com.ibm.db2.jcc.am.k4.b(k4.java:4182)
+	at com.ibm.db2.jcc.am.k4.be(k4.java:827)
+	at com.ibm.db2.jcc.am.k4.executeUpdate(k4.java:801)
+	at isa.handballshop.model.dao.implementation.ProdottoDAOImpl.creaProdotto(ProdottoDAOImpl.java:116)
+	... 44 more
+
+ago 02, 2022 2:47:47 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 2:47:47 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 2:47:48 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 2:47:48 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 2:47:48 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdottoView
+ago 02, 2022 2:47:49 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdotto
+ago 02, 2022 2:47:49 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciTaglia
+ago 02, 2022 2:47:49 PM isa.handballshop.controller.ProdottoManagement inserisciTaglia
+GRAVE: Errore Controller ProdottoManagement
+java.lang.RuntimeException: com.ibm.db2.jcc.am.SqlException: DB2 SQL Error: SQLCODE=-313, SQLSTATE=07001, SQLERRMC=null, DRIVER=4.25.13
+	at isa.handballshop.model.dao.implementation.ProdottoDAOImpl.creaProdotto(ProdottoDAOImpl.java:126)
+	at isa.handballshop.controller.ProdottoManagement.inserisciTaglia(ProdottoManagement.java:218)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at isa.handballshop.dispatcher.Dispatcher.processRequest(Dispatcher.java:43)
+	at isa.handballshop.dispatcher.Dispatcher.doPost(Dispatcher.java:84)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:857)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1655)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:215)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:220)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:126)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:503)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: com.ibm.db2.jcc.am.SqlException: DB2 SQL Error: SQLCODE=-313, SQLSTATE=07001, SQLERRMC=null, DRIVER=4.25.13
+	at com.ibm.db2.jcc.am.b6.a(b6.java:815)
+	at com.ibm.db2.jcc.am.b6.a(b6.java:66)
+	at com.ibm.db2.jcc.am.b6.a(b6.java:140)
+	at com.ibm.db2.jcc.am.k3.b(k3.java:2471)
+	at com.ibm.db2.jcc.am.k3.c(k3.java:2452)
+	at com.ibm.db2.jcc.t4.ab.n(ab.java:914)
+	at com.ibm.db2.jcc.t4.ab.a(ab.java:120)
+	at com.ibm.db2.jcc.t4.p.a(p.java:50)
+	at com.ibm.db2.jcc.t4.aw.b(aw.java:220)
+	at com.ibm.db2.jcc.am.k4.bm(k4.java:3599)
+	at com.ibm.db2.jcc.am.k4.a(k4.java:4644)
+	at com.ibm.db2.jcc.am.k4.b(k4.java:4182)
+	at com.ibm.db2.jcc.am.k4.be(k4.java:827)
+	at com.ibm.db2.jcc.am.k4.executeUpdate(k4.java:801)
+	at isa.handballshop.model.dao.implementation.ProdottoDAOImpl.creaProdotto(ProdottoDAOImpl.java:121)
+	... 44 more
+
+ago 02, 2022 2:54:48 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 2:54:49 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 2:54:49 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 2:54:49 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 2:54:49 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdottoView
+ago 02, 2022 2:54:50 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdotto
+ago 02, 2022 2:54:51 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciTaglia
+ago 02, 2022 2:57:14 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logout
+ago 02, 2022 2:58:30 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 2:58:31 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 2:58:31 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 2:58:31 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 02, 2022 2:58:31 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdottoView
+ago 02, 2022 2:58:32 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciProdotto
+ago 02, 2022 2:58:33 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement inserisciTaglia
