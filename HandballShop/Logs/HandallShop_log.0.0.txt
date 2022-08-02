@@ -815,3 +815,15 @@ ago 01, 2022 6:25:33 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: UtentiManagement view
 ago 01, 2022 6:25:40 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: LogOn logout
+ago 02, 2022 10:45:12 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 02, 2022 10:45:15 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 02, 2022 10:45:22 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 02, 2022 10:45:24 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 02, 2022 10:45:30 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement bloccaUtente
+ago 02, 2022 10:46:08 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement sbloccaUtente
