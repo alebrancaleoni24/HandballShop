@@ -1,5 +1,6 @@
 package isa.handballshop.model.valueObject;
 
+import java.util.ArrayList;
 
 public class Utente {
     
@@ -12,7 +13,7 @@ public class Utente {
     /*1 utente N pagamenti*/
     private Pagamento[] pagamenti;
     /*1 utente N ordini*/
-    private Ordine[] ordini;
+    private ArrayList<Ordine> ordini;
     
     public String getNome(){
         return nome;
@@ -131,23 +132,23 @@ public class Utente {
     }
     
     /*Ritorna l'intero array*/
-    public Ordine[] getOrdine() {
+    public ArrayList<Ordine> getOrdine() {
         return ordini;
     }
 
     /*Setta l'intero array*/
-    public void setOrdine(Ordine[] ordini) {
+    public void setOrdine(ArrayList<Ordine> ordini) {
        this.ordini = ordini;
     }
     
     /*Ritorna l'elemento della posizione specificata*/
     public Ordine getOrdine(int index) {
-        return this.ordini[index];
+        return this.ordini.get(index);
     }
   
     /*Setta la posizione specificata con l'elemento specificato*/
-    public void setOrdine(int index, Ordine ordini) {
-        this.ordini[index] = ordini;
+    public void setOrdine(int index, Ordine ordine) {
+        this.ordini.set(index, ordine);
     }
     
 }

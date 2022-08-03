@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import isa.handballshop.model.dao.UtenteDAO;
 import isa.handballshop.model.dao.exception.DuplicatedObjectException;
+import isa.handballshop.model.valueObject.Ordine;
 import isa.handballshop.model.valueObject.Utente;
 
 public class UtenteDAOImpl implements UtenteDAO{
@@ -112,7 +113,6 @@ public class UtenteDAOImpl implements UtenteDAO{
     }
 
     /* Recupera dal DB tutti gli utenti registrati */
-
     @Override
     public ArrayList<Utente> findUtenti() {
         PreparedStatement ps;
@@ -293,6 +293,7 @@ public class UtenteDAOImpl implements UtenteDAO{
         }
     }
 
+    /*Elimina un utente dal DB*/
     @Override
     public void eliminaUtente(String email) {
         PreparedStatement ps;
@@ -311,6 +312,38 @@ public class UtenteDAOImpl implements UtenteDAO{
             throw new RuntimeException(e);
         }
         
+    }
+
+    /* Recupera l'utente con l'email specificata e tutti gli ordini da lui effettuati */
+    @Override
+    public Utente schedaUtente(String email) {
+        PreparedStatement ps;
+        Utente utente = null;
+
+        try{
+            /* Prende tutti gli utenti nel DB in ordine alfabetico di cognome */
+            String sql
+                = " SELECT UTENTE.*, ORDINE.* "
+                + " FROM UTENTE, ORDINE "
+                + " WHERE UTENTE.email = ORDINE.email AND UTENTE.email = ?";
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, email);
+
+            ResultSet resultSet = ps.executeQuery();
+
+            if(resultSet.next()){
+                utente = readJoin(resultSet);
+            }
+
+            resultSet.close();
+            ps.close();
+
+        }catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+
+        return utente;
     }
     
     /* Leggo i campi del resultset e li carico in ordine */
@@ -408,6 +441,116 @@ public class UtenteDAOImpl implements UtenteDAO{
         }catch(SQLException sqle){
             System.out.println(sqle.getMessage());
         }
+        
+        return utente;
+    }
+
+    /* Leggo i campi del resultset e li carico in ordine */
+    protected Utente readJoin(ResultSet resultSet) throws SQLException {
+        Utente utente = new Utente();
+        
+        /*Leggo l'email*/
+        try {
+            utente.setEmail(resultSet.getString("email"));
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+        
+        /*Leggo il nome*/
+        try {
+            utente.setNome(resultSet.getString("nome"));
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+        
+        /*Leggo il cognome*/
+        try {
+            utente.setCognome(resultSet.getString("cognome"));
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+        
+        /*Leggo la password*/
+        try {
+            utente.setPassword(resultSet.getString("password"));
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+        
+        /*Leggo il genere*/
+        try {
+            utente.setGenere(resultSet.getString("genere"));
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+        
+        /*Leggo la nazione*/
+        try {
+            utente.setNazione(resultSet.getString("nazione"));
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+        
+        /*Leggo la città*/
+        try {
+            utente.setCittà(resultSet.getString("città"));
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+        
+        /*Leggo la via*/
+        try {
+            utente.setVia(resultSet.getString("via"));
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+        
+        /*Leggo il numero civico*/
+        try {
+            utente.setNumeroCivico(resultSet.getString("numeroCivico"));
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+        
+        /*Leggo il CAP*/
+        try {
+            utente.setCAP(resultSet.getInt("CAP"));
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+        
+        /*Leggo admin*/
+        try {
+            if(resultSet.getString("admin").equals("S")){
+                utente.setAdmin(true);
+            }else{
+                utente.setAdmin(false);
+            }
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+        
+        /*Leggo blocked*/
+        try {
+            if(resultSet.getString("blocked").equals("S")){
+                utente.setBlocked(true);
+            }else{
+                utente.setBlocked(false);
+            }
+        }catch(SQLException sqle){
+            System.out.println(sqle.getMessage());
+        }
+
+        /* LEGGO GLI ORDINI */
+        ArrayList<Ordine> ordini = new ArrayList<>();
+        OrdineDAOImpl ordineDAOImpl = new OrdineDAOImpl(connection);
+        do{
+
+            ordini.add(ordineDAOImpl.read(resultSet));
+            
+        }while(resultSet.next());
+
+        utente.setOrdine(ordini);
         
         return utente;
     }

@@ -250,6 +250,62 @@ public class UtentiManagement {
             }
         }
     }
+
+    /* Metodo per eseguire la view di schedaUtente.jsp */
+    public static void schedaUtenteView(HttpServletRequest request, HttpServletResponse response){
+        SessionDAO sessionDAO;
+        UtenteLoggato ul;
+        
+        JDBCDAOFactory jdbc = null;
+        
+        Logger logger = LogService.printLog();
+
+        try {
+            /*Creo la sessione*/
+            sessionDAO = new SessionDAOImpl();
+            sessionDAO.initSession(request, response);
+            
+            /*Recupero il cookie utente*/
+            UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
+            ul = ulDAO.trova();
+            
+            /*Stabilisco la connessione*/
+            jdbc = JDBCDAOFactory.getJDBCImpl(Configuration.DAO_IMPL);
+            jdbc.beginTransaction();
+
+            UtenteDAO utenteDAO = jdbc.getUtenteDAO();
+
+            /*Recupero il'email dell'utente da mostrare*/
+            String email = request.getParameter("email");
+
+            /* Recupero dal DB l'utente e tutti i suoi ordini */
+            Utente utente = utenteDAO.schedaUtente(email);
+
+            jdbc.commitTransaction();
+
+            request.setAttribute("utente", utente);
+            request.setAttribute("loggedOn",ul!=null);
+            request.setAttribute("loggedUser", ul);
+            request.setAttribute("viewUrl", "utentiManagement/schedaUtente");
+
+        }catch(Exception e){
+            logger.log(Level.SEVERE, "Errore Controller UtentiManagement", e);
+            try {
+                if(jdbc != null){
+                    jdbc.rollbackTransaction();
+                }
+            }catch(Throwable t){
+            }
+            throw new RuntimeException(e);
+        }finally{
+            try{
+                if(jdbc != null){
+                    jdbc.closeTransaction();
+                }
+            }catch(Throwable t){
+            }
+        }
+    }
     
     /* Metodo per caricare le iniziali degli utenti, gli utenti da visualizzare in base alla lettera selezionata e il numero di ordini effettuato da ognuno */
     public static void commonView(JDBCDAOFactory jdbc, HttpServletRequest request) {

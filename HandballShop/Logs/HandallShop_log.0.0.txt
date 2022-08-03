@@ -1540,3 +1540,5 @@ ago 02, 2022 5:21:21 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: LogOn registraAdmin
 ago 02, 2022 5:21:26 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: UtentiManagement eliminaUtente
+ago 02, 2022 5:22:32 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logout

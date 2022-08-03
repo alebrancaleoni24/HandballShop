@@ -30,5 +30,8 @@ import isa.handballshop.model.valueObject.Utente;
 
     /*Elimina un utente dal DB*/
     public void eliminaUtente(String email);
+
+    /* Recupera l'utente con l'email specificata e tutti gli ordini da lui effettuati */
+    public Utente schedaUtente(String email);
     
 }
