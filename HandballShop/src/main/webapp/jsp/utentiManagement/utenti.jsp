@@ -77,6 +77,11 @@
                 document.eliminaUtenteForm.email.value = email;
                 document.eliminaUtenteForm.submit();
             }
+
+            function schedaUtente(email){
+                document.schedaUtenteForm.email.value = email;
+                document.schedaUtenteForm.submit();
+            }
         </script>
         
         <%@include file="/include/htmlHead.inc" %>
@@ -127,7 +132,7 @@
                 <!--LISTA DEGLI UTENTI DA MOSTRARE-->
                 <%for (i=0 ; i<numUtenti ; i++) {%>           
                     <article>
-                        <h1><%=utenti.get(i).getNome()%> <%=utenti.get(i).getCognome()%></h1>
+                        <h1><a href="javascript:schedaUtente('<%=utenti.get(i).getEmail()%>');"><%=utenti.get(i).getNome()%> <%=utenti.get(i).getCognome()%></a></h1>
                         <span class="email"><%=utenti.get(i).getEmail()%></span>
                         <address>
                             <%=utenti.get(i).getVia()%> n.<%=utenti.get(i).getNumeroCivico()%><br/>
@@ -179,6 +184,12 @@
                 <input type="hidden" name="selectedInitial" value="<%=selectedInitial%>"/>
                 <input type="hidden" name="email"/>
                 <input type="hidden" name="controllerAction" value="UtentiManagement.eliminaUtente"/>      
+            </form>
+
+            <!--FORM PER PASSARE ALLA SCHEDA UTENTE DELL'UTENTE SELEZIONATO-->
+            <form name="schedaUtenteForm" method="post" action="Dispatcher">
+                <input type="hidden" name="email"/>
+                <input type="hidden" name="controllerAction" value="UtentiManagement.schedaUtenteView"/>      
             </form>
             
         </main>

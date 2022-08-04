@@ -267,10 +267,6 @@ public class UtentiManagement {
             /*Creo la sessione*/
             sessionDAO = new SessionDAOImpl();
             sessionDAO.initSession(request, response);
-
-            PagamentoDAO pagamentoDAO = jdbc.getPagamentoDAO();
-            ContieneDAO contieneDAO = jdbc.getContieneDAO();
-            ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
             
             /*Recupero il cookie utente*/
             UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
@@ -281,6 +277,9 @@ public class UtentiManagement {
             jdbc.beginTransaction();
 
             UtenteDAO utenteDAO = jdbc.getUtenteDAO();
+            PagamentoDAO pagamentoDAO = jdbc.getPagamentoDAO();
+            ContieneDAO contieneDAO = jdbc.getContieneDAO();
+            ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
 
             /*Recupero il'email dell'utente da mostrare*/
             String email = request.getParameter("email");

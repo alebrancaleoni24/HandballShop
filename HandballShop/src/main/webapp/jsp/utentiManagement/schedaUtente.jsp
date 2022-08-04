@@ -5,14 +5,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    int i=0;
+    int i=0, j=0;
     
-    Utente utente = Utente request.getAttribute("utente");
+    Utente utente = (Utente) request.getAttribute("utente");
     
     boolean loggedOn = (boolean) request.getAttribute("loggedOn");
     
     /*Carico i cookie*/
     UtenteLoggato ul = (UtenteLoggato) request.getAttribute("loggedUser");
+
+    String applicationMessage = (String) request.getAttribute("applicationMessage");
     
     String menuActiveLink = "Utenti";
 %>
@@ -25,9 +27,9 @@
             }
         </style>
         <script language="javascript">
-            
-            function prodottoFormSubmit(indexi, indexj){
-                var f = document.forms["prodottoForm" + indexi + indexj];
+
+            function statoOrdine(index){
+                var f = document.forms["aggiornaStato" + index];
                 f.submit();
                 return;
             }
@@ -72,10 +74,6 @@
                                     <td><%=utente.getEmail()%></td>
                                 </tr>
                                 <tr>
-                                    <td>Sesso</td>
-                                    <td><%=utente.getGenere()%></td>
-                                </tr>
-                                <tr>
                                     <td>Paese</td>
                                     <td><%=utente.getNazione()%></td>
                                 </tr>
@@ -89,23 +87,23 @@
             <section id="box" name="ordini" class="clearfix">
 
                 <!--LISTA DEGLI ORDINI DA MOSTRARE-->
-                <%for (i=0 ; i<utente.getOrdini.size() ; i++) {%>           
+                <%for (i=0 ; i < utente.getOrdine().size() ; i++) {%>           
                     <article>
                         <hr>
                         <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;">
                             <div style="float: left; width: 60%">
                             
-                                <%for(j=0 ; j<utente.getOrdini().get(i).getContiene().size() ; j++){%>
+                                <%for(j=0 ; j < utente.getOrdine().get(i).getContiene().size() ; j++){%>
                                     <div class="clearfix">
                             
                                         <!--IMMAGINE DEL PRODOTTO-->
                                         <div style="float: left; padding-left: 2%; padding-right: 2%;">
-                                            <img id="ProdImage" src="/images/<%=utente.getOrdini().get(i).getContiene().get(j).getProdotto().getImage()%>" width="186" height="186"/>
+                                            <img id="ProdImage" src="/images/<%=utente.getOrdine().get(i).getContiene().get(j).getProdotto().getImage()%>" width="186" height="186"/>
                                         </div>
                                         
                                         <!--INFORMAZIONI DEL PRODOTTO-->
                                         <div style="float: left; padding-left: 2%; padding-right: 2%; padding-top: 50px;">
-                                            <p><b><%=utente.getOrdini().get(i).getContiene().get(j).getProdotto().getModello()%></b></br>Prezzo unitario: €<%=utente.getOrdini().get(i).getContiene().get(j).getProdotto().getPrezzo()%></br>Quantit&agrave;: <%=utente.getOrdini().get(i).getContiene().get(j).getQuantità()%></br>Taglia: <%=utente.getOrdini().get(i).getContiene().get(j).getTaglia().getTaglia()%></p>
+                                            <p><b><%=utente.getOrdine().get(i).getContiene().get(j).getProdotto().getModello()%></b></br>Prezzo unitario: €<%=utente.getOrdine().get(i).getContiene().get(j).getProdotto().getPrezzo()%></br>Quantit&agrave;: <%=utente.getOrdine().get(i).getContiene().get(j).getQuantità()%></br>Taglia: <%=utente.getOrdine().get(i).getContiene().get(j).getTaglia().getTaglia()%></p>
                                         </div>
                                         
                                     </div>   
@@ -114,25 +112,24 @@
                         
                             <!--INFORMAZIONI GENERALI DELL'ORDINE-->
                             <div style="float: left; width: 40%">
-                                <h3>Dettagli ordine</h3><br>
-                                <p><b>Cliente:</b> <%=utente.getOrdini().get(i).getUtente().getNome()%> <%=utente.getOrdini().get(i).getUtente().getCognome()%></p>
-                                <p><b>Data ordine: </b><%=utente.getOrdini().get(i).getDataOrdineString()%></br><b>Data consegna: </b><%=utente.getOrdini().get(i).getDataConsegnaString()%></br><b>Indirizzo di consegna: </b><%=utente.getOrdini().get(i).getVia()%> n° <%=utente.getOrdini().get(i).getNumeroCivico()%>, <%=utente.getOrdini().get(i).getCittà()%>, <%=utente.getOrdini().get(i).getNazione()%></br><b>Importo:</b> €<%=utente.getOrdini().get(i).getPagamento().getImporto()%></br></p>
-                                <%if(utente.getOrdini().get(i).getStato().equalsIgnoreCase("consegnato")){%>
+                                <h3>Dettagli ordine</h3>
+                                <p><b>Data ordine: </b><%=utente.getOrdine().get(i).getDataOrdineString()%></br><b>Data consegna: </b><%=utente.getOrdine().get(i).getDataConsegnaString()%></br><b>Indirizzo di consegna: </b><%=utente.getOrdine().get(i).getVia()%> n° <%=utente.getOrdine().get(i).getNumeroCivico()%>, <%=utente.getOrdine().get(i).getCittà()%>, <%=utente.getOrdine().get(i).getNazione()%></br><b>Importo:</b> €<%=utente.getOrdine().get(i).getPagamento().getImporto()%></br></p>
+                                <%if(utente.getOrdine().get(i).getStato().equalsIgnoreCase("consegnato")){%>
                                     <p style="color: green">Consegnato</p>
                                 <%}else{%>
-                                    <p style="color: orangered"><%=utente.getOrdini().get(i).getStato()%></p>
+                                    <p style="color: orangered"><%=utente.getOrdine().get(i).getStato()%></p>
                                 <%}%>
                             
                                 <!--FORM PER LA MODIFICA DELLO STATO DELL'ORDINE-->
-                                <%if(!utente.getOrdini().get(i).getStato().equalsIgnoreCase("consegnato")){%>
+                                <%if(!utente.getOrdine().get(i).getStato().equalsIgnoreCase("consegnato")){%>
                                     <form name="aggiornaStato<%=i%>" action="Dispatcher" method="post">
                                         <input type="hidden" name="controllerAction" value="Ordini.aggiornaStato"/>
-                                        <input type="hidden" name="codiceOrdine" value="<%=utente.getOrdini().get(i).getCodiceOrdine()%>"/>
+                                        <input type="hidden" name="codiceOrdine" value="<%=utente.getOrdine().get(i).getCodiceOrdine()%>"/>
                                         <label for="stato">Stato: </label>
                                         <select id="stato" name="stato" onchange="statoOrdine(<%=i%>)">
-                                            <option value="In preparazione" <%if(utente.getOrdini().get(i).getStato().equalsIgnoreCase("In preparazione")){%>selected="selected"<%}%>>In preparazione</option>
-                                            <option value="In viaggio" <%if(utente.getOrdini().get(i).getStato().equalsIgnoreCase("In viaggio")){%>selected="selected"<%}%>>In viaggio</option>
-                                            <option value="Consegnato" <%if(utente.getOrdini().get(i).getStato().equalsIgnoreCase("Consegnato")){%>selected="selected"<%}%>>Consegnato</option>
+                                            <option value="In preparazione" <%if(utente.getOrdine().get(i).getStato().equalsIgnoreCase("In preparazione")){%>selected="selected"<%}%>>In preparazione</option>
+                                            <option value="In viaggio" <%if(utente.getOrdine().get(i).getStato().equalsIgnoreCase("In viaggio")){%>selected="selected"<%}%>>In viaggio</option>
+                                            <option value="Consegnato" <%if(utente.getOrdine().get(i).getStato().equalsIgnoreCase("Consegnato")){%>selected="selected"<%}%>>Consegnato</option>
                                         </select>
                                      </form>
                                 <%}%>

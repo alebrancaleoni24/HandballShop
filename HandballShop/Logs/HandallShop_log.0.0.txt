@@ -1542,3 +1542,191 @@ ago 02, 2022 5:21:26 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: UtentiManagement eliminaUtente
 ago 02, 2022 5:22:32 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: LogOn logout
+ago 04, 2022 12:01:52 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 04, 2022 12:01:55 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 04, 2022 12:02:02 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 04, 2022 12:02:06 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 12:02:19 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logout
+ago 04, 2022 12:17:44 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 04, 2022 12:17:47 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 04, 2022 12:17:54 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 04, 2022 12:17:56 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 12:22:03 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 12:22:13 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logout
+ago 04, 2022 12:22:38 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 04, 2022 12:22:45 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 04, 2022 12:22:53 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 04, 2022 12:22:55 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 12:24:44 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 12:24:54 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logout
+ago 04, 2022 12:25:16 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 04, 2022 12:25:18 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 04, 2022 12:25:25 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 04, 2022 12:25:27 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 12:26:29 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logout
+ago 04, 2022 12:29:16 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 04, 2022 12:29:23 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 04, 2022 12:29:25 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 12:29:28 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 12:29:28 PM isa.handballshop.controller.UtentiManagement schedaUtenteView
+GRAVE: Errore Controller UtentiManagement
+java.lang.NullPointerException
+	at isa.handballshop.controller.UtentiManagement.schedaUtenteView(UtentiManagement.java:271)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at isa.handballshop.dispatcher.Dispatcher.processRequest(Dispatcher.java:43)
+	at isa.handballshop.dispatcher.Dispatcher.doPost(Dispatcher.java:84)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:857)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1655)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:215)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:220)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:126)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:503)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:126)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:366)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+ago 04, 2022 12:32:26 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 04, 2022 12:32:29 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 04, 2022 12:32:35 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 04, 2022 12:32:36 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 12:32:39 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 12:34:10 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 04, 2022 12:34:12 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 04, 2022 12:34:19 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 04, 2022 12:34:21 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 12:34:23 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 12:38:28 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 04, 2022 12:38:31 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 04, 2022 12:38:38 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 04, 2022 12:38:40 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 12:38:43 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 2:21:49 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 04, 2022 2:21:51 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 04, 2022 2:21:58 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 04, 2022 2:22:00 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 2:22:03 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 2:28:18 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 04, 2022 2:28:20 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 04, 2022 2:28:27 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 04, 2022 2:28:29 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 2:28:33 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 2:31:54 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 04, 2022 2:31:56 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 04, 2022 2:32:02 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 04, 2022 2:32:04 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 2:32:07 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 2:33:21 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 04, 2022 2:33:24 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 04, 2022 2:33:30 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 04, 2022 2:33:32 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 2:33:35 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 2:35:17 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 2:35:38 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 2:36:47 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 2:37:03 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 2:37:41 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 2:40:00 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 04, 2022 2:40:04 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Ordini aggiornaStato
+ago 04, 2022 2:40:56 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement view
+ago 04, 2022 2:40:59 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
