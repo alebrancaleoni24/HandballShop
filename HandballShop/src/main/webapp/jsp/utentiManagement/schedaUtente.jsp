@@ -26,14 +26,10 @@
         </style>
         <script language="javascript">
             
-            function bloccaUtente(email){
-                document.bloccaUtenteForm.email.value = email;
-                document.bloccaUtenteForm.submit();
-            }
-            
-            function sbloccaUtente(email){
-                document.sbloccaUtenteForm.email.value = email;
-                document.sbloccaUtenteForm.submit();
+            function prodottoFormSubmit(indexi, indexj){
+                var f = document.forms["prodottoForm" + indexi + indexj];
+                f.submit();
+                return;
             }
 
         </script>
@@ -58,13 +54,35 @@
             <section id="box" name="profilo" class="clearfix">
 
                 <!-- DATI DELL'UTENTE -->
-
-                <!--BOTTONI PER BLOCCARE O SBLOCCARE UN UTENTE-->
-                <%if(!utenti.get(i).isBlocked()){%>
-                    <a class="button" href="javascript:bloccaUtente('<%=utenti.get(i).getEmail()%>');">Blocca</a>
-                <%}else{%>
-                    <a class="button" href="javascript:sbloccaUtente('<%=utenti.get(i).getEmail()%>');">Sblocca</a>
-                <%}%>
+                <article>
+                    <div class="clearfix" style="margin-top: 15px; margin-bottom: 15px;">
+                        <h1>Profilo Utente</h1>
+                        <div class="clearfix">
+                            <table>
+                                <tr>
+                                    <td>Nome</td>
+                                    <td><%=utente.getNome()%></td>
+                                </tr>
+                                <tr>
+                                    <td>Cognome</td>
+                                    <td><%=utente.getCognome()%></td>
+                                </tr>
+                                <tr>
+                                    <td>E-Mail</td>
+                                    <td><%=utente.getEmail()%></td>
+                                </tr>
+                                <tr>
+                                    <td>Sesso</td>
+                                    <td><%=utente.getGenere()%></td>
+                                </tr>
+                                <tr>
+                                    <td>Paese</td>
+                                    <td><%=utente.getNazione()%></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </article>
 
             </section>
 
@@ -124,20 +142,6 @@
                 <%}%>
 
             </section>
-               
-            <!--FORM PER BLOCCARE L'UTENTE SELEZIONATO-->
-            <form name="bloccaUtenteForm" method="post" action="Dispatcher">
-                <input type="hidden" name="selectedInitial" value="<%=selectedInitial%>"/>
-                <input type="hidden" name="email"/>
-                <input type="hidden" name="controllerAction" value="UtentiManagement.bloccaUtente"/>      
-            </form>
-                
-            <!--FORM PER SBLOCCARE L'UTENTE SELEZIONATO-->
-            <form name="sbloccaUtenteForm" method="post" action="Dispatcher">
-                <input type="hidden" name="selectedInitial" value="<%=selectedInitial%>"/>
-                <input type="hidden" name="email"/>
-                <input type="hidden" name="controllerAction" value="UtentiManagement.sbloccaUtente"/>      
-            </form>
             
         </main>
         

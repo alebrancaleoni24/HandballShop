@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import isa.handballshop.config.Configuration;
+import isa.handballshop.model.dao.ContieneDAO;
 import isa.handballshop.model.dao.JDBCDAOFactory;
 import isa.handballshop.model.dao.OrdineDAO;
+import isa.handballshop.model.dao.PagamentoDAO;
+import isa.handballshop.model.dao.ProdottoDAO;
 import isa.handballshop.model.dao.UtenteDAO;
 import isa.handballshop.model.session.dao.SessionDAO;
 import isa.handballshop.model.session.dao.UtenteLoggatoDAO;
@@ -264,6 +267,10 @@ public class UtentiManagement {
             /*Creo la sessione*/
             sessionDAO = new SessionDAOImpl();
             sessionDAO.initSession(request, response);
+
+            PagamentoDAO pagamentoDAO = jdbc.getPagamentoDAO();
+            ContieneDAO contieneDAO = jdbc.getContieneDAO();
+            ProdottoDAO prodottoDAO = jdbc.getProdottoDAO();
             
             /*Recupero il cookie utente*/
             UtenteLoggatoDAO ulDAO = sessionDAO.getUtenteLoggatoDAO();
@@ -280,6 +287,24 @@ public class UtentiManagement {
 
             /* Recupero dal DB l'utente e tutti i suoi ordini */
             Utente utente = utenteDAO.schedaUtente(email);
+
+            /*Per ogni ordine carico il prezzo complessivo*/
+            for(int i=0 ; i<utente.getOrdine().size() ; i++){
+                utente.getOrdine().get(i).getPagamento().setImporto(pagamentoDAO.getImporto(utente.getOrdine().get(i).getPagamento().getCodicePagamento()));
+            }
+        
+            /*Carico 'CONTIENE'*/
+            for(int i=0 ; i<utente.getOrdine().size() ; i++){
+                utente.getOrdine().get(i).setContiene(contieneDAO.findContieneByOrdine(utente.getOrdine().get(i).getCodiceOrdine()));
+            }
+            
+            /*Per ogni ordine carico all'interno di ogni contiene il prodotto specificato dal codice*/
+            for(int i=0 ; i<utente.getOrdine().size() ; i++){
+                for(int j=0 ; j<utente.getOrdine().get(i).getContiene().size() ; j++){
+                    utente.getOrdine().get(i).getContiene().get(j).setProdotto(prodottoDAO.findByKey(utente.getOrdine().get(i).getContiene().get(j).getProdotto().getCodiceProdotto()));
+                }
+            }
+            
 
             jdbc.commitTransaction();
 
