@@ -1,8 +1,8 @@
 <meta charset="utf-8"/>
 
     <title>Handball Shop: <%=menuActiveLink%></title>
-    <link rel="shortcut icon" href="images/HandballVectorialWeb.png" />
-    <link rel="stylesheet" href="css/handshop.css" type="text/css" media="screen">
+    <link rel="shortcut icon" href="/images/HandballVectorialWeb.png" />
+    <link rel="stylesheet" href="/css/handballShop.css" type="text/css" media="screen">
     <script>
         var applicationMessage;
         <%if (applicationMessage != null) {%>
