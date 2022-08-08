@@ -4,7 +4,7 @@
         <input type="hidden" name="controllerAction" value="LogOn.logout"/>
     </form>
     
-    <div style="height: 126px;">
+    <div>
         <nav class="clearfix">
             <div class="logo">
                 <a href="Dispatcher?controllerAction=Catalogo.view">
