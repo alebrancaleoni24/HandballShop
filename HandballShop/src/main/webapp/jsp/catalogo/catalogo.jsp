@@ -97,13 +97,6 @@
         <hr>
         
         <main>
-            <div class='nome'>
-                <%if(loggedOn){%>
-                <p id="loggedOn">Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
-                <%}else{%>
-                <p id="notLoggedOn">Benvenuto, fai il login per procedere all'acquisto dei tuoi prodotti</p>
-                <%}%>
-            </div>
             
             <!--BARRA LATERALE PER LA RICERCA DEI PRODOTTI-->
             <aside class="left_content">
@@ -123,9 +116,7 @@
                         <%}%>
                     </ul>
                 </section>
-                    
-                <hr>
-                
+                  
                 <section>
                     <h1>MARCHE</h1>
                     <ul>
@@ -141,8 +132,6 @@
                         <%}%>
                     </ul>
                 </section>
-                    
-                <hr>
                     
                 <section>
                     <h1>GENERI</h1>
@@ -161,6 +150,14 @@
                 </section>
                             
             </aside>
+
+            <div class='nome'>
+                <%if(loggedOn){%>
+                <p id="loggedOn">Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
+                <%}else{%>
+                <p id="notLoggedOn">Benvenuto, fai il login per procedere all'acquisto dei tuoi prodotti</p>
+                <%}%>
+            </div>
                     
             <!--BARRA DI RICERCA LIBERA-->
             <section id="search">
@@ -169,7 +166,7 @@
                         <input type="text" id="searchName" name="searchName" maxlength="100" placeholder="Cerca...">
                         <input type="hidden" name="searchType" value="searchString"/>
                         <input type="hidden" name="controllerAction" value="Catalogo.view"/>
-                        <a href="javascript:searchProdoctByStringSubmit();">CERCA</a>
+                        <a href="javascript:searchProdoctByStringSubmit();" style="font-size: medium" style="font-weight: bold">Cerca</a>
                     </form>
                 </div>
             </section>
@@ -184,10 +181,10 @@
             </div>
             <%}else{%>
             <section class="clearfix">
-                <div style="float: left; width: 88%;">
+                <div class="right_content">
                     <%for (i = 0; i < numProd; i++) {%>           
                         <article>
-                            <div class="right_content">
+                            <div class="prodotto">
                                 <form name="prodottoForm<%=i%>" action="Dispatcher" method="post">
                                     <input type="hidden" name="controllerAction" value="Catalogo.viewProd"/>
                                     <input type="hidden" name="codiceProdotto"/>

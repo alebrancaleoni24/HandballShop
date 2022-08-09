@@ -4,25 +4,25 @@
         <input type="hidden" name="controllerAction" value="LogOn.logout"/>
     </form>
 
-    <div style="height: 126px;">
+    <div id="navigation">
         <nav class="clearfix">
             <div class="logo">
                 <a href="Dispatcher?controllerAction=HomeAdmin.view">
-                    <img id="LogoWeb" src="/images/LogoWeb.png" width="370" height="105" alt="Torna alla Home Page"/>
+                    <img id="LogoWeb" src="/images/HandballVectorialWeb.png" height="35%" width="30%" alt="Torna alla Home Page"/>
                 </a>
             </div>
             <div class="barra">
-                <div class="admin">
-                    <a href="Dispatcher?controllerAction=Ordini.view">ORDINI</a>
+                <div class="menu">
+                    <a href="Dispatcher?controllerAction=Ordini.view">Ordini</a>
                 </div>
-                <div class="admin">
-                    <a href="Dispatcher?controllerAction=UtentiManagement.view">UTENTI</a>
+                <div class="menu">
+                    <a href="Dispatcher?controllerAction=UtentiManagement.view">Utenti</a>
                 </div>
-                <div class="admin">
-                    <a href="Dispatcher?controllerAction=ProdottoManagement.view">MAGAZZINO</a>
+                <div class="menu">
+                    <a href="Dispatcher?controllerAction=ProdottoManagement.view">Magazzino</a>
                 </div>
-                <div class="admin">
-                    <a href="javascript:logoutForm.submit()">LOGOUT</a>
+                <div class="menu">
+                    <a href="javascript:logoutForm.submit()">Logout</a>
                 </div>
             </div>
         </nav>
