@@ -13,16 +13,16 @@
             </div>
             <div class="barra">
                 <div class="menu">
-                    <a href="Dispatcher?controllerAction=Ordini.view">Ordini</a>
+                    <a style="color: ##f5f5f5" href="Dispatcher?controllerAction=Ordini.view">Ordini</a>
                 </div>
                 <div class="menu">
-                    <a href="Dispatcher?controllerAction=UtentiManagement.view">Utenti</a>
+                    <a style="color: ##f5f5f5" href="Dispatcher?controllerAction=UtentiManagement.view">Utenti</a>
                 </div>
                 <div class="menu">
-                    <a href="Dispatcher?controllerAction=ProdottoManagement.view">Magazzino</a>
+                    <a style="color: ##f5f5f5" href="Dispatcher?controllerAction=ProdottoManagement.view">Magazzino</a>
                 </div>
                 <div class="menu">
-                    <a href="javascript:logoutForm.submit()">Logout</a>
+                    <a style="color: ##f5f5f5" href="javascript:logoutForm.submit()">Logout</a>
                 </div>
             </div>
         </nav>

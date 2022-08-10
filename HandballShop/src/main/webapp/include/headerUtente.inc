@@ -14,20 +14,20 @@
             <div class="barra">
                 <%if(loggedOn) {/*Se non sono loggato faccio vedere i tatsi carrello, ordini e logout*/%>
                     <div class="menu">
-                        <a id= "carrello" href="Dispatcher?controllerAction=Acquisto.viewCarrello">Carrello</a>
+                        <a id= "carrello" style="color: #f5f5f5" href="Dispatcher?controllerAction=Acquisto.viewCarrello">Carrello</a>
                     </div>
                     <div class="menu">
-                        <a id= "ordini" href="Dispatcher?controllerAction=Ordini.view">Ordini</a>
+                        <a id= "ordini" style="color: #f5f5f5" href="Dispatcher?controllerAction=Ordini.view">Ordini</a>
                     </div>
                     <div class="menu">
-                        <a id= "logout" href="javascript:logoutForm.submit()">Logout</a>
+                        <a id= "logout" style="color: #f5f5f5" href="javascript:logoutForm.submit()">Logout</a>
                     </div>
                 <%}else{%>
                     <div class="menu">
-                        <a id= "login" href="Dispatcher?controllerAction=LogOn.view&opzione=L">Login</a>
+                        <a id= "login" style="color: #f5f5f5" href="Dispatcher?controllerAction=LogOn.view&opzione=L">Login</a>
                     </div>
                     <div class="menu">
-                        <a id= "registrati" href="Dispatcher?controllerAction=LogOn.view&opzione=R">Registrati</a>
+                        <a id= "registrati" style="color: #f5f5f5" href="Dispatcher?controllerAction=LogOn.view&opzione=R">Registrati</a>
                     </div>
                 <%}%>
             </div>

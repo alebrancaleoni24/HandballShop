@@ -189,12 +189,14 @@
                                     <input type="hidden" name="controllerAction" value="Catalogo.viewProd"/>
                                     <input type="hidden" name="codiceProdotto"/>
                                     <a id="<%=i%>" href="javascript:prodottoFormSubmit(<%=i%>, <%=prodotti.get(i).getCodiceProdotto()%>);">
-                                        <img src="/images/<%=prodotti.get(i).getImage()%>" width="230" height="230" alt="Visualizza prodotto"/>
+                                        <img src="/images/<%=prodotti.get(i).getImage()%>" width="65%" height="65%" alt="Visualizza prodotto"/>
                                     </a>
                                 </form>
-                                <span><b><%=prodotti.get(i).getModello()%></b></span>
+                                <span style="font-size: medium; line-height: 1.5;"><b><%=prodotti.get(i).getMarca()%></b></span>
                                 <br/>
-                                <span>€<%=prodotti.get(i).getPrezzo()%></span>
+                                <span style="font-size: small; line-height: 1.5;"><%=prodotti.get(i).getModello()%></span>
+                                <br/>
+                                <span style="font-size: small; line-height: 1.5;">€<%=prodotti.get(i).getPrezzo()%></span>
                             </div>
                         </article>
                     <%}%>
