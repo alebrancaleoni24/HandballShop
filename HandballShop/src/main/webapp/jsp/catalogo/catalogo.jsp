@@ -166,7 +166,7 @@
                         <input type="text" id="searchName" name="searchName" maxlength="100" placeholder="Cerca...">
                         <input type="hidden" name="searchType" value="searchString"/>
                         <input type="hidden" name="controllerAction" value="Catalogo.view"/>
-                        <a href="javascript:searchProdoctByStringSubmit();" style="font-size: medium" style="font-weight: bold">Cerca</a>
+                        <a href="javascript:searchProdoctByStringSubmit();" style="font-size: medium" style="font-weight: bold">Trova</a>
                     </form>
                 </div>
             </section>
@@ -189,7 +189,7 @@
                                     <input type="hidden" name="controllerAction" value="Catalogo.viewProd"/>
                                     <input type="hidden" name="codiceProdotto"/>
                                     <a id="<%=i%>" href="javascript:prodottoFormSubmit(<%=i%>, <%=prodotti.get(i).getCodiceProdotto()%>);">
-                                        <img src="/images/<%=prodotti.get(i).getImage()%>" width="65%" height="65%" alt="Visualizza prodotto"/>
+                                        <img src="/images/<%=prodotti.get(i).getImage()%>" width="220px" height="220px" alt="Visualizza prodotto"/>
                                     </a>
                                 </form>
                                 <span style="font-size: medium; line-height: 1.5;"><b><%=prodotti.get(i).getMarca()%></b></span>
