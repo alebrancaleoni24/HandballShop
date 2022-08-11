@@ -87,9 +87,6 @@
         </script>
         
         <style>
-            img {
-                float: left;
-            }
             
             #ordina{
                 padding: 5px 10px;
@@ -101,6 +98,19 @@
                 font-size: large;
                 width: 100%;
             }
+
+            table{
+                width: 100%;
+            }
+
+            td{
+                width: 50%;
+                padding: 1%;
+            }
+
+            tr{
+                height: 3%;
+            }
         </style>
         
         <%@include file="/include/htmlHead.inc" %>
@@ -110,16 +120,7 @@
             <%@include file="/include/headerUtente.inc" %>
         </header>
         
-        <hr>
-        
         <main>
-            <div class='nome'>
-                <%if(loggedOn){%>
-                    <p>Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
-                <%}else{%>
-                    <p>Benvenuto, fai il login per procedere all'acquisto dei tuoi prodotti</p>
-                <%}%>
-            </div>
             
             <!--BARRA LATERALE PER LA RICERCA DEI PRODOTTI-->
             <aside class="left_content">
@@ -139,9 +140,7 @@
                         <%}%>
                     </ul>
                 </section>
-                    
-                <hr>
-                
+                   
                 <section>
                     <h1>MARCHE</h1>
                     <ul>
@@ -157,8 +156,6 @@
                         <%}%>
                     </ul>
                 </section>
-                    
-                <hr>
                     
                 <section>
                     <h1>GENERI</h1>
@@ -177,6 +174,14 @@
                 </section>
                             
             </aside>
+
+            <div class='nome'>
+                <%if(loggedOn){%>
+                <p id="loggedOn">Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
+                <%}else{%>
+                <p id="notLoggedOn">Benvenuto, fai il login per procedere all'acquisto dei tuoi prodotti</p>
+                <%}%>
+            </div>
                     
             <!--BARRA DI RICERCA LIBERA-->
             <section id="search">
@@ -185,32 +190,31 @@
                         <input type="text" id="searchName" name="searchName" maxlength="100" placeholder="Cerca...">
                         <input type="hidden" name="searchType" value="searchString"/>
                         <input type="hidden" name="controllerAction" value="Catalogo.view"/>
-                        <a href="javascript:searchProdoctByStringSubmit();">CERCA</a>
+                        <a href="javascript:searchProdoctByStringSubmit();" style="font-size: medium" style="font-weight: bold">Trova</a>
                     </form>
                 </div>
             </section>
             
             <!--INFORMAZIONI PRODOTTO-->
-            <div style="float: left; width: 88%;">
-                <div style="float: left; margin-left: 70px;">
-                    <img id="ProdImage" src="/images/<%=prodotto.getImage()%>" width="400" height="400" alt="Visualizza prodotto"/>
+            <div class="right_content">
+                <div style="float: left; width: 52%; padding: 2%; text-align: center;">
+                    <img id="ProdImage" src="/images/<%=prodotto.getImage()%>" width="400px" height="400px" alt="Visualizza prodotto"/>
                 </div>
                 
-                <div style="float: left; margin-left: 70px;">
-                    <span>Marca: <%=prodotto.getMarca()%></span>
-                    <br/>
-                    <span>Modello: <%=prodotto.getModello()%></span>
-                    <br/>
-                    <span>Prezzo: €<%=prodotto.getPrezzo()%></span>
+                <div style="float: left; padding: 2%; width: 40%;">
             
                     <!--FORM DI INSERIMENTO PRODOTTO NEL CARRELLO-->
                     <section>
-                        <div>
+                        <table>
+                            <tr><td><span style="font-size: large;"><b><%=prodotto.getMarca()%></b></span></td></tr>
+                            <tr><td><span><b><%=prodotto.getModello()%></b></span></td></tr>
+                            <tr><td><span><b>€<%=prodotto.getPrezzo()%></b></span></td></tr>
                             <form name="carrelloForm" action="Dispatcher" method="post">
                                 <input type="hidden" name="controllerAction" value="Catalogo.insert"/>
                                 <input type="hidden" name="codiceProdotto"/>
-                                <div>
-                                    <label for="taglia">Scegli la taglia: </label>
+                                <tr>
+                                    <td><label for="taglia">Scegli la taglia: </label></td>
+                                    <td>
                                     <select id="taglia" name="taglia">
                                         <%if(!prodotto.getCategoria().equals("Scarpe")){%>
                                         <option value="XS">XS</option>
@@ -230,20 +234,21 @@
                                         <option value="45">45</option>
                                         <%}%>
                                     </select> 
-                                </div> 
+                                    </td>
+                                </tr>
             
-                                <div>
-                                    <label for="quantita">Quantit&agrave: </label>
-                                    <input type="number" id="quantita" name="quantita" value="1" min="1" max="30" step="1"/>
-                                </div>
-                            
-                                <div style="margin-top: 70px;">
-                                    <a href="javascript:carrelloSubmit(<%=prodotto.getCodiceProdotto()%>);" id="ordina">
-                                        Aggiungi al carello
-                                    </a>
-                                </div>
-                            </form>
+                                <tr>
+                                    <td><label for="quantita">Quantit&agrave: </label></td>
+                                    <td><input type="number" id="quantita" name="quantita" value="1" min="1" max="30" step="1"/></td>
+                                </tr>
+                        </table>
+
+                        <div style="margin-top: 70px;">
+                            <a href="javascript:carrelloSubmit(<%=prodotto.getCodiceProdotto()%>);" id="ordina">
+                                Aggiungi al carello
+                            </a>
                         </div>
+                        </form>
                     </section>
                 </div>
                 

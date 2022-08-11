@@ -94,8 +94,6 @@
             <%@include file="/include/headerUtente.inc" %>
         </header>
         
-        <hr>
-        
         <main>
             
             <!--BARRA LATERALE PER LA RICERCA DEI PRODOTTI-->
