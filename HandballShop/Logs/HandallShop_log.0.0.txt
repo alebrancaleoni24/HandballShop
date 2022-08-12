@@ -3067,3 +3067,199 @@ ago 12, 2022 10:59:16 AM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: LogOn logon
 ago 12, 2022 11:03:44 AM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:06:38 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:08:57 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:09:35 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:10:20 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:10:36 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:12:37 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:12:51 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:13:02 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:13:27 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 12, 2022 11:13:35 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo viewProd
+ago 12, 2022 11:13:38 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo insert
+ago 12, 2022 11:13:42 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:15:16 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:15:24 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 12, 2022 11:15:27 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo viewProd
+ago 12, 2022 11:15:29 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo insert
+ago 12, 2022 11:15:32 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:19:57 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:21:23 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:22:20 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:22:22 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:24:14 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:24:54 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:27:36 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:28:41 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:29:05 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:29:19 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:30:38 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:38:16 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:39:18 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:39:40 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:39:57 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:40:46 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:41:06 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:41:36 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:42:54 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:43:18 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:43:46 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:44:09 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:49:10 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:49:31 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:50:10 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:50:17 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto cambiaQuantita
+ago 12, 2022 11:50:40 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto cambiaQuantita
+ago 12, 2022 11:51:03 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto cambiaQuantita
+ago 12, 2022 11:53:59 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto rimuovi
+ago 12, 2022 11:55:45 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto rimuovi
+ago 12, 2022 11:57:21 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:57:24 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 12, 2022 11:57:29 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo viewProd
+ago 12, 2022 11:57:32 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo insert
+ago 12, 2022 11:57:35 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 12, 2022 11:57:39 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 12, 2022 11:57:40 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo viewProd
+ago 12, 2022 11:57:42 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo insert
+ago 12, 2022 11:57:45 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:59:11 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 11:59:46 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:01:47 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:01:49 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:02:34 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:03:08 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:03:36 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:04:55 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:07:46 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:08:09 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:08:28 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto rimuovi
+ago 12, 2022 12:09:34 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto rimuovi
+ago 12, 2022 12:09:44 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto cancella
+ago 12, 2022 12:10:21 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto cancella
+ago 12, 2022 12:10:32 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 12, 2022 12:10:36 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo viewProd
+ago 12, 2022 12:10:38 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo insert
+ago 12, 2022 12:10:41 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:12:21 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Ordini view
+ago 12, 2022 12:12:29 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:23:07 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:23:35 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:23:46 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:23:56 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:24:08 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:24:18 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:24:23 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto cancella
+ago 12, 2022 12:24:47 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto cancella
+ago 12, 2022 12:24:51 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 12, 2022 12:24:53 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo viewProd
+ago 12, 2022 12:24:55 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo insert
+ago 12, 2022 12:24:58 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 12, 2022 12:25:00 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo viewProd
+ago 12, 2022 12:25:02 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo insert
+ago 12, 2022 12:25:05 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:25:11 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 12, 2022 12:25:14 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo viewProd
+ago 12, 2022 12:25:16 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo insert
+ago 12, 2022 12:25:18 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 12, 2022 12:25:21 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:25:58 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello
+ago 12, 2022 12:47:15 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto cancella
