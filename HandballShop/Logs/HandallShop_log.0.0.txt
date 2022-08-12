@@ -2898,3 +2898,172 @@ ago 11, 2022 6:26:22 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: LogOn view
 ago 11, 2022 6:26:42 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: LogOn view
+ago 12, 2022 10:49:01 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 12, 2022 10:49:01 AM isa.handballshop.controller.Catalogo view
+GRAVE: Errore Controller Catalogo
+java.lang.RuntimeException: com.ibm.db2.jcc.am.DisconnectNonTransientConnectionException: [jcc][t4][2030][11211][4.25.13] Di è verificato un errore di comunicazione durante le operazioni sul socket sottostante della connessione, flusso di input del socket 
+o flusso di output del socket.  Posizione errore: Reply.fill() - insufficient data (-1).  Messaggio: Dati non sufficienti. ERRORCODE=-4499, SQLSTATE=08001
+	at isa.handballshop.model.dao.implementation.DB2JDBCImpl.beginTransaction(DB2JDBCImpl.java:26)
+	at isa.handballshop.controller.Catalogo.view(Catalogo.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at isa.handballshop.dispatcher.Dispatcher.processRequest(Dispatcher.java:43)
+	at isa.handballshop.dispatcher.Dispatcher.doGet(Dispatcher.java:69)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:857)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1655)
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:215)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1642)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:220)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:126)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:503)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:132)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: com.ibm.db2.jcc.am.DisconnectNonTransientConnectionException: [jcc][t4][2030][11211][4.25.13] Di è verificato un errore di comunicazione durante le operazioni sul socket sottostante della connessione, flusso di input del socket 
+o flusso di output del socket.  Posizione errore: Reply.fill() - insufficient data (-1).  Messaggio: Dati non sufficienti. ERRORCODE=-4499, SQLSTATE=08001
+	at com.ibm.db2.jcc.am.b6.a(b6.java:338)
+	at com.ibm.db2.jcc.t4.a.a(a.java:572)
+	at com.ibm.db2.jcc.t4.a.a(a.java:556)
+	at com.ibm.db2.jcc.t4.a.a(a.java:551)
+	at com.ibm.db2.jcc.t4.y.b(y.java:310)
+	at com.ibm.db2.jcc.t4.y.c(y.java:337)
+	at com.ibm.db2.jcc.t4.y.c(y.java:450)
+	at com.ibm.db2.jcc.t4.y.v(y.java:1219)
+	at com.ibm.db2.jcc.t4.z.a(z.java:53)
+	at com.ibm.db2.jcc.t4.b.c(b.java:1410)
+	at com.ibm.db2.jcc.t4.b.b(b.java:1282)
+	at com.ibm.db2.jcc.t4.b.b(b.java:833)
+	at com.ibm.db2.jcc.t4.b.a(b.java:804)
+	at com.ibm.db2.jcc.t4.b.a(b.java:441)
+	at com.ibm.db2.jcc.t4.b.a(b.java:414)
+	at com.ibm.db2.jcc.t4.b.<init>(b.java:352)
+	at com.ibm.db2.jcc.DB2SimpleDataSource.getConnection(DB2SimpleDataSource.java:233)
+	at com.ibm.db2.jcc.DB2SimpleDataSource.getConnection(DB2SimpleDataSource.java:200)
+	at com.ibm.db2.jcc.DB2Driver.connect(DB2Driver.java:471)
+	at com.ibm.db2.jcc.DB2Driver.connect(DB2Driver.java:113)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at isa.handballshop.model.dao.implementation.DB2JDBCImpl.beginTransaction(DB2JDBCImpl.java:21)
+	... 43 more
+
+ago 12, 2022 10:49:07 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 12, 2022 10:49:12 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:49:24 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:50:36 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:50:58 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:51:11 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:51:20 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:51:33 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:51:45 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:51:53 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:51:57 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:51:59 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:52:01 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:52:02 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:52:04 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:52:09 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:52:12 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:08 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:10 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:13 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:14 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:15 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:16 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:17 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:18 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:19 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:22 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:23 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:24 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:24 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:25 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:26 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:47 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:48 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:49 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:50 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:51 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:54:52 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:55:51 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:56:07 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:57:35 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:57:47 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:58:14 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:58:16 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 12, 2022 10:59:16 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 12, 2022 11:03:44 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Acquisto viewCarrello

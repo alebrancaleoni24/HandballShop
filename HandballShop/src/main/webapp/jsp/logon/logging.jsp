@@ -161,7 +161,7 @@
         </script>
         <style>
             .content{
-                height: 610px;
+                height: 571px;
                 width: 36%; 
                 margin-left: 32%;
             }
@@ -172,12 +172,12 @@
 
             #sx{
                 width: 38%;
-                padding: 1%;
+                padding-bottom: 1%;
             }
 
             #dx{
                 width: 62%;
-                padding: 1%;
+                padding-bottom: 1%;
             }
 
             .log{

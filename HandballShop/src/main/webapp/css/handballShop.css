@@ -154,7 +154,7 @@
   }
   
   .mainButton {
-      padding: 5px 10px;
+      padding: 1% 2%;
       background-color: #fcfcfc;
       color: #000000;
       border: 1px solid #000000;
@@ -164,7 +164,8 @@
   }
   
   .button {
-      padding: 5px 10px;
+      padding: 1% 2%;
+      margin-right: 2%;
       background-color: #fcfcfc;
       color: #000000;
       border: 1px solid #000000;
