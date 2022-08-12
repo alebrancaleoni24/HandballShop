@@ -22,7 +22,7 @@
     clear: both;
   }
   
-  body {
+  body, html {
     height: 100%;
   }
   
