@@ -57,102 +57,122 @@
             }
         </script>
         <style>
-            .indirizzo{
-                float: left;
-                width: 46%;
-                border-width: 1px;
-                border-style: solid;
-                border-radius: 10px;
-                border-color: steelblue;
-                padding: 10px 14px 10px 14px;
-                margin: 0 17px 16px 0;
-                box-shadow: 0 3px 2px #777;
-            }
-            
+
             .pagamento{
                 float: left;
-                width: 46%;
+                width: 48%;
+                margin: 1%;
                 border-width: 1px;
                 border-style: solid;
                 border-radius: 10px;
                 border-color: green;
-                padding: 10px 14px 10px 14px;
-                margin: 0 17px 16px 0;
                 box-shadow: 0 3px 2px #777;
+                padding: 1%;
             }
+
+            .indirizzo{
+                float: left;
+                width: 43%;
+                margin: 1%;
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 10px;
+                border-color: steelblue;
+                box-shadow: 0 3px 2px #777;
+                padding: 1%;
+            }
+
+            #content{
+                margin-top: 2%;
+                margin-bottom: 2%;
+                margin-left: 1%;
+                margin-right: 1%;
+                padding-left: 1%;
+                padding-right: 1%;
+                padding-top: 2%;
+                background-color: rgb(241, 244, 247);
+                border-radius: 5px;
+            }
+            
         </style>
         
         <%@include file="/include/htmlHead.inc" %>
         
     </head>
     <body>
+
+        <div id="page-container">
         
-        <header>
-            <%@include file="/include/headerUtente.inc" %>
-        </header>
-        
-        <hr>
-        
-        <main>
-            <div class='nome'>
-                <p>Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
-            </div>
+            <header>
+                <%@include file="/include/headerUtente.inc" %>
+            </header>
             
-            <div style="margin-top: 15px; margin-bottom: 15px;">
-                <h2>Step 2: Riepilogo pagamento</h2>
-            </div>
-            
-            <div class="clearfix">
+            <main>
+                <div class='nome'>
+                    <p>Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
+                </div>
                 
-                <!--LATO SINISTRO CON LA CONFERMA DEI DATI PER L'ORDINE-->
-                <div class="indirizzo">
-                    <h3>Indirizzo di consegna</h3>
-                    </br>
-                    <address><%=via%> n. <%=numeroCivico%>, <%=citta%>, <%=nazione%></br>CAP: <%=CAP%></address>
+                <div style="clear: both"></div>
+
+                <div class="clearfix" style="width: 70%; margin-left: 15%">
+
+                    <!--LATO SINISTRO CON LA LISTA DEI PRODOTTI INCLUSI NELL'ORDINE-->
+                    <div class="pagamento" style="line-height: 1.5;">
+                        <h3>Prodotti inclusi nell'ordine</h3>
+                        <%for( i=0 ; i<numProd ; i++ ){%>
+                            <div class="clearfix" id="content">
+                                <div style="float: left; margin-left: 1%;">
+                                    <img src="/images/<%=prodotti.get(i).getImage()%>" width="140" height="140" alt="Visualizza prodotto"/>
+                                    </form>
+                                </div>
+                                <div style="float: left; margin-left: 15%;">
+                                    <p><b><%=prodotti.get(i).getModello()%></b></br>Taglia: <%=carrello.get(i).getTaglia()%></br>Quantit&agrave;: <%=carrello.get(i).getQuantita()%></br>Prezzo unitario: €<%=prodotti.get(i).getPrezzo()%></br></br></p>
+                                </div>
+                            </div>
+                        <%}%>
                     
-                    </br>
-                    <h3>Dati carta</h3>
-                    </br>
-                    <p>Numero carta di credito: <%=carta%></p>
-                </div>
-            
-                <!--LATO DESTRO CON LA LISTA DEI PRODOTTI INCLUSI NELL'ORDINE-->
-                <div class="pagamento">
-                    <h3>Lista prodotti inclusi nell'ordine</h3>
-                    </br>
-                    <%for( i=0 ; i<numProd ; i++ ){%>
-                        <p><b><%=prodotti.get(i).getModello()%></b></br>Taglia: <%=carrello.get(i).getTaglia()%></br>Quantit&agrave;: <%=carrello.get(i).getQuantita()%></br>Prezzo unitario: €<%=prodotti.get(i).getPrezzo()%></br></br></p>
-                    <%}%>
-                
-                    <p><b>Prezzo finale:</b> €<%=prezzo%></p>
-                    <p><b>di cui IVA:</b> €<%=iva%></p>
-                </div>
-            
-                <!--BOTTONI-->
-                <div style="clear: both;">
-                    <div class="left">
-                        <form name="paga" action="Dispatcher" method="post">
-                            <input type="hidden" name="controllerAction" value="Acquisto.paga"/>
-                            <input type="hidden" name="carta" value="<%=carta%>"/>
-                            <input type="hidden" name="nazione" value="<%=nazione%>"/>
-                            <input type="hidden" name="citta" value="<%=citta%>"/>
-                            <input type="hidden" name="via" value="<%=via%>"/>
-                            <input type="hidden" name="numeroCivico" value="<%=numeroCivico%>"/>
-                            <input type="hidden" name="CAP" value="<%=CAP%>"/>
-                            <input type="hidden" name="prezzo" value="<%=prezzo%>"/>
-                            <input type="button" name="submitButton" value="Paga" class="button" style="font-size: medium;">
-                            <input type="button" name="backButton" value="Annulla" class="button" style="font-size: medium;">
-                        </form>
+                        <p><b>Prezzo finale:</b> €<%=prezzo%></p>
+                        <p><b>di cui IVA:</b> €<%=iva%></p>
                     </div>
+
+                    <!--LATO DESTRO CON LA CONFERMA DEI DATI PER L'ORDINE-->
+                    <div class="indirizzo" style="line-height: 1.5;">
+                        <h3>Indirizzo di consegna</h3>
+                        <address><%=via%> n. <%=numeroCivico%>, <%=citta%>, <%=nazione%></br>CAP: <%=CAP%></address>
+                        <br>
+                        <h3>Dati carta</h3>
+                        <p>Numero carta di credito: <%=carta%></p>
+
+                        <!--BOTTONI-->
+                        <div style="clear: both;">
+                            <div class="left" style="margin-top: 5%;">
+                                <form name="paga" action="Dispatcher" method="post">
+                                    <input type="hidden" name="controllerAction" value="Acquisto.paga"/>
+                                    <input type="hidden" name="carta" value="<%=carta%>"/>
+                                    <input type="hidden" name="nazione" value="<%=nazione%>"/>
+                                    <input type="hidden" name="citta" value="<%=citta%>"/>
+                                    <input type="hidden" name="via" value="<%=via%>"/>
+                                    <input type="hidden" name="numeroCivico" value="<%=numeroCivico%>"/>
+                                    <input type="hidden" name="CAP" value="<%=CAP%>"/>
+                                    <input type="hidden" name="prezzo" value="<%=prezzo%>"/>
+                                    <input type="button" name="submitButton" value="Paga" class="button" style="font-size: medium;">
+                                    <input type="button" name="backButton" value="Annulla" class="button" style="font-size: medium;">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
+                                
+                <form name="annulla" action="Dispatcher" method="post">
+                    <input type="hidden" name="controllerAction" value="Acquisto.ordina"/>
+                </form>
                 
-            </div>
-                            
-            <form name="annulla" action="Dispatcher" method="post">
-                <input type="hidden" name="controllerAction" value="Acquisto.ordina"/>
-            </form>
-            
-        </main>
+            </main>
+
+            <div id="push"></div>
+
+        </div>
         
         <%@include file="/include/footer.inc" %>
         
