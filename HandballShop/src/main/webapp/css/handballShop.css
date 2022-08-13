@@ -140,6 +140,15 @@
     background-color: white;
   }
 
+  #page-container {
+    min-height: 79%;
+    height: auto !important;
+  }
+
+  #push {
+    clear: both;
+  }
+
   .descrizione{
     clear: left;
   }
@@ -148,10 +157,6 @@
   
   
   /**********FORM**********/
-  
-  .form{
-      margin-top: 20px;
-  }
   
   .mainButton {
       padding: 1% 2%;
@@ -172,6 +177,12 @@
       border-radius: 8px;
       cursor: pointer;
       font-size: smaller;
+  }
+
+  .log{
+    font-size: medium;
+    border-radius: 5px;
+    width: 100%;
   }
   
   /**********FOOTER**********/

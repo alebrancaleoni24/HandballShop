@@ -86,74 +86,32 @@
         </script>
         <style>
             .indirizzo{
-                float: left;
                 width: 46%;
+                margin-left: 27%;
+                margin-top: 2%;
+                margin-bottom: 2%;
                 border-width: 1px;
                 border-style: solid;
                 border-radius: 10px;
                 border-color: steelblue;
                 padding: 10px 14px 10px 14px;
-                margin: 0 17px 16px 0;
                 box-shadow: 0 3px 2px #777;
             }
-            
-            .pagamento{
-                float: left;
-                width: 46%;
-                border-width: 1px;
-                border-style: solid;
-                border-radius: 10px;
-                border-color: green;
-                padding: 10px 14px 10px 14px;
-                margin: 0 17px 16px 0;
-                box-shadow: 0 3px 2px #777;
+
+            table{
+                width: 100%;
             }
-            
-            #nazione{
-                width: 350px;
-                height: 20px;
-                font-size: large;
+
+            #sx{
+                width: 32%;
+                padding-bottom: 1%;
+                padding-left: 5%;
             }
-            
-            #citta{
-                width: 376px;
-                height: 20px;
-                font-size: large;
-            }
-            
-            #via{
-                width: 388px;
-                height: 20px;
-                font-size: large;
-            }
-            
-            #nc{
-                float: left;
-                width: 48%;
-                margin-right: 4%;
-            }
-            
-            #numeroCivico{
-                width: 98px;
-                height: 20px;
-                font-size: large;
-            }
-            
-            #cap{
-                float: left;
-                width: 48%;
-            }
-            
-            #CAP{
-                width: 98px;
-                height: 20px;
-                font-size: large;
-            }
-            
-            #carta{
-                width: 300px;
-                height: 20px;
-                font-size: large;
+
+            #dx{
+                width: 68%;
+                padding-bottom: 1%;
+                padding-right: 5%;
             }
             
             #clausola{
@@ -165,87 +123,88 @@
         
     </head>
     <body>
+
+        <div id="page-container">
         
-        <header>
-            <%@include file="/include/headerUtente.inc" %>
-        </header>
-        
-        <hr>
-        
-        <main>
-            <div class='nome'>
-                <p>Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
-            </div>
+            <header>
+                <%@include file="/include/headerUtente.inc" %>
+            </header>
             
-            <div style="margin-top: 15px; margin-bottom: 15px;">
-                <h2>Step 1: Inserimento dati</h2>
-            </div>
-            
-            <!--FORM PER L'INSERIMENTO DEI DATI PER L'ORDINE-->
-            <div class="clearfix">
-                <form name="pagamentoForm" action="Dispatcher" method="post">
-                    
-                    <!--LATO DI SINISTRA DEDICATO ALL'INDIRIZZO DI CONSEGNA-->
-                    <div class="indirizzo">
-                        <h3>Indirizzo di consegna</h3>
-                        </br>
+            <main>
+                <div class='nome'>
+                    <p>Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
+                </div>
+
+                <div style="clear: both"></div>
+                
+                <!--FORM PER L'INSERIMENTO DEI DATI PER L'ORDINE-->
+                <div class="clearfix">
+                    <form name="pagamentoForm" action="Dispatcher" method="post">
                         
-                        <div class="form">
-                            <label for="nazione">Nazione:* </label>
-                            <input type="text" id="nazione" name="nazione" value="" maxlength="20" required placeholder="Italia"/>
-                        </div>
-                
-                        <div class="form">
-                            <label for="citta">Citt&agrave;:* </label>
-                            <input type="text" id="citta" name="citta" value="" maxlength="20" required placeholder="Roma"/>
-                        </div>
-                
-                        <div class="form">
-                            <label for="via">Via:* </label>
-                            <input type="text" id="via" name="via" value="" maxlength="20" required placeholder="Via Garibaldi"/>
-                        </div>
-                
-                        <div class="form" id="nc">
-                            <label for="numeroCivico">Numero civico:* </label>
-                            <input type="text" id="numeroCivico" name="numeroCivico" value="" maxlength="10" required placeholder="1"/>
-                        </div>
+                        <!--LATO DI SINISTRA DEDICATO ALL'INDIRIZZO DI CONSEGNA-->
+                        <div class="indirizzo">
+                            <h3>Informazioni di consegna</h3>
+                            </br>
+                            
+                            <table>
+                                <tr>
+                                    <td id="sx"><label for="nazione">Nazione: </label></td>
+                                    <td id="dx"><input type="text" id="nazione" name="nazione" value="" maxlength="20" required placeholder="Italia" class="log"/></td>
+                                </tr>
                     
-                        <div class="form" id="cap">
-                            <label for="CAP">CAP:* </label>
-                            <input type="text" id="CAP" name="CAP" value="" maxlength="5" required placeholder="12345"/>
-                        </div>
-                    </div>
+                                <tr>
+                                    <td id="sx"><label for="citta">Citt&agrave;: </label></td>
+                                    <td id="dx"><input type="text" id="citta" name="citta" value="" maxlength="20" required placeholder="Roma" class="log"/></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td id="sx"><label for="via">Via: </label></td>
+                                    <td id="dx"><input type="text" id="via" name="via" value="" maxlength="20" required placeholder="Via Garibaldi" class="log"/></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td id="sx"><label for="numeroCivico">Numero civico: </label></td>
+                                    <td id="dx"><input type="text" id="numeroCivico" name="numeroCivico" value="" maxlength="10" required placeholder="1" class="log"/></td>
+                                </tr>
+                            
+                                <tr>
+                                    <td id="sx"><label for="CAP">CAP: </label></td>
+                                    <td id="dx"><input type="text" id="CAP" name="CAP" value="" maxlength="5" required placeholder="12345" class="log"/></td>
+                                </tr>
+
+                                <tr>
+                                    <td id="sx"><label for="carta">Numero carta: </label></td>
+                                    <td id="dx"><input type="text" id="carta" name="carta" value="" maxlength="16" required class="log"/></td>
+                                </tr>
+
+                            </table>
                     
-                    <!--LATO DI DESTRA DEDICATO ALLA CARTA -->
-                    <div class="pagamento">
-                        <h3>Dati carta di credito</h3>
-                        </br>
-                
-                        <div class="form">
-                            <label for="carta">Numero carta:* </label>
-                            <input type="text" id="carta" name="carta" value="" maxlength="16" required/>
+                            <input type="hidden" name="controllerAction"/>
+
+                            <div style="margin-top: 10px;">
+                                <input type="button" name="submitButton" value="Procedi" class="button">
+                                <input type="button" name="backButton" value="Annulla" class="button">
+                            </div>
+
+                            <div style="margin-top: 10px; text-align: right;">
+                                <p id="clausola">Tutti i campi sono obbligatori</p>
+                            </div>
                         </div>
-                
-                        <input type="hidden" name="controllerAction"/>
-                    </div>
-                    <div style="clear: both">
-                        <input type="button" name="submitButton" value="Procedi" class="button" style="font-size: medium;">
-                        <input type="button" name="backButton" value="Annulla" class="button" style="font-size: medium;">
-                    </div>
-                
+                        
+                    </form>
+                    
+                </div>
+                    
+                <!--FORM DI ANNULLA => TORNO NELLA VISTA DEL CARRELLO-->
+                <form name="backForm" method="post" action="Dispatcher"> 
+                    <input type="hidden" name="controllerAction"/>
                 </form>
                 
-                <div style="margin-top: 20px;">
-                    <p id="clausola">*: Campo obbligatorio</p>
-                </div>
-            </div>
-                
-            <!--FORM DI ANNULLA => TORNO NELLA VISTA DEL CARRELLO-->
-            <form name="backForm" method="post" action="Dispatcher"> 
-                <input type="hidden" name="controllerAction"/>
-            </form>
-            
-        </main>
+            </main>
+
+            <div id="push"></div>
+
+        </div>
         
         <%@include file="/include/footer.inc" %>
         

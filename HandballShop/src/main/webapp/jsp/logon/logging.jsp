@@ -179,12 +179,6 @@
                 width: 62%;
                 padding-bottom: 1%;
             }
-
-            .log{
-                font-size: medium;
-                border-radius: 5px;
-                width: 100%;
-            }
             
             #clausola{
                 font-size: smaller;

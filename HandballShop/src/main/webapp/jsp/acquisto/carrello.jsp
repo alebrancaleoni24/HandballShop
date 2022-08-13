@@ -100,15 +100,6 @@
                 text-align: center;
             }
 
-            #page-container {
-                min-height: 79%;
-	            height: auto !important;
-            }
-
-            #push {
-	            clear: both;
-            }
-
 
         </style>
 
