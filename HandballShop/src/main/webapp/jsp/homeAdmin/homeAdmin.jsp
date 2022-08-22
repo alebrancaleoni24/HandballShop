@@ -37,73 +37,77 @@
         </script>
         <style>
             .content{
-                margin-top: 15px;
+                margin-top: 5%;
                 margin-left: 5%;
                 width: 90%;
             }
             
             .image{
-                width: 25%;
+                width: 33%;
                 float: left;
+                text-align: center;
             }
             
             #linkImage{
-                width: 150px;
-                height: 150px;
-                margin-left: 22%;
+                width: 220px;
+                height: 220px;
             }
         </style>
         <%@include file="/include/htmlHead.inc" %>
     </head>
     <body>
-        <header>
-            <%@include file="/include/headerAdmin.inc"%>
-        </header>
-        
-        <hr>
-        
-        <main>
-            <div class='nome'>
-                <p>Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
-            </div>
+
+        <div id="page-container">
+            <header>
+                <%@include file="/include/headerAdmin.inc"%>
+            </header>
             
-            <div class="content">
+            <main>
+                <div class='nome'>
+                    <p>Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
+                </div>
+
+                <div style="clear: both"></div>
                 
-                <!--FORM PER PASSARE ALLA SCHERMATA DI GESTIONE ORDINI-->
-                <div class="image">
-                    <form name="ordini" action="Dispatcher" method="post">
-                        <input type="hidden" name="controllerAction" value="Ordini.view"/>
-                        <a href="javascript:ordiniSubmit();">
-                            <img id="linkImage" src="/images/Ordini.png" alt="Ordini"/></br><p style="text-align: center"><b>GESTIONE ORDINI</b></p>
-                        </a>
-                    </form>
+                <div class="content">
+                    
+                    <!--FORM PER PASSARE ALLA SCHERMATA DI GESTIONE ORDINI-->
+                    <div class="image">
+                        <form name="ordini" action="Dispatcher" method="post">
+                            <input type="hidden" name="controllerAction" value="Ordini.view"/>
+                            <a href="javascript:ordiniSubmit();">
+                                <img id="linkImage" src="/images/Ordini.png" alt="Ordini"/></br><h3><b>Gestione ordini</b></h3>
+                            </a>
+                        </form>
+                    </div>
+                    
+                    <!--FORM PER PASSARE ALLA SCHERMATA DI GESTIONE UTENTI-->
+                    <div class="image">
+                        <form name="utentiManagement" action="Dispatcher" method="post">
+                            <input type="hidden" name="controllerAction" value="UtentiManagement.view"/>
+                            <a href="javascript:utentiManagementSubmit();">
+                                <img id="linkImage" src="/images/Utenti.png" alt="Utenti"/></br><h3><b>Gestione utenti</b></h3>
+                            </a>
+                        </form>
+                    </div>
+                    
+                    <!--FORM PER PASSARE ALLA SCHERMATA DI GESTIONE PRODOTTI-->
+                    <div class="image">
+                        <form name="magazzino" action="Dispatcher" method="post">
+                            <input type="hidden" name="controllerAction" value="ProdottoManagement.view"/>
+                            <a id="magazzino" href="javascript:magazzinoSubmit();">
+                                <img id="linkImage" src="/images/Magazzino.png" alt="Magazzino"/></br><h3><b>Gestione magazzino</b></h3>
+                            </a>
+                        </form>
+                    </div>
+                    
                 </div>
                 
-                <!--FORM PER PASSARE ALLA SCHERMATA DI GESTIONE UTENTI-->
-                <div class="image">
-                    <form name="utentiManagement" action="Dispatcher" method="post">
-                        <input type="hidden" name="controllerAction" value="UtentiManagement.view"/>
-                        <a href="javascript:utentiManagementSubmit();">
-                            <img id="linkImage" src="/images/Utenti.png" alt="Utenti"/></br><p style="text-align: center"><b>GESTIONE UTENTI</b></p>
-                        </a>
-                    </form>
-                </div>
-                
-                <!--FORM PER PASSARE ALLA SCHERMATA DI GESTIONE PRODOTTI-->
-                <div class="image">
-                    <form name="magazzino" action="Dispatcher" method="post">
-                        <input type="hidden" name="controllerAction" value="ProdottoManagement.view"/>
-                        <a id="magazzino" href="javascript:magazzinoSubmit();">
-                            <img id="linkImage" src="/images/Magazzino.png" alt="Magazzino"/></br><p style="text-align: center"><b>GESTIONE MAGAZZINO</b></p>
-                        </a>
-                    </form>
-                </div>
-                
-            </div>
-            
-            <div style="clear: both; margin-bottom: 15px;"></div>
-            
-        </main>
+            </main>
+
+            <div id="push"></div>
+
+        </div>
         
         <%@include file="/include/footer.inc" %>
         

@@ -121,6 +121,8 @@
                     <%}%>
                 </div>
 
+            </main>
+
             <div id="push"></div>
 
         </div>
