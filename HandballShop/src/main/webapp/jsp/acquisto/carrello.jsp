@@ -79,6 +79,14 @@
                 width: 100%;
             }
 
+            #formdx{
+                float: left;
+                width: 17%;
+                margin-right: 7%;
+                margin-top: 2%;
+                text-align: center;
+            }
+
             #content{
                 margin-top: 2%;
                 margin-bottom: 2%;
@@ -91,15 +99,6 @@
                 background-color: rgb(241, 244, 247);
                 border-radius: 5px;
             }
-
-            #formdx{
-                float: left;
-                width: 17%;
-                margin-right: 7%;
-                margin-top: 2%;
-                text-align: center;
-            }
-
 
         </style>
 
@@ -121,73 +120,73 @@
                 <!--LISTA PRODOTTI DEL CARRELLO DA VISUALIZZARE-->
                 <section>
                     <div style="clear: both;"></div>
-                        <div style="float: left; width: 65%; margin-left: 7%; margin-right: 4%;">
-                            <%for (i = 0; i < numProd; i++) {%>           
-                            <article>
-                                <div class="clearfix" id="content">
+                    <div style="float: left; width: 65%; margin-left: 7%; margin-right: 4%;">
+                        <%for (i = 0; i < numProd; i++) {%>           
+                        <article>
+                            <div class="clearfix" id="content">
 
-                                    <!--IMMAGINE E INFORMAZIONI FLOTTANTI SULLA SINISTRA-->
-                                    <div style="float: left; margin-right: 1%;">
-                                        <form name="prodottoForm<%=i%>" action="Dispatcher" method="post">
-                                            <input type="hidden" name="controllerAction" value="Catalogo.viewProd"/>
-                                            <input type="hidden" name="codiceProdotto"/>
-                                            <a href="javascript:prodottoFormSubmit(<%=i%>, <%=prodotti.get(i).getCodiceProdotto()%>);">
-                                                <img src="/images/<%=prodotti.get(i).getImage()%>" width="200" height="200" alt="Visualizza prodotto"/>
-                                            </a>
-                                        </form>
-                                    </div>
-                                    <div style="float: left; width: 20%; margin-left: 3%; line-height: 1.5;">
-                                        <span><b><%=prodotti.get(i).getMarca()%></b></span>
-                                        <br/>
-                                        <span><%=prodotti.get(i).getModello()%></span>
-                                        <br/>
-                                        <%if (disponibilita.get(i)) {%>
-                                        <span style='color: green'>Disponibile</span>
-                                        <%} else {%>
-                                        <span style='color: red'>Non disponibile</span>
-                                        <%}%>
-                                        <br/>
-                                        <span>Taglia: <%=carrello.get(i).getTaglia()%></span>
-                                    </div>
-
-                                    <!--FORMS-->
-                                    <div style="float: left; width: 40%; text-align: center;">
-
-                                        <!--FORM PER IL CAMBIO DELLA QUANTITA'-->
-                                        <form name="quantitaProdotto<%=i%>" action="Dispatcher" method="post">
-                                            <label for="quantita">Quantit&agrave;: </label> 
-                                            <select id="quantita" name="quantita" onchange="quantitaProdotto(<%=i%>)"> 
-                                                <% for (j = 1; j < 30; j++) {%>
-                                                <option value="<%=j%>" <% if (j == carrello.get(i).getQuantita()) {%>selected="selected"<%}%>><%=j%></option>
-                                                <%}%>
-                                            </select>
-                                            <input type="hidden" name="codiceProdotto" value="<%=carrello.get(i).getCodiceProd()%>"/>
-                                            <input type="hidden" name="taglia" value="<%=carrello.get(i).getTaglia()%>"/>
-                                            <input type="hidden" name="controllerAction" value="Acquisto.cambiaQuantita"/>
-                                        </form>
-
-                                        </br>
-
-                                        <!--FORM PER LA RIMOZIONE DAL CARRELLO-->
-                                        <form name="rimuoviProdotto<%=i%>" action="Dispatcher" method="post">
-                                            <input type="hidden" name="codiceProdotto" value="<%=carrello.get(i).getCodiceProd()%>"/>
-                                            <input type="hidden" name="taglia" value="<%=carrello.get(i).getTaglia()%>"/>
-                                            <input type="hidden" name="controllerAction" value="Acquisto.rimuovi"/>
-                                            <input type="submit" value="Rimuovi" class="button">
-                                        </form>
-                                    </div>
-
-                                    <!--PREZZO DELL'ARTICOLO-->
-                                    <div style="float: left; text-align: right; width: 15%; padding-right: 15px;">
-                                        <p><b>€<%=prodotti.get(i).getPrezzo()%></b></p>       
-                                    </div>        
+                                <!--IMMAGINE E INFORMAZIONI FLOTTANTI SULLA SINISTRA-->
+                                <div style="float: left; margin-right: 1%;">
+                                    <form name="prodottoForm<%=i%>" action="Dispatcher" method="post">
+                                        <input type="hidden" name="controllerAction" value="Catalogo.viewProd"/>
+                                        <input type="hidden" name="codiceProdotto"/>
+                                        <a href="javascript:prodottoFormSubmit(<%=i%>, <%=prodotti.get(i).getCodiceProdotto()%>);">
+                                            <img src="/images/<%=prodotti.get(i).getImage()%>" width="200" height="200" alt="Visualizza prodotto"/>
+                                        </a>
+                                    </form>
                                 </div>
-                            </article>
-                            <%}%>
-                        </div>
+                                <div style="float: left; width: 20%; margin-left: 5%; line-height: 1.5;">
+                                    <span><b><%=prodotti.get(i).getMarca()%></b></span>
+                                    <br/>
+                                    <span><%=prodotti.get(i).getModello()%></span>
+                                    <br/>
+                                    <%if (disponibilita.get(i)) {%>
+                                    <span style='color: green'>Disponibile</span>
+                                    <%} else {%>
+                                    <span style='color: red'>Non disponibile</span>
+                                    <%}%>
+                                    <br/>
+                                    <span>Taglia: <%=carrello.get(i).getTaglia()%></span>
+                                </div>
+
+                                <!--FORMS-->
+                                <div style="float: left; width: 40%; text-align: center;">
+
+                                    <!--FORM PER IL CAMBIO DELLA QUANTITA'-->
+                                    <form name="quantitaProdotto<%=i%>" action="Dispatcher" method="post">
+                                        <label for="quantita">Quantit&agrave;: </label> 
+                                        <select id="quantita" name="quantita" onchange="quantitaProdotto(<%=i%>)"> 
+                                            <% for (j = 1; j < 30; j++) {%>
+                                            <option value="<%=j%>" <% if (j == carrello.get(i).getQuantita()) {%>selected="selected"<%}%>><%=j%></option>
+                                            <%}%>
+                                        </select>
+                                        <input type="hidden" name="codiceProdotto" value="<%=carrello.get(i).getCodiceProd()%>"/>
+                                        <input type="hidden" name="taglia" value="<%=carrello.get(i).getTaglia()%>"/>
+                                        <input type="hidden" name="controllerAction" value="Acquisto.cambiaQuantita"/>
+                                    </form>
+
+                                    </br>
+
+                                    <!--FORM PER LA RIMOZIONE DAL CARRELLO-->
+                                    <form name="rimuoviProdotto<%=i%>" action="Dispatcher" method="post">
+                                        <input type="hidden" name="codiceProdotto" value="<%=carrello.get(i).getCodiceProd()%>"/>
+                                        <input type="hidden" name="taglia" value="<%=carrello.get(i).getTaglia()%>"/>
+                                        <input type="hidden" name="controllerAction" value="Acquisto.rimuovi"/>
+                                        <input type="submit" value="Rimuovi" class="button">
+                                    </form>
+                                </div>
+
+                                <!--PREZZO DELL'ARTICOLO-->
+                                <div style="float: left; text-align: right; width: 15%; padding-right: 15px;">
+                                    <p><b>€<%=prodotti.get(i).getPrezzo()%></b></p>       
+                                </div>        
+                            </div>
+                        </article>
+                        <%}%>
+                    </div>
                 
 
-                        <!--FORM ORDINA E CANCELLA FLOTTANTI SULLA DESTRA-->
+                    <!--FORM ORDINA E CANCELLA FLOTTANTI SULLA DESTRA-->
                     <div id="formdx">
                         <h2>Dettagli ordine</h2>
                         </br>
