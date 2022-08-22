@@ -148,70 +148,26 @@
         </script>
         <style>
             .content{
-                width: 56%; 
-                margin-left: 22%;
+                width: 36%; 
+                margin-left: 32%;
+                margin-top: 1%;
+                margin-bottom: 1%;
             }
 
-            #nome{
-                width: 74%;
-                height: 22px;
-                font-size: large;
+            table{
+                width: 100%;
             }
 
-            #cognome{
-                width: 67%;
-                height: 22px;
-                font-size: large;
+            #sx{
+                width: 38%;
+                padding-bottom: 1%;
             }
 
-            #email{
-                width: 87%;
-                height: 22px;
-                font-size: large;
+            #dx{
+                width: 62%;
+                padding-bottom: 1%;
             }
-
-            #password{
-                width: 83%;
-                height: 22px;
-                font-size: large;
-            }
-
-            #passwordConf{
-                width: 71%;
-                height: 22px;
-                font-size: large;
-            }
-
-            #nazione{
-                width: 70%;
-                height: 22px;
-                font-size: large;
-            }
-
-            #citta{
-                width: 77%;
-                height: 22px;
-                font-size: large;
-            }
-
-            #via{
-                width: 82%;
-                height: 22px;
-                font-size: large;
-            }
-
-            #numeroCivico{
-                width: 25%;
-                height: 22px;
-                font-size: large;
-            }
-
-            #CAP{
-                width: 44%;
-                height: 22px;
-                font-size: large;
-            }
-
+            
             #clausola{
                 font-size: smaller;
             }
@@ -222,118 +178,139 @@
     </head>
     <body>
 
-        <header>
-            <%@include file="/include/headerAdmin.inc"%>
-        </header>
+        <div id="page-container">
 
-        <hr>
+            <header>
+                <%@include file="/include/headerAdmin.inc"%>
+            </header>
 
-        <main>
-            <div class="nome" style="margin-bottom: 15px;">
-                <p>Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
-            </div>
-
-            <div class="content">
-                <div>
-                    <h2>CREA UN ACCOUNT</h2>
+            <main>
+                <div class='nome'>
+                    <p>Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
                 </div>
 
-                <!--FORM DI REGISTRAZIONE O DI LOGIN-->
-                <form name="registerForm" action="Dispatcher" method="post">
+                <div style="clear: both"></div>
+                
+                <div class="content">
 
-                    <div class="form" id="left" style="width: 46%;">
-                        <label for="nome">Nome:* </label>
-                        <input type="text" id="nome" name="nome" value="" maxlength="20" required placeholder="Mario"/>
+                    <!--FORM DI REGISTRAZIONE O DI LOGIN-->
+                    <form name="registerForm" action="Dispatcher" method="post">
+
+                        <table>
+                            <tr>
+                                <td id="sx"><label for="nome">Nome: </label></td>
+                                <td id="dx"><input type="text" id="nome" name="nome" value="" maxlength="20" required placeholder="Mario" class="log"/></td>
+                            </tr>
+
+                            <tr>
+                                <td id="sx"><label for="cognome">Cognome: </label></td>
+                                <td id="dx"><input type="text" id="cognome" name="cognome" value="" maxlength="20" required placeholder="Rossi" class="log"/></td>
+                            </tr>                    
+                        
+                            <tr>
+                                <td id="sx"><label for="email">E-Mail: </label></td>
+                                <td id="dx"><input type="email" id="email" name="email" autocomplete="username email" value="" maxlength="50" required placeholder="mario.rossi@gmail.com" class="log"/></td>
+                            </tr>
+                     
+                            <tr>
+                                <td id="sx"><label for="password">Password: </label></td>
+                                <td id="dx"><input type="password" id="password" name="password" autocomplete="new-password" maxlength="50" required class="log"/></td>
+                            </tr>
+                    
+                            <tr>
+                                <td id="sx"><label for="passwordConf">Conferma Password: </label></td>
+                                <td id="dx"><input type="password" id="passwordConf" name="passwordConf" autocomplete="new-password" maxlength="50" required class="log"/></td>
+                            </tr>
+                    
+                            <tr>
+                                <td id="sx"><label>Sesso: </label></td>
+                                <td id="dx">
+                                    <div style="float: left; width: 50%">
+                                        <input type="radio" name="genere" value="M" checked> Maschio 
+                                    </div>
+                                    <div style="float: left; width: 50%">
+                                        <input type="radio" name="genere" value="F"> Femmina
+                                    </div>
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td id="sx"><label for="nazione">Nazione: </label></td>
+                                <td id="dx"><input type="text" id="nazione" name="nazione" value="" maxlength="20" required placeholder="Italia" class="log"/></td>
+                            </tr>
+                
+                            <tr>
+                                <td id="sx"><label for="citta">Citt&agrave;: </label></td>
+                                <td id="dx"><input type="text" id="citta" name="citta" value="" maxlength="20" required placeholder="Roma" class="log"/></td>
+                            </tr>
+                
+                            <tr>
+                                <td id="sx"><label for="via">Via: </label></td>
+                                <td id="dx"><input type="text" id="via" name="via" value="" maxlength="20" required placeholder="Via Garibaldi" class="log"/></td>
+                            </tr>
+                    
+                            <tr>
+                                <td id="sx"><label for="numeroCivico">Numero civico: </label></td>
+                                <td id="dx"><input type="text" id="numeroCivico" name="numeroCivico" value="" maxlength="10" required placeholder="1" class="log"/></td>
+                            </tr>
+                    
+                            <tr>
+                                <td id="sx"><label for="CAP">CAP: </label></td>
+                                <td id="dx"><input type="text" id="CAP" name="CAP" value="" maxlength="5" required placeholder="12345" class="log"/></td>
+                            </tr>
+
+                            <tr>
+                                <td id="sx"><label>Admin: </label></td>
+                                <td id="dx">
+                                    <div style="float: left; width: 50%">
+                                        <input type="radio" name="admin" value="S" checked> S&iacute 
+                                    </div>
+                                    <div style="float: left; width: 50%">
+                                        <input type="radio" name="admin" value="N"> No
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td id="sx"><label>Bloccato: </label></td>
+                                <td id="dx">
+                                    <div style="float: left; width: 50%">
+                                        <input type="radio" name="blocked" value="S" checked> S&iacute 
+                                    </div>
+                                    <div style="float: left; width: 50%">
+                                        <input type="radio" name="blocked" value="N"> No
+                                    </div>
+                                </td>
+                            </tr>
+                          
+                        </table>
+
+                        <input type="hidden" name="controllerAction"/>
+
+                        <div style="clear: both"></div>
+
+                        <div style="margin-top: 10px;">
+                            <input type="button" name="submitButton" value="Ok" class="button">
+                            <input type="button" name="backButton" value="Annulla" class="button">
+                        </div>
+
+                    </form>
+
+                    <div style="margin-top: 20px;">
+                        <p id="clausola">Tutti i campi sono obbligatori</p>
                     </div>
+                </div>
 
-                    <div class="form" style="float: left; width: 50%;">
-                        <label for="cognome">Cognome:* </label>
-                        <input type="text" id="cognome" name="cognome" value="" maxlength="20" required placeholder="Rossi"/>
-                    </div>
-
-                    <div style="clear: both"></div>
-
-                    <div class="form">
-                        <label for="email">E-Mail:* </label>
-                        <input type="email" id="email" name="email" autocomplete="username email" value="" maxlength="50" required placeholder="mario.rossi@gmail.com"/>
-                    </div>
-
-                    <div class="form">
-                        <label for="password">Password:* </label>
-                        <input type="password" id="password" name="password" autocomplete="new-password" maxlength="50" required/>
-                    </div>
-
-                    <div class="form">
-                        <label for="passwordConf">Conferma Password:* </label>
-                        <input type="password" id="passwordConf" name="passwordConf" autocomplete="new-password" maxlength="50" required/>
-                    </div>
-
-                    <div class="form">
-                        <label>Sesso:* </label>
-                        <input type="radio" name="genere" value="M" checked>Maschio
-                        <input type="radio" name="genere" value="F">Femmina
-                    </div>
-
-                    <div class="form" id="left" style="width: 47%;">
-                        <label for="nazione">Nazione:* </label>
-                        <input type="text" id="nazione" name="nazione" value="" maxlength="20" required placeholder="Italia"/>
-                    </div>
-
-                    <div class="form" style="float: left; width: 49%;">
-                        <label for="citta">Citt&agrave;:* </label>
-                        <input type="text" id="citta" name="citta" value="" maxlength="20" required placeholder="Roma"/>
-                    </div>
-
-                    <div class="form" id="left" style="width: 45%;">
-                        <label for="via">Via:* </label>
-                        <input type="text" id="via" name="via" value="" maxlength="20" required placeholder="Via Garibaldi"/>
-                    </div>
-
-                    <div class="form" id="left" style="width: 29%;">
-                        <label for="numeroCivico">Numero civico:* </label>
-                        <input type="text" id="numeroCivico" name="numeroCivico" value="" maxlength="10" required placeholder="1"/>
-                    </div>
-
-                    <div class="form" style="float: left; width: 18%;">
-                        <label for="CAP">CAP:* </label>
-                        <input type="text" id="CAP" name="CAP" value="" maxlength="5" required placeholder="12345"/>
-                    </div>
-
-                    <div style="clear: both"></div>
-                    <div class="form" style="float: left; width: 50%;">
-                        <label>Admin:* </label>
-                        <input type="radio" name="admin" value="S" checked>S&iacute
-                        <input type="radio" name="admin" value="N">No
-                    </div>
-
-                    <div class="form" style="float: left">
-                        <label>Bloccato:* </label>
-                        <input type="radio" name="blocked" value="S" checked>S&iacute
-                        <input type="radio" name="blocked" value="N">No
-                    </div>
-
+                <!--FORM DI ANNULLA => TORNO NELLA HOME DEGLI UTENTI O DELL'ADMIN-->
+                <form name="backForm" method="post" action="Dispatcher"> 
                     <input type="hidden" name="controllerAction"/>
-
-                    <div style="clear: both"></div>
-
-                    <div style="margin-top: 10px;">
-                        <input type="button" name="submitButton" value="Ok" class="button">
-                        <input type="button" name="backButton" value="Annulla" class="button">
-                    </div>
-
                 </form>
 
-                <div style="margin-top: 20px;">
-                    <p id="clausola">*: Campo obbligatorio</p>
-                </div>
-            </div>
+            </main>
 
-            <!--FORM DI ANNULLA => TORNO NELLA HOME DEGLI UTENTI O DELL'ADMIN-->
-            <form name="backForm" method="post" action="Dispatcher"> 
-                <input type="hidden" name="controllerAction"/>
-            </form>
+            <div id="push"></div>
 
-        </main>
+        </div>
 
         <%@include file="/include/footer.inc" %>
 

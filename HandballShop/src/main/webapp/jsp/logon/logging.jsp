@@ -238,7 +238,14 @@
                    
                             <tr>
                                 <td id="sx"><label>Sesso: </label></td>
-                                <td id="dx"><input type="radio" name="genere" value="M" checked> Maschio <input type="radio" name="genere" value="F"> Femmina</td>
+                                <td id="dx">
+                                    <div style="float: left; width: 50%">
+                                        <input type="radio" name="genere" value="M" checked> Maschio 
+                                    </div>
+                                    <div style="float: left; width: 50%">
+                                        <input type="radio" name="genere" value="F"> Femmina
+                                    </div>
+                                </td>
                             </tr>
              
                             <tr>
