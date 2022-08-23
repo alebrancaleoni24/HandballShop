@@ -154,7 +154,21 @@
   }
               
   /*********ARTICLE**********/
-
+  #box{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: rgb(241, 244, 247);
+    border-radius: 5px;
+    float: left;
+    width: 29%;
+    line-height: 1.5;
+  }
   
   /**********FORM**********/
   
