@@ -4695,3 +4695,15 @@ ago 24, 2022 11:57:50 AM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: UtentiManagement schedaUtenteView
 ago 24, 2022 11:58:01 AM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: UtentiManagement view
+ago 24, 2022 11:59:59 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 24, 2022 12:02:54 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 24, 2022 12:03:11 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 24, 2022 12:03:46 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 24, 2022 12:04:12 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView
+ago 24, 2022 12:04:50 PM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: UtentiManagement schedaUtenteView

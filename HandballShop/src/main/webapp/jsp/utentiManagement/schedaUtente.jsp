@@ -37,6 +37,7 @@
                 width: 40%;
                 padding-bottom: 1%;
                 font-weight: bold;
+                padding: 1%;
             }
 
             #dx{
@@ -44,6 +45,7 @@
                 padding-bottom: 1%;
                 border: 1px solid #000000;
                 border-radius: 8px;
+                padding: 1%;
             }
 
             #content{
@@ -71,7 +73,6 @@
                 margin-left: 4%;
                 margin-right: 4%;
                 font-size: large;
-                line-height: 1.5;
             }
 
         </style>
