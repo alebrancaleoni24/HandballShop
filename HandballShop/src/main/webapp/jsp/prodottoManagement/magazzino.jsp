@@ -41,91 +41,103 @@
     </head>
     <body>
         
-        <header>
-            <%@include file="/include/headerAdmin.inc"%>
-        </header>
-        
-        <hr>
-        
-        <main>
+        <div id="page-container">
+            <header>
+                <%@include file="/include/headerAdmin.inc"%>
+            </header>
             
-            <div class="nome" style="margin-bottom: 15px;">
-                <p id="loggedOn">Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
-            </div>
+            <main>
+                <div class="nome" style="margin-bottom: 15px;">
+                    <p id="loggedOn">Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
+                </div>
+
+                <div style="clear: both"></div>
+
+                <div style="width: 80%; margin-left: 10%">
+
+                    <div class="clearfix" style="height: 64px;">
+                        <section>
+                            <!--FORM PER PASSARE ALLA PAGINA DI INSERIMENTO DI UN NUOVO PRODOTTO-->
+                            <form name="inserisciProdotto" action="Dispatcher" method="post">
+                                <input type="hidden" name="controllerAction" value="ProdottoManagement.inserisciProdottoView"/>
+                                <input type="submit" id="inserisciProdotto" name="inserisciProdotto" value="Nuovo prodotto" class="mainButton">
+                            </form>
+                        </section>
+                    </div>
             
-            <!--FORM PER PASSARE ALLA PAGINA DI INSERIMENTO DI UN NUOVO PRODOTTO-->
-            <form name="inserisciProdotto" action="Dispatcher" method="post">
-                <input type="hidden" name="controllerAction" value="ProdottoManagement.inserisciProdottoView"/>
-                <input type="submit" id="inserisciProdotto" name="inserisciProdotto" value="Nuovo prodotto" class="mainButton">
-            </form>
-            
-            <!--LISTA PRODOTTI NEL MAGAZZINO-->
-            <section class="clearfix" id="boxMagazzino">
-                <%for(i=0 ; i<numProd ; i++){%>           
-                    <article>
-                        
-                        <div>
-                            <!--IMMAGINE SULLA SINISTRA-->
-                            <div style="float: left; margin-right: 50px;">
-                                <form name="prodottoForm<%=i%>" action="Dispatcher" method="post">
-                                    <input type="hidden" name="controllerAction" value="ProdottoManagement.modificaProdottoView"/>
-                                    <input type="hidden" name="codiceProdotto"/>
-                                    <a href="javascript:prodottoFormSubmit(<%=i%>, <%=prodotti.get(i).getCodiceProdotto()%>);">
-                                        <img id="ProdImage" src="/images/<%=prodotti.get(i).getImage()%>" width="170" height="170" alt="Visualizza prodotto"/>
-                                    </a>
-                                </form>
-                            </div>
-                                    
-                            <!--INFORMAZIONI E FORM DEL PRODOTTO-->
-                            <div style="float: left; margin-top: 2%;">
-                                <!--INFORMAZIONI PRODOTTO-->
-                                <div>
-                                    <p><b>Modello:</b> <%=prodotti.get(i).getModello()%></p>
-                                    <p><b>Categoria:</b> <%=prodotti.get(i).getCategoria()%></p>
-                                    <p><b>Marca:</b> <%=prodotti.get(i).getMarca()%></p>
-                                    <p><b>Prezzo:</b> €<%=prodotti.get(i).getPrezzo()%></p>
-                                    <p><b>Genere:</b> <%=prodotti.get(i).getGenere()%></p>
-                                </div>
+                    <!--LISTA PRODOTTI NEL MAGAZZINO-->
+                    <section class="clearfix">
+                        <%for(i=0 ; i<numProd ; i++){%>           
+                            <article >
                                 
-                                <!--FORM DEL PRODOTTO-->
-                                <div>
-                                    <div style="float: left; margin-right: 10px;">
-                                        <!--FORM PER LA GESTIONE DELLA DISPONIBILITA' DI MAGAZZINO-->
-                                        <form name="disponibilita<%=i%>" action="Dispatcher" method="post">
-                                            <input type="hidden" name="codiceProdotto" value="<%=prodotti.get(i).getCodiceProdotto()%>"/>
-                                            <input type="hidden" name="controllerAction" value="ProdottoManagement.disponibilitaView"/>
-                                            <input type="submit" value="Modifica giacenza" class="button">
+                                <div class="boxMagazzino">
+                                    <!--IMMAGINE SULLA SINISTRA-->
+                                    <div>
+                                        <form name="prodottoForm<%=i%>" action="Dispatcher" method="post">
+                                            <input type="hidden" name="controllerAction" value="ProdottoManagement.modificaProdottoView"/>
+                                            <input type="hidden" name="codiceProdotto"/>
+                                            <a href="javascript:prodottoFormSubmit(<%=i%>, <%=prodotti.get(i).getCodiceProdotto()%>);">
+                                                <img id="ProdImage" src="/images/<%=prodotti.get(i).getImage()%>" width="220px" height="220px" alt="Visualizza prodotto"/>
+                                            </a>
                                         </form>
                                     </div>
-                                    
-                                    <div style="float: left;">
-                                        <!--FORM PER IL BLOCCO/SBLOCCO DEL PRODOTTO-->
-                                        <%if(prodotti.get(i).isBlocked()){%>
-                                            <form name="sbloccaProdotto<%=i%>" action="Dispatcher" method="post">
-                                                <input type="hidden" name="codiceProdotto" value="<%=prodotti.get(i).getCodiceProdotto()%>"/>
-                                                <input type="hidden" name="controllerAction" value="ProdottoManagement.sbloccaProdotto"/>
-                                                <input type="submit" value="Sblocca" class="button">
-                                            </form>
-                                        <%}else{%>
-                                            <form name="bloccaProdotto<%=i%>" action="Dispatcher" method="post">
-                                                <input type="hidden" name="codiceProdotto" value="<%=prodotti.get(i).getCodiceProdotto()%>"/>
-                                                <input type="hidden" name="controllerAction" value="ProdottoManagement.bloccaProdotto"/>
-                                                <input type="submit" value="Blocca" class="button">
-                                            </form>
-                                        <%}%>
+                                            
+                                    <!--INFORMAZIONI E FORM DEL PRODOTTO-->
+                                    <div style="font-size: medium; line-height: 1.5;">
+                                        <!--INFORMAZIONI PRODOTTO-->
+                                        <div>
+                                            <p><b>Modello:</b> <%=prodotti.get(i).getModello()%></p>
+                                            <p><b>Categoria:</b> <%=prodotti.get(i).getCategoria()%></p>
+                                            <p><b>Marca:</b> <%=prodotti.get(i).getMarca()%></p>
+                                            <p><b>Prezzo:</b> €<%=prodotti.get(i).getPrezzo()%></p>
+                                            <p><b>Genere:</b> <%=prodotti.get(i).getGenere()%></p>
+                                        </div>
+                                        
+                                        <!--FORM DEL PRODOTTO-->
+                                        <div>
+                                            <div style="float: left; margin-right: 10px;">
+                                                <!--FORM PER LA GESTIONE DELLA DISPONIBILITA' DI MAGAZZINO-->
+                                                <form name="disponibilita<%=i%>" action="Dispatcher" method="post">
+                                                    <input type="hidden" name="codiceProdotto" value="<%=prodotti.get(i).getCodiceProdotto()%>"/>
+                                                    <input type="hidden" name="controllerAction" value="ProdottoManagement.disponibilitaView"/>
+                                                    <input type="submit" value="Modifica giacenza" class="button">
+                                                </form>
+                                            </div>
+                                            
+                                            <div style="float: left;">
+                                                <!--FORM PER IL BLOCCO/SBLOCCO DEL PRODOTTO-->
+                                                <%if(prodotti.get(i).isBlocked()){%>
+                                                    <form name="sbloccaProdotto<%=i%>" action="Dispatcher" method="post">
+                                                        <input type="hidden" name="codiceProdotto" value="<%=prodotti.get(i).getCodiceProdotto()%>"/>
+                                                        <input type="hidden" name="controllerAction" value="ProdottoManagement.sbloccaProdotto"/>
+                                                        <input type="submit" value="Sblocca" class="button">
+                                                    </form>
+                                                <%}else{%>
+                                                    <form name="bloccaProdotto<%=i%>" action="Dispatcher" method="post">
+                                                        <input type="hidden" name="codiceProdotto" value="<%=prodotti.get(i).getCodiceProdotto()%>"/>
+                                                        <input type="hidden" name="controllerAction" value="ProdottoManagement.bloccaProdotto"/>
+                                                        <input type="submit" value="Blocca" class="button">
+                                                    </form>
+                                                <%}%>
+                                            </div>
+                                        </div>
                                     </div>
+                                    
                                 </div>
-                            </div>
-                            
-                        </div>
-                               
-                    </article>
-                <%}%>
-            </section>
+                                    
+                            </article>
+                        <%}%>
+                    </section>
             
-        </main>
-        
+                </div>
+
+            </main>
+
+            <div id="push"></div>
+
+        </div>
+
         <%@include file="/include/footer.inc" %>
-        
+
     </body>
 </html>
