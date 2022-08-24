@@ -138,7 +138,11 @@
                         <!--LISTA DEGLI UTENTI DA MOSTRARE-->
                         <%for (i=0 ; i<numUtenti ; i++) {%>           
                             <article id="box">
-                                <h1><a href="javascript:schedaUtente('<%=utenti.get(i).getEmail()%>');"><%=utenti.get(i).getNome()%> <%=utenti.get(i).getCognome()%></a></h1>
+                                <%if(numOrdini.get(i) < 1 || utenti.get(i).isAdmin()){%>
+                                    <h1><%=utenti.get(i).getNome()%> <%=utenti.get(i).getCognome()%></h1>
+                                <%}else{%>
+                                    <h1><a href="javascript:schedaUtente('<%=utenti.get(i).getEmail()%>');"><%=utenti.get(i).getNome()%> <%=utenti.get(i).getCognome()%></a></h1>
+                                <%}%>
                                 <span class="email"><%=utenti.get(i).getEmail()%></span>
                                 <address>
                                     <%=utenti.get(i).getVia()%>, n.<%=utenti.get(i).getNumeroCivico()%><br/>
