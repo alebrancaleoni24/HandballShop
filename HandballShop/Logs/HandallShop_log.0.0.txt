@@ -4783,3 +4783,61 @@ ago 24, 2022 12:36:31 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: ProdottoManagement view
 ago 24, 2022 12:43:27 PM isa.handballshop.dispatcher.Dispatcher processRequest
 INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 10:44:25 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: Catalogo view
+ago 26, 2022 10:44:30 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn view
+ago 26, 2022 10:44:39 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: LogOn logon
+ago 26, 2022 10:44:42 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 10:54:34 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 10:55:31 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 10:56:17 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 10:56:26 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 10:56:48 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 10:57:41 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 10:59:00 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 10:59:55 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:05:38 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:05:59 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:07:46 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement modificaProdottoView
+ago 26, 2022 11:07:59 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:09:07 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:10:50 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:11:13 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:16:13 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:16:17 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:16:29 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:16:54 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:16:57 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:17:15 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:17:55 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:18:23 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:19:56 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view
+ago 26, 2022 11:20:13 AM isa.handballshop.dispatcher.Dispatcher processRequest
+INFORMAZIONI: ProdottoManagement view

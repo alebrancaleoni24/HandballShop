@@ -144,7 +144,6 @@
     padding-right: 1%;
     padding-top: 3%;
     padding-bottom: 3%;
-    text-align: center;
     background-color: rgb(241, 244, 247);
     border-radius: 5px;
   }
@@ -206,7 +205,7 @@
       border: 1px solid #000000;
       border-radius: 8px;
       cursor: pointer;
-      font-size: smaller;
+      font-size: small;
   }
 
   .log{

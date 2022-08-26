@@ -35,6 +35,24 @@
                 return;
             }
         </script>
+
+        <style>
+            table{
+                width: 100%;
+            }
+
+            #sx{
+                width: 36%;
+                padding-bottom: 2%;
+            }
+
+            #dx{
+                width: 64%;
+                padding-bottom: 2%;
+                padding-left: 2%;
+                font-size: small;
+            }
+        </style>
         
         <%@include file="/include/htmlHead.inc" %>
         
@@ -71,8 +89,8 @@
                             <article >
                                 
                                 <div class="boxMagazzino">
-                                    <!--IMMAGINE SULLA SINISTRA-->
-                                    <div>
+                                    <!--IMMAGINE-->
+                                    <div style="text-align: center;">
                                         <form name="prodottoForm<%=i%>" action="Dispatcher" method="post">
                                             <input type="hidden" name="controllerAction" value="ProdottoManagement.modificaProdottoView"/>
                                             <input type="hidden" name="codiceProdotto"/>
@@ -86,16 +104,33 @@
                                     <div style="font-size: medium; line-height: 1.5;">
                                         <!--INFORMAZIONI PRODOTTO-->
                                         <div>
-                                            <p><b>Modello:</b> <%=prodotti.get(i).getModello()%></p>
-                                            <p><b>Categoria:</b> <%=prodotti.get(i).getCategoria()%></p>
-                                            <p><b>Marca:</b> <%=prodotti.get(i).getMarca()%></p>
-                                            <p><b>Prezzo:</b> €<%=prodotti.get(i).getPrezzo()%></p>
-                                            <p><b>Genere:</b> <%=prodotti.get(i).getGenere()%></p>
+                                            <table>
+                                                <tr>
+                                                    <td id="sx"><b>Modello</b></td>
+                                                    <td id="dx"><%=prodotti.get(i).getModello()%></td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="sx"><b>Categoria</b></td>
+                                                    <td id="dx"><%=prodotti.get(i).getCategoria()%></td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="sx"><b>Marca</b></td>
+                                                    <td id="dx"><%=prodotti.get(i).getMarca()%></td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="sx"><b>Prezzo</b></td>
+                                                    <td id="dx">€<%=prodotti.get(i).getPrezzo()%></td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="sx"><b>Genere</b></td>
+                                                    <td id="dx"><%=prodotti.get(i).getGenere()%></p></td>
+                                                </tr>
+                                            </table>
                                         </div>
                                         
                                         <!--FORM DEL PRODOTTO-->
                                         <div>
-                                            <div style="float: left; margin-right: 10px;">
+                                            <div style="float: left;">
                                                 <!--FORM PER LA GESTIONE DELLA DISPONIBILITA' DI MAGAZZINO-->
                                                 <form name="disponibilita<%=i%>" action="Dispatcher" method="post">
                                                     <input type="hidden" name="codiceProdotto" value="<%=prodotti.get(i).getCodiceProdotto()%>"/>
@@ -104,7 +139,7 @@
                                                 </form>
                                             </div>
                                             
-                                            <div style="float: left;">
+                                            <div style="float: right;">
                                                 <!--FORM PER IL BLOCCO/SBLOCCO DEL PRODOTTO-->
                                                 <%if(prodotti.get(i).isBlocked()){%>
                                                     <form name="sbloccaProdotto<%=i%>" action="Dispatcher" method="post">
