@@ -37,6 +37,8 @@
     /*Carico i cookie*/
     UtenteLoggato ul = (UtenteLoggato) request.getAttribute("loggedUser");
     ArrayList<Carrello> carrello = (ArrayList<Carrello>) request.getAttribute("carrello");
+
+    boolean presenteNelCarrello = (boolean) request.getAttribute("presenteNelCarrello");
     
     String applicationMessage = (String) request.getAttribute("applicationMessage");
     
@@ -215,35 +217,41 @@
                                 <tr>
                                     <td><label for="taglia">Scegli la taglia: </label></td>
                                     <td>
-                                    <select id="taglia" name="taglia">
-                                        <%if(!prodotto.getCategoria().equals("Scarpe")){%>
-                                        <option value="XS">XS</option>
-                                        <option value="S">S</option>
-                                        <option value="M">M</option>
-                                        <option value="L">L</option>
-                                        <option value="XL">XL</option>
-                                        <option value="XXL">XXL</option>
-                                        <option value="XXXL">XXXL</option>
-                                        <%}else{%>
-                                        <option value="39">39</option>
-                                        <option value="40">40</option>
-                                        <option value="41">41</option>
-                                        <option value="42">42</option>
-                                        <option value="43">43</option>
-                                        <option value="44">44</option>
-                                        <option value="45">45</option>
-                                        <%}%>
-                                    </select> 
+                                        <select id="taglia" name="taglia" class="log">
+                                            <%if(!prodotto.getCategoria().equals("Scarpe")){%>
+                                            <option value="XS">XS</option>
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L">L</option>
+                                            <option value="XL">XL</option>
+                                            <option value="XXL">XXL</option>
+                                            <option value="XXXL">XXXL</option>
+                                            <%}else{%>
+                                            <option value="39">39</option>
+                                            <option value="40">40</option>
+                                            <option value="41">41</option>
+                                            <option value="42">42</option>
+                                            <option value="43">43</option>
+                                            <option value="44">44</option>
+                                            <option value="45">45</option>
+                                            <%}%>
+                                        </select> 
                                     </td>
                                 </tr>
             
                                 <tr>
                                     <td><label for="quantita">Quantit&agrave: </label></td>
-                                    <td><input type="number" id="quantita" name="quantita" value="1" min="1" max="30" step="1"/></td>
+                                    <td><input type="number" class="log" id="quantita" name="quantita" value="1" min="1" max="30" step="1"/></td>
                                 </tr>
                         </table>
 
-                        <div style="margin-top: 70px;">
+                        <%if(presenteNelCarrello) {%>
+                            <div style="margin-top: 30px;">
+                                <p>Prodotto aggiunto al carrello</p>
+                            </div>
+                        <%}%>
+
+                        <div style="margin-top: 30px;">
                             <a href="javascript:carrelloSubmit(<%=prodotto.getCodiceProdotto()%>);" id="ordina">
                                 Aggiungi al carello
                             </a>

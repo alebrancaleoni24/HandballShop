@@ -128,6 +128,7 @@ public class Catalogo{
         SessionDAO sessionDAO;
         UtenteLoggato ul;
         ArrayList<Carrello> carrelli = new ArrayList<Carrello>();
+        boolean presenteNelCarrello = false;
         
         JDBCDAOFactory jdbc = null;
     
@@ -160,6 +161,12 @@ public class Catalogo{
             
             /*Metodo per caricare categorie, marche e generi*/
             commonView(jdbc, sessionDAO, request);
+
+            for(int j = 0; j < carrelli.size(); j++){
+                if(prodotto.getCodiceProdotto() == carrelli.get(j).getCodiceProd()){
+                    presenteNelCarrello = true;
+                }
+            }
       
             jdbc.commitTransaction();
 
@@ -168,6 +175,7 @@ public class Catalogo{
             request.setAttribute("loggedUser", ul);
             request.setAttribute("carrello", carrelli);
             request.setAttribute("prodotto", prodotto);
+            request.setAttribute("presenteNelCarrello", presenteNelCarrello);
             request.setAttribute("viewUrl", "catalogo/viewProd");
 
         }catch(Exception e){
@@ -194,6 +202,7 @@ public class Catalogo{
         SessionDAO sessionDAO;
         UtenteLoggato ul;
         ArrayList<Carrello> carrelli = new ArrayList<Carrello>();
+        boolean presenteNelCarrello = true;
         
         JDBCDAOFactory jdbc = null;
     
@@ -243,6 +252,7 @@ public class Catalogo{
             request.setAttribute("loggedUser", ul);
             request.setAttribute("carrello", carrelli);
             request.setAttribute("prodotto", prodotto);
+            request.setAttribute("presenteNelCarrello", presenteNelCarrello);
             request.setAttribute("viewUrl", "catalogo/viewProd");
 
         }catch(Exception e){
