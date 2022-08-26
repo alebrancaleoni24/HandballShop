@@ -100,6 +100,7 @@
 
             table{
                 width: 100%;
+                font-size: large;
             }
 
             #sx{
@@ -143,37 +144,37 @@
                         
                         <!--LATO DI SINISTRA DEDICATO ALL'INDIRIZZO DI CONSEGNA-->
                         <div class="indirizzo">
-                            <h3>Informazioni di consegna</h3>
+                            <h2>Informazioni di consegna</h2>
                             </br>
                             
                             <table>
                                 <tr>
-                                    <td id="sx"><label for="nazione">Nazione: </label></td>
+                                    <td id="sx"><label for="nazione">Nazione </label></td>
                                     <td id="dx"><input type="text" id="nazione" name="nazione" value="" maxlength="20" required placeholder="Italia" class="log"/></td>
                                 </tr>
                     
                                 <tr>
-                                    <td id="sx"><label for="citta">Citt&agrave;: </label></td>
+                                    <td id="sx"><label for="citta">Citt&agrave; </label></td>
                                     <td id="dx"><input type="text" id="citta" name="citta" value="" maxlength="20" required placeholder="Roma" class="log"/></td>
                                 </tr>
                         
                                 <tr>
-                                    <td id="sx"><label for="via">Via: </label></td>
+                                    <td id="sx"><label for="via">Via </label></td>
                                     <td id="dx"><input type="text" id="via" name="via" value="" maxlength="20" required placeholder="Via Garibaldi" class="log"/></td>
                                 </tr>
                         
                                 <tr>
-                                    <td id="sx"><label for="numeroCivico">Numero civico: </label></td>
+                                    <td id="sx"><label for="numeroCivico">Numero civico </label></td>
                                     <td id="dx"><input type="text" id="numeroCivico" name="numeroCivico" value="" maxlength="10" required placeholder="1" class="log"/></td>
                                 </tr>
                             
                                 <tr>
-                                    <td id="sx"><label for="CAP">CAP: </label></td>
+                                    <td id="sx"><label for="CAP">CAP </label></td>
                                     <td id="dx"><input type="text" id="CAP" name="CAP" value="" maxlength="5" required placeholder="12345" class="log"/></td>
                                 </tr>
 
                                 <tr>
-                                    <td id="sx"><label for="carta">Numero carta: </label></td>
+                                    <td id="sx"><label for="carta">Numero carta </label></td>
                                     <td id="dx"><input type="text" id="carta" name="carta" value="" maxlength="16" required class="log"/></td>
                                 </tr>
 

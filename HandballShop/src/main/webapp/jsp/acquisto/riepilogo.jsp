@@ -93,6 +93,27 @@
                 background-color: rgb(241, 244, 247);
                 border-radius: 5px;
             }
+
+            #paga{
+                padding: 5px 10px;
+                background-color: #228b22;
+                color: #ffffff;
+                border: 1px solid #000000;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: large;
+                margin-right: 2%;
+            }
+
+            #annulla{
+                padding: 5px 10px;
+                background-color: #dc143c;
+                color: #ffffff;
+                border: 1px solid #000000;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: large;
+            }
             
         </style>
         
@@ -155,8 +176,8 @@
                                     <input type="hidden" name="numeroCivico" value="<%=numeroCivico%>"/>
                                     <input type="hidden" name="CAP" value="<%=CAP%>"/>
                                     <input type="hidden" name="prezzo" value="<%=prezzo%>"/>
-                                    <input type="button" name="submitButton" value="Paga" class="button" style="font-size: medium;">
-                                    <input type="button" name="backButton" value="Annulla" class="button" style="font-size: medium;">
+                                    <input type="button" name="submitButton" value="Paga" id="paga" style="font-size: medium;">
+                                    <input type="button" name="backButton" value="Annulla" id="annulla" style="font-size: medium;">
                                 </form>
                             </div>
                         </div>

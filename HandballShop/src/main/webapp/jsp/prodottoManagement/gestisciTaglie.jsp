@@ -122,20 +122,33 @@
         </script>
         <style>
             .content{
-                width: 42%;
-                margin-left: 29%;
+                width: 70%; 
+                margin-left: 15%;
             }
             
-            #taglia{
-                width: 50%;
-                margin-left: 25%;
+            table{
+                width: 100%;
             }
-            
-            .t{
-                float: right;
-                width: 76%;
-                height: 22px;
+
+            #sx{
+                width: 40%;
+                padding-bottom: 1%;
+                padding: 1%;
+                font-weight: bold;
+            }
+
+            #dx{
+                width: 60%;
+                padding-bottom: 1%;
+                padding: 1%;
+            }
+
+            .logT{
                 font-size: large;
+                border-radius: 5px;
+                border: 1px solid #000000;
+                width: 100%;
+                background-color: white;
             }
         </style>
         
@@ -144,94 +157,99 @@
     </head>
     <body>
         
-        <header>
-            <%@include file="/include/headerAdmin.inc"%>
-        </header>
-        
-        <hr>
-        
-        <main>
+        <div id="page-container">
+            <header>
+                <%@include file="/include/headerAdmin.inc"%>
+            </header>
             
-            <div class="nome" style="margin-bottom: 15px;">
-                <p>Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
-            </div>
-            
-            <div class="content">
-                <div style="text-align: center">
-                    <h2>Gestione disponibilit&agrave; di magazzino</h2>
+            <main>
+                <div class="nome" style="margin-bottom: 15px;">
+                    <p id="loggedOn">Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
                 </div>
-                
-                <!--FORM PER GESTIRE LA DISPONIBILITA' DI MAGAZZINO-->
-                    <form id="taglieForm" name="taglieForm" action="Dispatcher" method="post">
 
-                        <div class="form" id="taglia">
-                            <label for="xs"><%if(!prodotto.getCategoria().equals("Scarpe")){%>XS: <%}else{%>39: <%}%></label>
-                            <input type="text" class="t" name="xs" <% if (action.equals("modify")){%> value="<%=taglie.get(0).getQuantità()%>" <%}%> required size="20"/>                        
-                        </div>
-                    
-                        <div class="form" id="taglia">
-                            <label for="s"><%if(!prodotto.getCategoria().equals("Scarpe")){%>S: <%}else{%>40: <%}%></label>
-                            <input type="text" class="t" name="s" <% if (action.equals("modify")){%> value="<%=taglie.get(1).getQuantità()%>" <%}%> required size="20"/>
-                        </div>
-                    
-                        <div class="form" id="taglia">
-                            <label for="m"><%if(!prodotto.getCategoria().equals("Scarpe")){%>M: <%}else{%>41: <%}%></label>
-                            <input type="text" class="t" name="m" <% if (action.equals("modify")){%> value="<%=taglie.get(2).getQuantità()%>" <%}%> required size="20"/>
-                        </div>
-                    
-                        <div class="form" id="taglia">
-                            <label for="l"><%if(!prodotto.getCategoria().equals("Scarpe")){%>L: <%}else{%>42: <%}%></label>
-                            <input type="text" class="t" name="l" <% if (action.equals("modify")){%> value="<%=taglie.get(3).getQuantità()%>" <%}%> required size="20"/>
-                        </div>
-                    
-                        <div class="form" id="taglia">
-                            <label for="xl"><%if(!prodotto.getCategoria().equals("Scarpe")){%>XL: <%}else{%>43: <%}%></label>
-                            <input type="text" class="t" name="xl" <% if (action.equals("modify")){%> value="<%=taglie.get(4).getQuantità()%>" <%}%> required size="20"/>
-                        </div>
-                    
-                        <div class="form" id="taglia">
-                            <label for="xxl"><%if(!prodotto.getCategoria().equals("Scarpe")){%>XXL: <%}else{%>44: <%}%></label>
-                            <input type="text" class="t" name="xxl" <% if (action.equals("modify")){%> value="<%=taglie.get(5).getQuantità()%>" <%}%> required size="20"/>
-                        </div>
-                    
-                        <div class="form" id="taglia">
-                            <label for="xxxl"><%if(!prodotto.getCategoria().equals("Scarpe")){%>XXXL: <%}else{%>45: <%}%></label>
-                            <input type="text" class="t" name="xxxl" <% if (action.equals("modify")){%> value="<%=taglie.get(6).getQuantità()%>" <%}%> required size="20"/>
-                        </div>
-                    
-                        <input type="hidden" name="controllerAction"/>
-                        <%if(action.equals("insert")){%>
-                            <input type="hidden" name="categoria" value="<%=prodotto.getCategoria()%>"/>
-                            <input type="hidden" name="marca" value="<%=prodotto.getMarca()%>"/>
-                            <input type="hidden" name="modello" value="<%=prodotto.getModello()%>"/>
-                            <input type="hidden" name="genere" value="<%=prodotto.getGenere()%>"/>
-                            <input type="hidden" name="immagine" value="<%=prodotto.getImage()%>"/>
-                            <input type="hidden" name="descrizione" value="<%=prodotto.getDescrizione()%>"/>
-                            <input type="hidden" name="prezzo" value="<%=prodotto.getPrezzo()%>"/>
-                            <input type="hidden" name="blocked" value="<%=(prodotto.isBlocked()) ? "S" : "N"%>"/>
-                            <input type="hidden" name="push" value="<%=(prodotto.isPush()) ? "S" : "N"%>"/>
-                        <%}else{%>
-                            <input type="hidden" name="codiceProdotto" value="<%=codiceProdotto%>"/>
-                        <%}%>
-                    
-                        <!--BOTTONI PER LA CONFERMA O PER ANNULLARE-->
-                        <div style="text-align: center; margin-top: 15px;">
-                            <input type="button" name="submitButton" value="Ok" class="button">
-                            <input type="button" name="backButton" value="Annulla" class="button">
-                        </div>
-                    
-                    </form>
-                
-            </div>
-                    
-            <!--FORM PER ANNULLARE-->
-            <form name="backForm" method="post" action="Dispatcher"> 
-                <input type="hidden" name="controllerAction"/>
-            </form>
+                <div style="clear: both"></div>
+
+                <div style="width: 80%; margin-left: 10%">
             
-        </main>
-        
+                    <div class="content">
+                        <div style="margin-top: 1%; margin-bottom: 3%;">
+                            <h1>Gestione disponibilit&agrave; di magazzino</h1>
+                        </div>
+                        
+                        <!--FORM PER GESTIRE LA DISPONIBILITA' DI MAGAZZINO-->
+                        <form id="taglieForm" name="taglieForm" action="Dispatcher" method="post">
+
+                            <div style="width: 60%; margin-left: 20%; line-height: 1.5; font-size: large;">
+                                <table>
+                                    <tr>
+                                        <td id="sx"><label for="xs"><%if(!prodotto.getCategoria().equals("Scarpe")){%>XS <%}else{%>39 <%}%></label></td>
+                                        <td id="dx"><input type="text" class="logT" name="xs" <% if (action.equals("modify")){%> value="<%=taglie.get(0).getQuantità()%>" <%}%> required size="20"/> </td>
+                                    </tr>
+                                    <tr>
+                                        <td id="sx"><label for="s"><%if(!prodotto.getCategoria().equals("Scarpe")){%>S <%}else{%>40 <%}%></label></td>
+                                        <td id="dx"><input type="text" class="logT" name="s" <% if (action.equals("modify")){%> value="<%=taglie.get(1).getQuantità()%>" <%}%> required size="20"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="sx"><label for="m"><%if(!prodotto.getCategoria().equals("Scarpe")){%>M <%}else{%>41 <%}%></label></td>
+                                        <td id="dx"><input type="text" class="logT" name="m" <% if (action.equals("modify")){%> value="<%=taglie.get(2).getQuantità()%>" <%}%> required size="20"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="sx"><label for="l"><%if(!prodotto.getCategoria().equals("Scarpe")){%>L <%}else{%>42 <%}%></label></td>
+                                        <td id="dx"><input type="text" class="logT" name="l" <% if (action.equals("modify")){%> value="<%=taglie.get(3).getQuantità()%>" <%}%> required size="20"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="sx"><label for="xl"><%if(!prodotto.getCategoria().equals("Scarpe")){%>XL <%}else{%>43 <%}%></label></td>
+                                        <td id="dx"><input type="text" class="logT" name="xl" <% if (action.equals("modify")){%> value="<%=taglie.get(4).getQuantità()%>" <%}%> required size="20"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="sx"><label for="xxl"><%if(!prodotto.getCategoria().equals("Scarpe")){%>XXL <%}else{%>44 <%}%></label></td>
+                                        <td id="dx"><input type="text" class="logT" name="xxl" <% if (action.equals("modify")){%> value="<%=taglie.get(5).getQuantità()%>" <%}%> required size="20"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="sx"><label for="xxxl"><%if(!prodotto.getCategoria().equals("Scarpe")){%>XXXL <%}else{%>45 <%}%></label></td>
+                                        <td id="dx"><input type="text" class="logT" name="xxxl" <% if (action.equals("modify")){%> value="<%=taglie.get(6).getQuantità()%>" <%}%> required size="20"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        
+                            <input type="hidden" name="controllerAction"/>
+                            <%if(action.equals("insert")){%>
+                                <input type="hidden" name="categoria" value="<%=prodotto.getCategoria()%>"/>
+                                <input type="hidden" name="marca" value="<%=prodotto.getMarca()%>"/>
+                                <input type="hidden" name="modello" value="<%=prodotto.getModello()%>"/>
+                                <input type="hidden" name="genere" value="<%=prodotto.getGenere()%>"/>
+                                <input type="hidden" name="immagine" value="<%=prodotto.getImage()%>"/>
+                                <input type="hidden" name="descrizione" value="<%=prodotto.getDescrizione()%>"/>
+                                <input type="hidden" name="prezzo" value="<%=prodotto.getPrezzo()%>"/>
+                                <input type="hidden" name="blocked" value="<%=(prodotto.isBlocked()) ? "S" : "N"%>"/>
+                                <input type="hidden" name="push" value="<%=(prodotto.isPush()) ? "S" : "N"%>"/>
+                            <%}else{%>
+                                <input type="hidden" name="codiceProdotto" value="<%=codiceProdotto%>"/>
+                            <%}%>
+                        
+                            <!--BOTTONI PER LA CONFERMA O PER ANNULLARE-->
+                            <div style="margin-top: 2%;">
+                                <input type="button" name="submitButton" value="Ok" class="button">
+                                <input type="button" name="backButton" value="Annulla" class="button">
+                            </div>
+                        
+                        </form>
+
+                        <!--FORM PER ANNULLARE-->
+                        <form name="backForm" method="post" action="Dispatcher"> 
+                            <input type="hidden" name="controllerAction"/>
+                        </form>
+                        
+                    </div>
+                </div>
+
+            </main>
+
+            <div id="push"></div>
+
+        </div>
+
         <%@include file="/include/footer.inc" %>
-        
+
     </body>
 </html>

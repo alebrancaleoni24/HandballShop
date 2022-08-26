@@ -196,94 +196,96 @@
                     <!--FORM DI REGISTRAZIONE O DI LOGIN-->
                     <form name="registerForm" action="Dispatcher" method="post">
 
-                        <table>
-                            <tr>
-                                <td id="sx"><label for="nome">Nome: </label></td>
-                                <td id="dx"><input type="text" id="nome" name="nome" value="" maxlength="20" required placeholder="Mario" class="log"/></td>
-                            </tr>
+                        <div style="font-size: large;">
+                            <table>
+                                <tr>
+                                    <td id="sx"><label for="nome">Nome </label></td>
+                                    <td id="dx"><input type="text" id="nome" name="nome" value="" maxlength="20" required placeholder="Mario" class="log"/></td>
+                                </tr>
 
-                            <tr>
-                                <td id="sx"><label for="cognome">Cognome: </label></td>
-                                <td id="dx"><input type="text" id="cognome" name="cognome" value="" maxlength="20" required placeholder="Rossi" class="log"/></td>
-                            </tr>                    
+                                <tr>
+                                    <td id="sx"><label for="cognome">Cognome </label></td>
+                                    <td id="dx"><input type="text" id="cognome" name="cognome" value="" maxlength="20" required placeholder="Rossi" class="log"/></td>
+                                </tr>                    
+                            
+                                <tr>
+                                    <td id="sx"><label for="email">E-Mail </label></td>
+                                    <td id="dx"><input type="email" id="email" name="email" autocomplete="username email" value="" maxlength="50" required placeholder="mario.rossi@gmail.com" class="log"/></td>
+                                </tr>
                         
-                            <tr>
-                                <td id="sx"><label for="email">E-Mail: </label></td>
-                                <td id="dx"><input type="email" id="email" name="email" autocomplete="username email" value="" maxlength="50" required placeholder="mario.rossi@gmail.com" class="log"/></td>
-                            </tr>
-                     
-                            <tr>
-                                <td id="sx"><label for="password">Password: </label></td>
-                                <td id="dx"><input type="password" id="password" name="password" autocomplete="new-password" maxlength="50" required class="log"/></td>
-                            </tr>
+                                <tr>
+                                    <td id="sx"><label for="password">Password </label></td>
+                                    <td id="dx"><input type="password" id="password" name="password" autocomplete="new-password" maxlength="50" required class="log"/></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td id="sx"><label for="passwordConf">Conferma Password </label></td>
+                                    <td id="dx"><input type="password" id="passwordConf" name="passwordConf" autocomplete="new-password" maxlength="50" required class="log"/></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td id="sx"><label>Sesso </label></td>
+                                    <td id="dx">
+                                        <div style="float: left; width: 50%">
+                                            <input type="radio" name="genere" value="M" checked> Maschio 
+                                        </div>
+                                        <div style="float: left; width: 50%">
+                                            <input type="radio" name="genere" value="F"> Femmina
+                                        </div>
+                                    </td>
+                                </tr>
                     
-                            <tr>
-                                <td id="sx"><label for="passwordConf">Conferma Password: </label></td>
-                                <td id="dx"><input type="password" id="passwordConf" name="passwordConf" autocomplete="new-password" maxlength="50" required class="log"/></td>
-                            </tr>
+                                <tr>
+                                    <td id="sx"><label for="nazione">Nazione </label></td>
+                                    <td id="dx"><input type="text" id="nazione" name="nazione" value="" maxlength="20" required placeholder="Italia" class="log"/></td>
+                                </tr>
                     
-                            <tr>
-                                <td id="sx"><label>Sesso: </label></td>
-                                <td id="dx">
-                                    <div style="float: left; width: 50%">
-                                        <input type="radio" name="genere" value="M" checked> Maschio 
-                                    </div>
-                                    <div style="float: left; width: 50%">
-                                        <input type="radio" name="genere" value="F"> Femmina
-                                    </div>
-                                </td>
-                            </tr>
-                
-                            <tr>
-                                <td id="sx"><label for="nazione">Nazione: </label></td>
-                                <td id="dx"><input type="text" id="nazione" name="nazione" value="" maxlength="20" required placeholder="Italia" class="log"/></td>
-                            </tr>
-                
-                            <tr>
-                                <td id="sx"><label for="citta">Citt&agrave;: </label></td>
-                                <td id="dx"><input type="text" id="citta" name="citta" value="" maxlength="20" required placeholder="Roma" class="log"/></td>
-                            </tr>
-                
-                            <tr>
-                                <td id="sx"><label for="via">Via: </label></td>
-                                <td id="dx"><input type="text" id="via" name="via" value="" maxlength="20" required placeholder="Via Garibaldi" class="log"/></td>
-                            </tr>
+                                <tr>
+                                    <td id="sx"><label for="citta">Citt&agrave; </label></td>
+                                    <td id="dx"><input type="text" id="citta" name="citta" value="" maxlength="20" required placeholder="Roma" class="log"/></td>
+                                </tr>
                     
-                            <tr>
-                                <td id="sx"><label for="numeroCivico">Numero civico: </label></td>
-                                <td id="dx"><input type="text" id="numeroCivico" name="numeroCivico" value="" maxlength="10" required placeholder="1" class="log"/></td>
-                            </tr>
-                    
-                            <tr>
-                                <td id="sx"><label for="CAP">CAP: </label></td>
-                                <td id="dx"><input type="text" id="CAP" name="CAP" value="" maxlength="5" required placeholder="12345" class="log"/></td>
-                            </tr>
+                                <tr>
+                                    <td id="sx"><label for="via">Via </label></td>
+                                    <td id="dx"><input type="text" id="via" name="via" value="" maxlength="20" required placeholder="Via Garibaldi" class="log"/></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td id="sx"><label for="numeroCivico">Numero civico </label></td>
+                                    <td id="dx"><input type="text" id="numeroCivico" name="numeroCivico" value="" maxlength="10" required placeholder="1" class="log"/></td>
+                                </tr>
+                        
+                                <tr>
+                                    <td id="sx"><label for="CAP">CAP </label></td>
+                                    <td id="dx"><input type="text" id="CAP" name="CAP" value="" maxlength="5" required placeholder="12345" class="log"/></td>
+                                </tr>
 
-                            <tr>
-                                <td id="sx"><label>Admin: </label></td>
-                                <td id="dx">
-                                    <div style="float: left; width: 50%">
-                                        <input type="radio" name="admin" value="S" checked> S&iacute 
-                                    </div>
-                                    <div style="float: left; width: 50%">
-                                        <input type="radio" name="admin" value="N"> No
-                                    </div>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td id="sx"><label>Admin </label></td>
+                                    <td id="dx">
+                                        <div style="float: left; width: 50%">
+                                            <input type="radio" name="admin" value="S" checked> S&iacute 
+                                        </div>
+                                        <div style="float: left; width: 50%">
+                                            <input type="radio" name="admin" value="N"> No
+                                        </div>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td id="sx"><label>Bloccato: </label></td>
-                                <td id="dx">
-                                    <div style="float: left; width: 50%">
-                                        <input type="radio" name="blocked" value="S" checked> S&iacute 
-                                    </div>
-                                    <div style="float: left; width: 50%">
-                                        <input type="radio" name="blocked" value="N"> No
-                                    </div>
-                                </td>
-                            </tr>
-                          
-                        </table>
+                                <tr>
+                                    <td id="sx"><label>Bloccato </label></td>
+                                    <td id="dx">
+                                        <div style="float: left; width: 50%">
+                                            <input type="radio" name="blocked" value="S" checked> S&iacute 
+                                        </div>
+                                        <div style="float: left; width: 50%">
+                                            <input type="radio" name="blocked" value="N"> No
+                                        </div>
+                                    </td>
+                                </tr>
+                            
+                            </table>
+                        </div>
 
                         <input type="hidden" name="controllerAction"/>
 

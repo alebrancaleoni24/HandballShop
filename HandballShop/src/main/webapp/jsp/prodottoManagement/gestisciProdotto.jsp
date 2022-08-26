@@ -110,11 +110,20 @@
             #sx{
                 width: 38%;
                 padding-bottom: 1%;
+                font-weight: bold;
             }
 
             #dx{
                 width: 62%;
                 padding-bottom: 1%;
+            }
+
+            .logP{
+                font-size: large;
+                border-radius: 5px;
+                border: 1px solid #000000;
+                width: 100%;
+                background-color: white;
             }
         </style>
         
@@ -151,85 +160,87 @@
                         <!--FORM PER L'INSERIMENTO O LA MODIFICA DI UN PRODOTTO-->
                         <form name="inserisciProd" action="Dispatcher" method="post">
 
-                            <table>
-                                <tr>
-                                    <td id="sx"><label for="modello">Modello </label></td>
-                                    <td id="dx"><input type="text" id="modello" name="modello" class="log" value="<%=(action.equals("modify")) ? prodotto.getModello() : ""%>" required maxlength="20"/></td>
-                                </tr>
-                                <tr>
-                                    <td id="sx"><label for="categoria">Categoria </label></td>
-                                    <td id="dx"><input type="text" id="categoria" name="categoria" class="log" value="<%=(action.equals("modify")) ? prodotto.getCategoria() : ""%>" required maxlength="20"/></td>
-                                </tr>
-                                <tr>
-                                    <td id="sx"><label for="marca">Marca </label></td>
-                                    <td id="dx"><input type="text" id="marca" name="marca" class="log" value="<%=(action.equals("modify")) ? prodotto.getMarca() : ""%>" required maxlength="20"/></td>
-                                </tr>
-                                <tr>
-                                    <td id="sx"><label for="prezzo">Prezzo </label></td>
-                                    <td id="dx"><input type="text" id="prezzo" name="prezzo" class="log" value="<%=(action.equals("modify")) ? prodotto.getPrezzo() : ""%>" required maxlength="20"/></td>
-                                </tr>
-                                
-                                
-                                <%if(action.equals("modify")){%>
+                            <div style="font-size: large;">
+                                <table>
                                     <tr>
-                                        <td id="sx"><label for="genere">Genere </label></td>
+                                        <td id="sx"><label for="modello">Modello </label></td>
+                                        <td id="dx"><input type="text" id="modello" name="modello" class="logP" value="<%=(action.equals("modify")) ? prodotto.getModello() : ""%>" required maxlength="20"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="sx"><label for="categoria">Categoria </label></td>
+                                        <td id="dx"><input type="text" id="categoria" name="categoria" class="logP" value="<%=(action.equals("modify")) ? prodotto.getCategoria() : ""%>" required maxlength="20"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="sx"><label for="marca">Marca </label></td>
+                                        <td id="dx"><input type="text" id="marca" name="marca" class="logP" value="<%=(action.equals("modify")) ? prodotto.getMarca() : ""%>" required maxlength="20"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="sx"><label for="prezzo">Prezzo </label></td>
+                                        <td id="dx"><input type="text" id="prezzo" name="prezzo" class="logP" value="<%=(action.equals("modify")) ? prodotto.getPrezzo() : ""%>" required maxlength="20"/></td>
+                                    </tr>
+                                    
+                                    
+                                    <%if(action.equals("modify")){%>
+                                        <tr>
+                                            <td id="sx"><label for="genere">Genere </label></td>
+                                            <td id="dx">
+                                                <select id="genere" name="genere" class="logP">
+                                                    <option value="Bambina" <%if(prodotto.getGenere().equals("Bambina")) {%>selected="selected"<%}%>>Bambina</option>
+                                                    <option value="Bambino" <%if(prodotto.getGenere().equals("Bambino")) {%>selected="selected"<%}%>>Bambino</option>
+                                                    <option value="Donna" <%if(prodotto.getGenere().equals("Donna")) {%>selected="selected"<%}%>>Donna</option>
+                                                    <option value="Uomo" <%if(prodotto.getGenere().equals("Uomo")) {%>selected="selected"<%}%>>Uomo</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    <%}else{%>
+                                        <tr>
+                                            <td id="sx"><label for="genere">Genere </label></td>
+                                            <td id="dx">
+                                                <select id="genere" name="genere" class="logP">
+                                                    <option value="Bambina">Bambina</option>
+                                                    <option value="Bambino">Bambino</option>
+                                                    <option value="Donna">Donna</option>
+                                                    <option value="Uomo">Uomo</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    <%}%>
+                                    <tr>
+                                        <td id="sx"><label for="immagine">Nome immagine </label></td>
+                                        <td id="dx"><input type="text" id="immagine" name="immagine" class="logP" value="<%=(action.equals("modify")) ? prodotto.getImage() : ""%>" required maxlength="100"/></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td id="sx"><label>Push </label></td>
                                         <td id="dx">
-                                            <select id="genere" name="genere" class="log">
-                                                <option value="Bambina" <%if(prodotto.getGenere().equals("Bambina")) {%>selected="selected"<%}%>>Bambina</option>
-                                                <option value="Bambino" <%if(prodotto.getGenere().equals("Bambino")) {%>selected="selected"<%}%>>Bambino</option>
-                                                <option value="Donna" <%if(prodotto.getGenere().equals("Donna")) {%>selected="selected"<%}%>>Donna</option>
-                                                <option value="Uomo" <%if(prodotto.getGenere().equals("Uomo")) {%>selected="selected"<%}%>>Uomo</option>
-                                            </select>
+                                            <div style="float: left; width: 50%">
+                                                <input type="radio" name="push" value="S"> S&iacute 
+                                            </div>
+                                            <div style="float: left; width: 50%">
+                                                <input type="radio" name="push" value="N" checked> No
+                                            </div>
                                         </td>
                                     </tr>
-                                <%}else{%>
+
                                     <tr>
-                                        <td id="sx"><label for="genere">Genere </label></td>
+                                        <td id="sx"><label>Blocked </label></td>
                                         <td id="dx">
-                                            <select id="genere" name="genere" class="log">
-                                                <option value="Bambina">Bambina</option>
-                                                <option value="Bambino">Bambino</option>
-                                                <option value="Donna">Donna</option>
-                                                <option value="Uomo">Uomo</option>
-                                            </select>
+                                            <div style="float: left; width: 50%">
+                                                <input type="radio" name="blocked" value="S"> S&iacute 
+                                            </div>
+                                            <div style="float: left; width: 50%">
+                                                <input type="radio" name="blocked" value="N" checked> No
+                                            </div>
                                         </td>
                                     </tr>
-                                <%}%>
-                                <tr>
-                                    <td id="sx"><label for="immagine">Nome immagine </label></td>
-                                    <td id="dx"><input type="text" id="immagine" name="immagine" class="log" value="<%=(action.equals("modify")) ? prodotto.getImage() : ""%>" required maxlength="100"/></td>
-                                </tr>
 
-                                <tr>
-                                    <td id="sx"><label>Push </label></td>
-                                    <td id="dx">
-                                        <div style="float: left; width: 50%">
-                                            <input type="radio" name="push" value="S"> S&iacute 
-                                        </div>
-                                        <div style="float: left; width: 50%">
-                                            <input type="radio" name="push" value="N" checked> No
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td id="sx"><label>Blocked </label></td>
-                                    <td id="dx">
-                                        <div style="float: left; width: 50%">
-                                            <input type="radio" name="blocked" value="S"> S&iacute 
-                                        </div>
-                                        <div style="float: left; width: 50%">
-                                            <input type="radio" name="blocked" value="N" checked> No
-                                        </div>
-                                    </td>
-                                </tr>
-
-                            </table>
+                                </table>
+                            </div>
                             
                             <div style="clear: both"></div>
                             
                             <div>
-                                <label for="descrizione">Descrizione </label>
+                                <label for="descrizione" style="font-size: large; font-weight: bold;">Descrizione </label>
                                 <textarea id="descrizione" name="descrizione" class="log" style="margin-top: 1%; margin-bottom: 1%; line-height: 1.5; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" cols="100" rows="10" wrap="soft" required><%=(action.equals("modify")) ? prodotto.getDescrizione() : ""%></textarea>
                             </div>
                             
