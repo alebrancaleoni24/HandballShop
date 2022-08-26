@@ -211,7 +211,9 @@
   .log{
     font-size: medium;
     border-radius: 5px;
+    border: 1px solid #000000;
     width: 100%;
+    background-color: white;
   }
   
   /**********FOOTER**********/

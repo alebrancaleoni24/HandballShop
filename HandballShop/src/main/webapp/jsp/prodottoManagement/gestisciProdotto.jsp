@@ -97,46 +97,24 @@
                 document.inserisciProd.submitButton.addEventListener("click", validateAndSubmit);
             }
         </script>
-        <style>
+        <style>            
             .content{
-                width: 61%;
-                margin-left: 19%;
+                width: 70%; 
+                margin-left: 15%;
             }
-            
-            #modello{
-                width: 75%;
-                height: 22px;
-                font-size: large;
+
+            table{
+                width: 100%;
             }
-            
-            #categoria{
-                width: 70%;
-                height: 22px;
-                font-size: large;
+
+            #sx{
+                width: 38%;
+                padding-bottom: 1%;
             }
-            
-            #marca{
-                width: 79%;
-                height: 22px;
-                font-size: large;
-            }
-            
-            #prezzo{
-                width: 78%;
-                height: 22px;
-                font-size: large;
-            }
-            
-            #genere{
-                width: 60%;
-                height: 24px;
-                font-size: large;
-            }
-            
-            #immagine{
-                width: 69%;
-                height: 22px;
-                font-size: large;
+
+            #dx{
+                width: 62%;
+                padding-bottom: 1%;
             }
         </style>
         
@@ -145,118 +123,143 @@
     </head>
     <body>
         
-        <header>
-            <%@include file="/include/headerAdmin.inc"%>
-        </header>
-        
-        <hr>
-        
-        <main>
+        <div id="page-container">
+            <header>
+                <%@include file="/include/headerAdmin.inc"%>
+            </header>
             
-            <div class="nome" style="margin-bottom: 15px;">
-                <p>Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
-            </div>
-            
-            <div class="content">
-                <%if(action.equals("modify")){%>
-                    <div>
-                        <h2>MODIFICA PRODOTTO</h2>
-                    </div>
-                <%}else{%>
-                    <div>
-                        <h2>AGGIUNGI UN PRODOTTO</h2>
-                    </div>
-                <%}%>
-            
-                <!--FORM PER L'INSERIMENTO O LA MODIFICA DI UN PRODOTTO-->
-                <form name="inserisciProd" action="Dispatcher" method="post">
+            <main>
+                <div class="nome" style="margin-bottom: 15px;">
+                    <p id="loggedOn">Benvenuto <%=ul.getNome()%> <%=ul.getCognome()%></p>
+                </div>
 
-                    <div class="form" id="left" style="width: 48%;">
-                        <label for="modello">Modello: </label>
-                        <input type="text" id="modello" name="modello" value="<%=(action.equals("modify")) ? prodotto.getModello() : ""%>" required maxlength="20"/>
-                    </div>
-                    
-                    <div class="form" style="float: left; width: 48%;">
-                        <label for="categoria">Categoria: </label>
-                        <input type="text" id="categoria" name="categoria" value="<%=(action.equals("modify")) ? prodotto.getCategoria() : ""%>" required maxlength="20"/>
-                    </div>
-                    
-                    <div class="form" id="left" style="width: 48%;">
-                        <label for="marca">Marca: </label>
-                        <input type="text" id="marca" name="marca" value="<%=(action.equals("modify")) ? prodotto.getMarca() : ""%>" required maxlength="20"/>
-                    </div>
-                    
-                    <div class="form" style="float: left; width: 48%;">
-                        <label for="prezzo">Prezzo: </label>
-                        <input type="text" id="prezzo" name="prezzo" value="<%=(action.equals("modify")) ? prodotto.getPrezzo() : ""%>" required maxlength="20"/>
-                    </div>
-                    
-                    <%if(action.equals("modify")){%>
-                        <div class="form" id="left" style="width: 27%;">
-                            <label for="genere">Genere: </label>
-                            <select id="genere" name="genere">
-                                <option value="Bambina" <%if(prodotto.getGenere().equals("Bambina")) {%>selected="selected"<%}%>>Bambina</option>
-                                <option value="Bambino" <%if(prodotto.getGenere().equals("Bambino")) {%>selected="selected"<%}%>>Bambino</option>
-                                <option value="Donna" <%if(prodotto.getGenere().equals("Donna")) {%>selected="selected"<%}%>>Donna</option>
-                                <option value="Uomo" <%if(prodotto.getGenere().equals("Uomo")) {%>selected="selected"<%}%>>Uomo</option>
-                            </select>
-                        </div>
-                    <%}else{%>
-                        <div class="form" id="left" style="width: 27%;">
-                            <label for="genere">Genere: </label>
-                            <select id="genere" name="genere">
-                                <option value="Bambina">Bambina</option>
-                                <option value="Bambino">Bambino</option>
-                                <option value="Donna">Donna</option>
-                                <option value="Uomo">Uomo</option>
-                            </select>
-                        </div>
-                    <%}%>
-                    
-                    <div class="form" style="float: left; width: 68%;">
-                        <label for="immagine">Nome immagine: </label>
-                        <input type="text" id="immagine" name="immagine" value="<%=(action.equals("modify")) ? prodotto.getImage() : ""%>" required maxlength="100"/>
-                    </div>
-                    
-                    <div class="form" id="left" style="width: 48%;">
-                        <label>Push: </label>
-                        <input type="radio" name="push" value="S">S&iacute;
-                        <input type="radio" name="push" value="N" checked>No
-                    </div>
-                    
-                    <div class="form" style="float: left; width: 48%;">
-                        <label>Blocked: </label>
-                        <input type="radio" name="blocked" value="S" >S&iacute;
-                        <input type="radio" name="blocked" value="N" checked>No
-                    </div>
-                    
-                    <div style="clear: both"></div>
-                    
-                    <div class="form">
-                        <label for="descrizione">Descrizione: </label>
-                        <textarea id="descrizione" name="descrizione" cols="100" rows="10" wrap="soft" required><%=(action.equals("modify")) ? prodotto.getDescrizione() : ""%></textarea>
-                    </div> 
-                    
-                    <input type="hidden" name="controllerAction"/>
-                    <%if(action.equals("modify")){%>
-                        <input type="hidden" name="codiceProdotto" value="<%=prodotto.getCodiceProdotto()%>"/>
-                    <%}%>
-                    
-                    <!--BOTTONI DI CONFERMA O DI ANNULLA-->
-                    <input type="button" name="submitButton" value="Ok" class="button">
-                    <input type="button" name="backButton" value="Annulla" class="button">
-                    
-                </form>
-            </div>
-                    
-            <!--FORM PER ANNULLARE-->
-            <form name="backForm" method="post" action="Dispatcher"> 
-                <input type="hidden" name="controllerAction"/>
-            </form>
+                <div style="clear: both"></div>
+
+                <div style="width: 80%; margin-left: 10%">
             
-        </main>
-        
+                    <div class="content">
+                        <%if(action.equals("modify")){%>
+                            <div style="margin-top: 1%; margin-bottom: 3%;">
+                                <h1>Modifica Prodotto</h1>
+                            </div>
+                        <%}else{%>
+                            <div style="margin-top: 1%; margin-bottom: 3%;">
+                                <h1>Aggiungi un prodotto</h1>
+                            </div>
+                        <%}%>
+                    
+                        <!--FORM PER L'INSERIMENTO O LA MODIFICA DI UN PRODOTTO-->
+                        <form name="inserisciProd" action="Dispatcher" method="post">
+
+                            <table>
+                                <tr>
+                                    <td id="sx"><label for="modello">Modello </label></td>
+                                    <td id="dx"><input type="text" id="modello" name="modello" class="log" value="<%=(action.equals("modify")) ? prodotto.getModello() : ""%>" required maxlength="20"/></td>
+                                </tr>
+                                <tr>
+                                    <td id="sx"><label for="categoria">Categoria </label></td>
+                                    <td id="dx"><input type="text" id="categoria" name="categoria" class="log" value="<%=(action.equals("modify")) ? prodotto.getCategoria() : ""%>" required maxlength="20"/></td>
+                                </tr>
+                                <tr>
+                                    <td id="sx"><label for="marca">Marca </label></td>
+                                    <td id="dx"><input type="text" id="marca" name="marca" class="log" value="<%=(action.equals("modify")) ? prodotto.getMarca() : ""%>" required maxlength="20"/></td>
+                                </tr>
+                                <tr>
+                                    <td id="sx"><label for="prezzo">Prezzo </label></td>
+                                    <td id="dx"><input type="text" id="prezzo" name="prezzo" class="log" value="<%=(action.equals("modify")) ? prodotto.getPrezzo() : ""%>" required maxlength="20"/></td>
+                                </tr>
+                                
+                                
+                                <%if(action.equals("modify")){%>
+                                    <tr>
+                                        <td id="sx"><label for="genere">Genere </label></td>
+                                        <td id="dx">
+                                            <select id="genere" name="genere" class="log">
+                                                <option value="Bambina" <%if(prodotto.getGenere().equals("Bambina")) {%>selected="selected"<%}%>>Bambina</option>
+                                                <option value="Bambino" <%if(prodotto.getGenere().equals("Bambino")) {%>selected="selected"<%}%>>Bambino</option>
+                                                <option value="Donna" <%if(prodotto.getGenere().equals("Donna")) {%>selected="selected"<%}%>>Donna</option>
+                                                <option value="Uomo" <%if(prodotto.getGenere().equals("Uomo")) {%>selected="selected"<%}%>>Uomo</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                <%}else{%>
+                                    <tr>
+                                        <td id="sx"><label for="genere">Genere </label></td>
+                                        <td id="dx">
+                                            <select id="genere" name="genere" class="log">
+                                                <option value="Bambina">Bambina</option>
+                                                <option value="Bambino">Bambino</option>
+                                                <option value="Donna">Donna</option>
+                                                <option value="Uomo">Uomo</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                <%}%>
+                                <tr>
+                                    <td id="sx"><label for="immagine">Nome immagine </label></td>
+                                    <td id="dx"><input type="text" id="immagine" name="immagine" class="log" value="<%=(action.equals("modify")) ? prodotto.getImage() : ""%>" required maxlength="100"/></td>
+                                </tr>
+
+                                <tr>
+                                    <td id="sx"><label>Push </label></td>
+                                    <td id="dx">
+                                        <div style="float: left; width: 50%">
+                                            <input type="radio" name="push" value="S"> S&iacute 
+                                        </div>
+                                        <div style="float: left; width: 50%">
+                                            <input type="radio" name="push" value="N" checked> No
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td id="sx"><label>Blocked </label></td>
+                                    <td id="dx">
+                                        <div style="float: left; width: 50%">
+                                            <input type="radio" name="blocked" value="S"> S&iacute 
+                                        </div>
+                                        <div style="float: left; width: 50%">
+                                            <input type="radio" name="blocked" value="N" checked> No
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            </table>
+                            
+                            <div style="clear: both"></div>
+                            
+                            <div>
+                                <label for="descrizione">Descrizione </label>
+                                <textarea id="descrizione" name="descrizione" class="log" style="margin-top: 1%; margin-bottom: 1%; line-height: 1.5; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" cols="100" rows="10" wrap="soft" required><%=(action.equals("modify")) ? prodotto.getDescrizione() : ""%></textarea>
+                            </div>
+                            
+                            <input type="hidden" name="controllerAction"/>
+                            <%if(action.equals("modify")){%>
+                                <input type="hidden" name="codiceProdotto" value="<%=prodotto.getCodiceProdotto()%>"/>
+                            <%}%>
+                            
+                            <!--BOTTONI DI CONFERMA O DI ANNULLA-->
+                            <div style="margin-bottom: 1%;">
+                                <input type="button" name="submitButton" value="Ok" class="button">
+                                <input type="button" name="backButton" value="Annulla" class="button">
+                            </div>
+                            
+                        </form>
+
+                        <!--FORM PER ANNULLARE-->
+                        <form name="backForm" method="post" action="Dispatcher"> 
+                            <input type="hidden" name="controllerAction"/>
+                        </form>
+                    </div>
+                </div>
+
+            </main>
+
+            <div id="push"></div>
+
+        </div>
+
         <%@include file="/include/footer.inc" %>
-        
+
     </body>
 </html>
