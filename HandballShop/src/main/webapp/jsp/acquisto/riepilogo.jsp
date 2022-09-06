@@ -186,7 +186,7 @@
                 </div>
                                 
                 <form name="annulla" action="Dispatcher" method="post">
-                    <input type="hidden" name="controllerAction" value="Acquisto.ordina"/>
+                    <input type="hidden" name="controllerAction" value="Acquisto.viewPagamento"/>
                 </form>
                 
             </main>
