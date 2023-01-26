@@ -27,7 +27,7 @@ public class ControllerTest{
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-        WebElement link = driver.findElement(By.linkText("REGISTRATI"));
+        WebElement link = driver.findElement(By.linkText("Registrati"));
         link.click();
 
         WebElement nomeBox = driver.findElement(By.id("nome"));
@@ -64,7 +64,7 @@ public class ControllerTest{
 
 
     /* Metodo per testare il login dell'utente */
-    @Disabled
+    //@Disabled
     @Test
     public void loginTest(){
         BasicConfigurator.configure();
@@ -75,7 +75,7 @@ public class ControllerTest{
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-        WebElement link = driver.findElement(By.linkText("LOGIN"));
+        WebElement link = driver.findElement(By.linkText("Login"));
         link.click();
 
         WebElement emailBox = driver.findElement(By.id("email"));
@@ -106,7 +106,7 @@ public class ControllerTest{
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         // Faccio il login con l'utente di prova Mario Rossi 
-        WebElement link = driver.findElement(By.linkText("LOGIN"));
+        WebElement link = driver.findElement(By.linkText("Login"));
         link.click();
 
         WebElement emailBox = driver.findElement(By.id("email"));
@@ -162,7 +162,7 @@ public class ControllerTest{
         driver.quit();
     }
 
-    
+    @Disabled
     @Test
     public void inserimentoProdottoTest(){
         BasicConfigurator.configure();
@@ -174,7 +174,7 @@ public class ControllerTest{
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         // Faccio il login con l'utente admin Alessandro Brancaleoni
-        WebElement link = driver.findElement(By.linkText("LOGIN"));
+        WebElement link = driver.findElement(By.linkText("Login"));
         link.click();
 
         WebElement emailBox = driver.findElement(By.id("email"));
